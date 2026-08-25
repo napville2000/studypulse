@@ -744,9 +744,9 @@ function stopSteps(){clearInterval(stepTimer);document.getElementById('load-step
 // ── CLAUDE API ────────────────────────────────────────────────────
 async function claude(key,prompt,maxTok=5000,imgB64=null,imgMime=null){
   const content=(imgB64&&imgMime)?[{type:'image',source:{type:'base64',media_type:imgMime,data:imgB64}},{type:'text',text:prompt}]:prompt;
-  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTok,messages:[{role:'user',content}]})});
+  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-5',max_tokens:maxTok,thinking:{type:'disabled'},messages:[{role:'user',content}]})});
   if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e?.error?.message||`API error ${r.status}`);}
-  const d=await r.json();return d.content?.[0]?.text||'';
+  const d=await r.json();return d.content?.find(c=>c.type==='text')?.text||'';
 }
 function parseJSON(raw){raw=raw.replace(/```json/gi,'').replace(/```/g,'').trim();try{return JSON.parse(raw);}catch(e){const a=raw.match(/\[[\s\S]*\]/);if(a)return JSON.parse(a[0]);const o=raw.match(/\{[\s\S]*\}/);if(o)return JSON.parse(o[0]);throw new Error('Could not parse response.');}}
 
