@@ -294,6 +294,26 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
 @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
 .a1{animation:fadeUp .5s ease .05s both;}.a2{animation:fadeUp .5s ease .10s both;}.a3{animation:fadeUp .5s ease .15s both;}
 @media(max-width:560px){.q-text{font-size:17px;}.choice{font-size:13px;padding:13px 14px;}.res-title{font-size:22px;}.fc-txt{font-size:15px;}.fc-back .fc-txt{font-size:18px;}.btn{font-size:13px;padding:12px 16px;}}
+
+/* ── V3 NEW STYLES ── */
+.lib-card{display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:border-color .2s,background .2s;}
+.lib-card:hover{border-color:var(--violet);background:var(--glass2);}
+.lib-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.lib-card-title{font-size:16px;font-weight:700;line-height:1.3;}
+.lib-card-del{background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;min-width:36px;min-height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lib-card-del:hover{color:var(--wrong);background:rgba(244,63,94,.1);}
+.lib-card-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--text3);}
+.lib-trend{font-size:12px;color:var(--text2);font-family:'DM Mono',monospace;}
+.lib-queue-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.28);border-radius:99px;padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#fcd34d;width:fit-content;}
+.lib-storage-warn{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25);border-radius:var(--radius-sm);padding:11px 13px;font-size:12px;color:#ff8fa8;margin-bottom:14px;display:none;}
+.lib-storage-warn.show{display:block;}
+.q-timer,.quiz-timer{display:none;align-items:center;gap:5px;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;background:var(--glass2);border:1px solid var(--border2);border-radius:99px;padding:4px 11px;color:var(--text2);white-space:nowrap;}
+.q-timer.warn,.quiz-timer.warn{border-color:var(--warn);color:#fcd34d;background:rgba(245,158,11,.08);}
+.q-timer.crit,.quiz-timer.crit{border-color:var(--wrong);color:#ff8fa8;background:rgba(244,63,94,.08);}
+.fc-rate-row{display:flex;gap:10px;margin:14px 0;}
+.fc-rate-btn{flex:1;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;border-radius:var(--radius-sm);padding:12px 14px;cursor:pointer;background:var(--glass2);border:1px solid var(--border2);color:var(--text2);transition:all .2s;min-height:46px;}
+.fc-rate-btn.again.active{background:rgba(245,158,11,.12);border-color:var(--warn);color:#fcd34d;}
+.fc-rate-btn.good.active{background:rgba(16,212,122,.1);border-color:var(--correct);color:#6effc0;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.0.4/tesseract.min.js"></script>
@@ -412,6 +432,10 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
           <div class="scope-bar-track"><div class="scope-bar-fill" id="scope-bar" style="width:0%"></div></div>
         </div>
       </div>
+      <div id="queue-toggle-row" class="toggle-row" style="display:none;border:none;padding:0 0 16px;">
+        <div class="toggle-info"><div class="tgl-label" id="queue-toggle-lbl">Focus my review queue</div><div class="tgl-desc">Prioritize concepts you've missed before</div></div>
+        <label class="toggle-sw"><input type="checkbox" id="queue-toggle"/><span class="tgl-track"></span></label>
+      </div>
       <div class="setup-row">
         <div class="field-group"><div class="field-label">Questions</div><input type="number" id="num-q" value="15" min="3" max="30"/></div>
         <div class="field-group"><div class="field-label">Difficulty</div>
@@ -422,12 +446,25 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
             <option value="certification">Certification</option>
           </select>
         </div>
+        <div class="field-group"><div class="field-label">Timed Mode</div>
+          <select id="exam-mode" onchange="onExamModeChange()">
+            <option value="off">Off</option>
+            <option value="per_question">Per-Question</option>
+            <option value="full_quiz">Full Quiz</option>
+          </select>
+        </div>
+        <div class="field-group" id="exam-seconds-group" style="display:none"><div class="field-label">Seconds / question</div><input type="number" id="exam-seconds" value="30" min="10" max="300"/></div>
+        <div class="field-group" id="exam-minutes-group" style="display:none"><div class="field-label">Minutes / quiz</div><input type="number" id="exam-minutes" value="10" min="1" max="120"/></div>
         <div class="field-group" style="min-width:100%"><button class="btn btn-primary btn-full" onclick="generateQuiz()">Generate Quiz &#x26A1;</button></div>
       </div>
       <div class="err-box" id="setup-err"></div>
     </div>
     <div class="card a3" id="fc-settings" style="display:none">
       <div class="card-label">Flashcard Settings</div>
+      <div id="fc-queue-toggle-row" class="toggle-row" style="display:none;border:none;padding:0 0 16px;">
+        <div class="toggle-info"><div class="tgl-label" id="fc-queue-toggle-lbl">Focus my review queue</div><div class="tgl-desc">Prioritize terms you've marked "Still learning"</div></div>
+        <label class="toggle-sw"><input type="checkbox" id="fc-queue-toggle"/><span class="tgl-track"></span></label>
+      </div>
       <div class="setup-row">
         <div class="field-group"><div class="field-label">Number of cards</div><input type="number" id="num-fc" value="15" min="5" max="40"/></div>
         <div class="field-group" style="min-width:100%"><button class="btn btn-primary btn-full" onclick="generateFlashcards()">Generate Flashcards &#x1F0CF;</button></div>
@@ -446,7 +483,7 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
   </div>
 
   <div id="screen-quiz" class="screen">
-    <div class="prog-label"><span class="prog-text" id="prog-text">Question 1 of 15</span><button class="btn btn-ghost" onclick="resetToSetup()">&#x2715; Exit</button></div>
+    <div class="prog-label"><span class="prog-text" id="prog-text">Question 1 of 15</span><span class="q-timer" id="q-timer">&#x23F1;&#xFE0F; <span id="q-timer-txt">0:30</span></span><span class="quiz-timer" id="quiz-timer">&#x23F1;&#xFE0F; <span id="quiz-timer-txt">10:00</span></span><button class="btn btn-ghost" onclick="resetToSetup()">&#x2715; Exit</button></div>
     <div class="prog-wrap"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
     <div id="q-area"></div>
   </div>
@@ -503,6 +540,10 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
       </div>
     </div>
     <div class="fc-flip-hint" id="fc-hint">Tap the card to flip it</div>
+    <div class="fc-rate-row">
+      <button class="fc-rate-btn again" id="fc-rate-again" onclick="rateFc('again')">&#x1F605; Still learning</button>
+      <button class="fc-rate-btn good" id="fc-rate-good" onclick="rateFc('good')">&#x2705; Got it</button>
+    </div>
     <div class="fc-nav">
       <button class="fc-nb" id="fc-prev" onclick="fcNav(-1)" disabled>&#x2039;</button>
       <span style="font-size:12px;color:var(--text3);font-weight:700" id="fc-nav-lbl">1/15</span>
@@ -514,6 +555,17 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
       <button class="btn btn-secondary" onclick="resetToSetup()">&#x1F4DD; New</button>
     </div>
   </div>
+</div>
+
+<!-- LIBRARY TAB -->
+<div id="tab-library" class="tab-screen">
+  <div class="lib-storage-warn" id="lib-storage-warn"></div>
+  <div id="lib-empty" class="no-file">
+    <div class="no-file-icon">&#x1F4DA;</div>
+    <div class="no-file-title">Your Library is Empty</div>
+    <div class="no-file-sub">Load a study file from the Quiz tab, or create one in Admin &#x2014; it'll be saved here automatically.</div>
+  </div>
+  <div id="lib-list"></div>
 </div>
 
 <!-- NOTES TAB -->
@@ -626,6 +678,7 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
 
 <nav class="tab-bar">
   <button class="tab-btn active" id="tb-quiz" onclick="switchTab('quiz')"><span class="tab-icon">&#x26A1;</span><span class="tab-lbl">Quiz</span></button>
+  <button class="tab-btn" id="tb-library" onclick="switchTab('library')"><span class="tab-icon">&#x1F4DA;</span><span class="tab-lbl">Library</span></button>
   <button class="tab-btn" id="tb-notes" onclick="switchTab('notes')"><span class="tab-icon">&#x1F4DD;</span><span class="tab-lbl">Notes</span></button>
   <button class="tab-btn" id="tb-settings" onclick="switchTab('settings')"><span class="tab-icon">&#x2699;&#xFE0F;</span><span class="tab-lbl">Settings</span></button>
   <button class="tab-btn" id="tb-admin" onclick="switchTab('admin')"><span class="tab-icon">&#x1F527;</span><span class="tab-lbl">Admin</span></button>
@@ -659,9 +712,13 @@ let multiSel=new Set();
 let isTargetedRetry=false,targetedConcepts=[],origScore=null;
 let pendingVisionFile=null,stepTimer=null;
 let pendingAdminVisionFile=null,adminExtractedContent='';
+// V3
+let quizLinkedToFile=false,fcLinkedToFile=false;
+let examMode='off',examSeconds=30,examMinutes=10;
+let qTimer=null,quizTimer=null,qTimeLeft=0,quizTimeLeft=0,advanceTimer=null;
 
 // ── TAB / MODE ─────────────────────────────────────────────────────
-function switchTab(t){currentTab=t;document.querySelectorAll('.tab-screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.getElementById('tb-'+t).classList.add('active');window.scrollTo(0,0);}
+function switchTab(t){currentTab=t;document.querySelectorAll('.tab-screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.getElementById('tb-'+t).classList.add('active');window.scrollTo(0,0);if(t==='library')renderLibrary();}
 function setMode(m){appMode=m;document.getElementById('mode-quiz-btn').classList.toggle('active',m==='quiz');document.getElementById('mode-fc-btn').classList.toggle('active',m==='flashcard');document.getElementById('quiz-settings').style.display=m==='quiz'?'block':'none';document.getElementById('fc-settings').style.display=m==='flashcard'?'block':'none';}
 function switchCtab(t){document.getElementById('ctab-paste').classList.toggle('active',t==='paste');document.getElementById('ctab-upload').classList.toggle('active',t==='upload');document.getElementById('cpanel-paste').classList.toggle('active',t==='paste');document.getElementById('cpanel-upload').classList.toggle('active',t==='upload');}
 function switchAdminCtab(t){document.getElementById('admin-ctab-paste').classList.toggle('active',t==='paste');document.getElementById('admin-ctab-upload').classList.toggle('active',t==='upload');document.getElementById('admin-cpanel-paste').classList.toggle('active',t==='paste');document.getElementById('admin-cpanel-upload').classList.toggle('active',t==='upload');}
@@ -817,21 +874,21 @@ async function generateQuiz(){
   if(!key.startsWith('sk-ant'))return showErr(err,'Key should start with sk-ant…');
   if(!content||content.length<50)return showErr(err,'Please paste study content or load a study file.');
   savedContent=content;savedNumQ=numQ;savedDiff=diff;
-  isTargetedRetry=false;targetedConcepts=[];origScore=null;
+  isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=!!studyFile;
   showScreen('screen-loading');
   startSteps('Generating your quiz…');
   const useMS=document.getElementById('s-multi').checked,useFB=document.getElementById('s-fitb').checked;
   try{
-    const raw=await claude(key,buildPrompt(content,numQ,diff,useMS,useFB));
+    const raw=await claude(key,buildPrompt(content,numQ,diff,useMS,useFB,getPriorityConcepts()));
     const parsed=parseJSON(raw);
     if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty quiz data received.');
     questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;
     if(studyFile){studyFile.last_compiled=today();studyFile.questions=questions;}
-    stopSteps();showScreen('screen-quiz');renderQ();
+    stopSteps();enterQuiz();
   }catch(e){stopSteps();showScreen('screen-setup');showErr(document.getElementById('setup-err'),'⚠️ '+e.message);}
 }
 
-function buildPrompt(content,numQ,diff,useMS,useFB){
+function buildPrompt(content,numQ,diff,useMS,useFB,priorityConcepts=[]){
   const dn={
     easy:'Straightforward, clearly distinct choices.',
     standard:'Mix recall and comprehension. Plausible distractors.',
@@ -844,10 +901,11 @@ function buildPrompt(content,numQ,diff,useMS,useFB){
   else if(useFB){const fb=Math.floor(numQ*.25);types.push(`${numQ-fb} single_select`,`${fb} fill_blank`);}
   else types.push(`${numQ} single_select`);
   const sn=supplemented.length?`\nADDITIONAL CONCEPTS (tag source:"supplemented"):\n${supplemented.map(s=>`- ${s.concept}`).join('\n')}`:'';
+  const pn=priorityConcepts.length?`\nREVIEW QUEUE — the student previously missed these concepts. Weight roughly half the quiz toward them (still tag with the matching "concept" value):\n${priorityConcepts.map(c=>`- ${c}`).join('\n')}`:'';
   return `Expert quiz writer. Generate exactly ${numQ} questions.
 DIFFICULTY: ${diff.toUpperCase()} — ${dn}
 MIX: ${types.join(', ')}
-SOURCE: from_notes or supplemented${sn}
+SOURCE: from_notes or supplemented${sn}${pn}
 DISTRACTOR RULES: Wrong = common misconceptions, same structure as correct, never all/none of above. multi_select: 5-6 options total, exactly 3 correct.
 IMPORTANT: Include a "concept" field on every question — a short label (2-5 words) for the topic being tested (e.g. "Mitosis Phases", "Enzyme Inhibition").
 OUTPUT: ONLY valid JSON array. No markdown.
@@ -855,6 +913,15 @@ single_select: {"type":"single_select","source":"from_notes","concept":"Topic La
 multi_select: {"type":"multi_select","source":"from_notes","concept":"Topic Label","question":"Which THREE...","correct_count":3,"options":["A","B","C","D","E","F"],"correct_answers":["A","C","D"],"distractor_reasoning":"..."}
 fill_blank: {"type":"fill_blank","source":"from_notes","concept":"Topic Label","question":"The ___ shows the ___ number...","blanks":[{"id":0,"answer":"karyotype"},{"id":1,"answer":"diploid"}]}
 CONTENT:\n${content.slice(0,12000)}`;
+}
+function getPriorityConcepts(){const t=document.getElementById('queue-toggle');return(t&&t.checked&&studyFile?.missed_queue?.length)?studyFile.missed_queue:[];}
+function renderQueueToggle(){
+  const row=document.getElementById('queue-toggle-row'),lbl=document.getElementById('queue-toggle-lbl');
+  const n=studyFile?.missed_queue?.length||0;
+  if(row){row.style.display=n?'flex':'none';if(lbl)lbl.textContent=`Focus my review queue (${n} concept${n===1?'':'s'})`;}
+  const fcRow=document.getElementById('fc-queue-toggle-row'),fcLbl=document.getElementById('fc-queue-toggle-lbl');
+  const fn=studyFile?.missed_queue_cards?.length||0;
+  if(fcRow){fcRow.style.display=fn?'flex':'none';if(fcLbl)fcLbl.textContent=`Focus my review queue (${fn} term${fn===1?'':'s'})`;}
 }
 
 function normalizeQ(q){
@@ -897,21 +964,57 @@ async function startTargetedRetry(){
     if(!Array.isArray(parsed)||!parsed.length)throw new Error('No targeted questions returned.');
     questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;
     isTargetedRetry=true;
-    stopSteps();showScreen('screen-quiz');renderQ();
+    stopSteps();enterQuiz();
   }catch(e){stopSteps();showScreen('screen-results');alert('Could not start targeted retry: '+e.message);}
 }
 
 async function tryAgain(){
   const key=getKey();if(!key){alert('Please re-enter your API key.');resetToSetup();return;}
-  isTargetedRetry=false;targetedConcepts=[];origScore=null;
+  isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=!!studyFile;
   showScreen('screen-loading');startSteps('Generating new questions…','Same topic, fresh questions.');
   const useMS=document.getElementById('s-multi').checked,useFB=document.getElementById('s-fitb').checked;
-  try{const raw=await claude(key,buildPrompt(savedContent,savedNumQ,savedDiff,useMS,useFB));const parsed=parseJSON(raw);questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;stopSteps();showScreen('screen-quiz');renderQ();}
+  try{const raw=await claude(key,buildPrompt(savedContent,savedNumQ,savedDiff,useMS,useFB,getPriorityConcepts()));const parsed=parseJSON(raw);questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;stopSteps();enterQuiz();}
   catch(e){stopSteps();showScreen('screen-results');alert('Error: '+e.message);}
+}
+
+// ── TIMED EXAM MODE ───────────────────────────────────────────────
+function onExamModeChange(){
+  examMode=document.getElementById('exam-mode').value;
+  document.getElementById('exam-seconds-group').style.display=examMode==='per_question'?'flex':'none';
+  document.getElementById('exam-minutes-group').style.display=examMode==='full_quiz'?'flex':'none';
+}
+function formatTime(sec){sec=Math.max(0,sec);const m=Math.floor(sec/60),s=sec%60;return`${m}:${String(s).padStart(2,'0')}`;}
+function updateQTimerUI(){const el=document.getElementById('q-timer');document.getElementById('q-timer-txt').textContent=formatTime(qTimeLeft);el.classList.toggle('crit',qTimeLeft<=5);el.classList.toggle('warn',qTimeLeft>5&&qTimeLeft<=10);}
+function updateQuizTimerUI(){const el=document.getElementById('quiz-timer');document.getElementById('quiz-timer-txt').textContent=formatTime(quizTimeLeft);el.classList.toggle('crit',quizTimeLeft<=30);el.classList.toggle('warn',quizTimeLeft>30&&quizTimeLeft<=60);}
+function defaultTotalForType(q){if(q.type==='multi_select')return q.correct_answers?.length||q.correct_count||1;if(q.type==='fill_blank')return q.blanks?.length||1;return 1;}
+function enterQuiz(){examSeconds=parseInt(document.getElementById('exam-seconds').value)||30;examMinutes=parseInt(document.getElementById('exam-minutes').value)||10;showScreen('screen-quiz');renderQ();startExamTimerIfNeeded();}
+function startExamTimerIfNeeded(){
+  clearInterval(quizTimer);quizTimer=null;
+  document.getElementById('quiz-timer').style.display=examMode==='full_quiz'?'flex':'none';
+  if(examMode!=='full_quiz')return;
+  quizTimeLeft=examMinutes*60;updateQuizTimerUI();
+  quizTimer=setInterval(()=>{quizTimeLeft--;updateQuizTimerUI();if(quizTimeLeft<=0){clearInterval(quizTimer);onQuizTimeout();}},1000);
+}
+function onQuizTimeout(){
+  clearInterval(quizTimer);
+  questions.forEach((q,i)=>{if(userAnswers[i])return;userAnswers[i]={type:q.type,isCorrect:false,score:0,total:defaultTotalForType(q),concept:q.concept||'',timedOut:true};});
+  showResults();
+}
+function onQuestionTimeout(){
+  if(answered)return;answered=true;clearInterval(qTimer);
+  const q=questions[currentQ];
+  userAnswers[currentQ]={type:q.type,isCorrect:false,score:0,total:defaultTotalForType(q),concept:q.concept||'',timedOut:true};
+  if(q.type==='multi_select'){q.options.forEach((opt,i)=>{const btn=document.getElementById(`ch-${i}`);if(!btn)return;btn.disabled=true;if(q.correct_answers.includes(opt))btn.classList.add('rev-correct');});}
+  else if(q.type==='fill_blank'){q.blanks.forEach((b,i)=>{const inp=document.getElementById(`bl-${i}`);if(inp)inp.disabled=true;});}
+  else{const ci=q.choices.indexOf(q.correct);q.choices.forEach((_,j)=>{const btn=document.getElementById(`ch-${j}`);if(btn)btn.disabled=true;});const cb=document.getElementById(`ch-${ci}`);if(cb)cb.classList.add('rev-correct');}
+  const fb=document.getElementById('fb-area');if(fb)fb.innerHTML=`<div class="feedback fb-wrong"><div class="fb-head">⏱️ Time's up</div><div class="fb-detail">Moving to the next question.</div></div>`;
+  const nr=document.getElementById('next-row');if(nr)nr.style.display='none';
+  advanceTimer=setTimeout(nextQ,1200);
 }
 
 // ── RENDER QUESTION ───────────────────────────────────────────────
 function renderQ(){
+  clearInterval(qTimer);clearTimeout(advanceTimer);
   const q=questions[currentQ],total=questions.length;
   document.getElementById('prog-text').textContent=`Question ${currentQ+1} of ${total}`;
   document.getElementById('prog-fill').style.width=`${(currentQ/total)*100}%`;
@@ -921,27 +1024,49 @@ function renderQ(){
   let inner=q.type==='multi_select'?renderMS(q):q.type==='fill_blank'?renderFB(q):renderSS(q);
   document.getElementById('q-area').innerHTML=`<div class="card q-card">${badge}${conceptBadge}<div class="q-num">Question ${currentQ+1} / ${total}</div>${inner}<div id="fb-area"></div></div><div class="next-row" id="next-row" style="display:none"><button class="btn btn-primary" onclick="nextQ()">${currentQ+1===total?'See Results 🎯':'Next →'}</button></div>`;
   answered=false;multiSel.clear();
+  // V3: per-question timer
+  document.getElementById('q-timer').style.display=examMode==='per_question'?'flex':'none';
+  if(examMode==='per_question'){
+    qTimeLeft=examSeconds;updateQTimerUI();
+    qTimer=setInterval(()=>{qTimeLeft--;updateQTimerUI();if(qTimeLeft<=0){clearInterval(qTimer);onQuestionTimeout();}},1000);
+  }
 }
 
 function renderSS(q){const L=['A','B','C','D','E'];return `<div class="q-text">${esc(q.question)}</div><div class="choices" id="choices">${q.choices.map((c,i)=>`<button class="choice" id="ch-${i}" onclick="selectSS(${i})"><div class="c-letter">${L[i]}</div><div>${esc(c)}</div></button>`).join('')}</div>`;}
 function renderMS(q){const L=['A','B','C','D','E','F'];return `<div class="q-text">${esc(q.question)}</div><div class="q-instr">⚡ Select exactly ${q.correct_count} answers, then tap Submit</div><div class="choices" id="choices">${q.options.map((c,i)=>`<button class="choice" id="ch-${i}" onclick="toggleMS(${i})"><div class="c-letter">${L[i]}</div><div>${esc(c)}</div></button>`).join('')}</div><div style="margin-top:12px"><button class="btn btn-primary btn-sm" id="ms-sub" onclick="submitMS()" disabled>Submit (<span id="ms-cnt">0</span>/${q.correct_count})</button></div>`;}
 function renderFB(q){let s=esc(q.question);let bi=0;s=s.replace(/_{2,}/g,()=>{const id=`bl-${bi}`;bi++;return `<span class="fitb-blank" id="${id}-w"><input type="text" id="${id}" placeholder="…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width:90px"/></span>`;});return `<div class="fitb-sent">${s}</div><button class="btn btn-primary btn-sm" onclick="submitFB()">Check Answers</button>`;}
 
-function selectSS(i){if(answered)return;answered=true;const q=questions[currentQ];const chosen=q.choices[i],ok=chosen===q.correct,ci=q.choices.indexOf(q.correct);userAnswers[currentQ]={type:'single_select',chosen,isCorrect:ok,score:ok?1:0,total:1,concept:q.concept||''};q.choices.forEach((_,j)=>document.getElementById(`ch-${j}`).disabled=true);document.getElementById(`ch-${i}`).classList.add(ok?'correct':'wrong');const ic=document.createElement('span');ic.className='c-icon';ic.textContent=ok?'✓':'✗';document.getElementById(`ch-${i}`).appendChild(ic);if(!ok){document.getElementById(`ch-${ci}`).classList.add('rev-correct');const ic2=document.createElement('span');ic2.className='c-icon';ic2.textContent='✓';document.getElementById(`ch-${ci}`).appendChild(ic2);}const dn=q.distractor_reasoning&&!ok?`<div class="dist-note">💡 ${esc(q.distractor_reasoning)}</div>`:'';document.getElementById('fb-area').innerHTML=`<div class="feedback ${ok?'fb-correct':'fb-wrong'}"><div class="fb-head">${ok?'✅ Correct!':'❌ Not quite'}</div><div class="fb-detail">${ok?'Great job.':`Correct: <strong>${esc(q.correct)}</strong>`}${dn}</div></div>`;document.getElementById('next-row').style.display='flex';}
+function selectSS(i){if(answered)return;answered=true;clearInterval(qTimer);const q=questions[currentQ];const chosen=q.choices[i],ok=chosen===q.correct,ci=q.choices.indexOf(q.correct);userAnswers[currentQ]={type:'single_select',chosen,isCorrect:ok,score:ok?1:0,total:1,concept:q.concept||''};q.choices.forEach((_,j)=>document.getElementById(`ch-${j}`).disabled=true);document.getElementById(`ch-${i}`).classList.add(ok?'correct':'wrong');const ic=document.createElement('span');ic.className='c-icon';ic.textContent=ok?'✓':'✗';document.getElementById(`ch-${i}`).appendChild(ic);if(!ok){document.getElementById(`ch-${ci}`).classList.add('rev-correct');const ic2=document.createElement('span');ic2.className='c-icon';ic2.textContent='✓';document.getElementById(`ch-${ci}`).appendChild(ic2);}const dn=q.distractor_reasoning&&!ok?`<div class="dist-note">💡 ${esc(q.distractor_reasoning)}</div>`:'';document.getElementById('fb-area').innerHTML=`<div class="feedback ${ok?'fb-correct':'fb-wrong'}"><div class="fb-head">${ok?'✅ Correct!':'❌ Not quite'}</div><div class="fb-detail">${ok?'Great job.':`Correct: <strong>${esc(q.correct)}</strong>`}${dn}</div></div>`;document.getElementById('next-row').style.display='flex';}
 
 function toggleMS(i){if(answered)return;const btn=document.getElementById(`ch-${i}`);if(multiSel.has(i)){multiSel.delete(i);btn.classList.remove('ms-sel');}else{multiSel.add(i);btn.classList.add('ms-sel');}document.getElementById('ms-cnt').textContent=multiSel.size;document.getElementById('ms-sub').disabled=multiSel.size===0;}
 
-function submitMS(){if(answered)return;answered=true;const q=questions[currentQ];const sel=[...multiSel].map(i=>q.options[i]);const correct=q.correct_answers;const okSel=sel.filter(s=>correct.includes(s));const wrongSel=sel.filter(s=>!correct.includes(s));const missed=correct.filter(c=>!sel.includes(c));const score=okSel.length,total=correct.length,full=score===total&&wrongSel.length===0;userAnswers[currentQ]={type:'multi_select',selected:sel,correctlySelected:okSel,wrongSelected:wrongSel,missed,score,total,isCorrect:full,concept:q.concept||''};q.options.forEach((_,i)=>{document.getElementById(`ch-${i}`).disabled=true;const opt=q.options[i];const isC=correct.includes(opt),wasSel=multiSel.has(i);const btn=document.getElementById(`ch-${i}`);btn.classList.remove('ms-sel');if(wasSel&&isC)btn.classList.add('correct');else if(wasSel&&!isC)btn.classList.add('wrong');else if(!wasSel&&isC)btn.classList.add('rev-correct');});const cls=full?'fb-correct':score>0?'fb-partial':'fb-wrong';let det=`<div class="part-pill">${score} of ${total} correct</div>`;if(missed.length)det+=`<div class="missed">❌ Missed: ${missed.map(esc).join(', ')}</div>`;if(wrongSel.length&&q.distractor_reasoning)det+=`<div class="dist-note">💡 ${esc(q.distractor_reasoning)}</div>`;document.getElementById('fb-area').innerHTML=`<div class="feedback ${cls}"><div class="fb-head">${full?'✅ Perfect!':score>0?'⚡ Partial Credit':'❌ Missed'}</div><div class="fb-detail">${det}</div></div>`;multiSel.clear();document.getElementById('next-row').style.display='flex';}
+function submitMS(){if(answered)return;answered=true;clearInterval(qTimer);const q=questions[currentQ];const sel=[...multiSel].map(i=>q.options[i]);const correct=q.correct_answers;const okSel=sel.filter(s=>correct.includes(s));const wrongSel=sel.filter(s=>!correct.includes(s));const missed=correct.filter(c=>!sel.includes(c));const score=okSel.length,total=correct.length,full=score===total&&wrongSel.length===0;userAnswers[currentQ]={type:'multi_select',selected:sel,correctlySelected:okSel,wrongSelected:wrongSel,missed,score,total,isCorrect:full,concept:q.concept||''};q.options.forEach((_,i)=>{document.getElementById(`ch-${i}`).disabled=true;const opt=q.options[i];const isC=correct.includes(opt),wasSel=multiSel.has(i);const btn=document.getElementById(`ch-${i}`);btn.classList.remove('ms-sel');if(wasSel&&isC)btn.classList.add('correct');else if(wasSel&&!isC)btn.classList.add('wrong');else if(!wasSel&&isC)btn.classList.add('rev-correct');});const cls=full?'fb-correct':score>0?'fb-partial':'fb-wrong';let det=`<div class="part-pill">${score} of ${total} correct</div>`;if(missed.length)det+=`<div class="missed">❌ Missed: ${missed.map(esc).join(', ')}</div>`;if(wrongSel.length&&q.distractor_reasoning)det+=`<div class="dist-note">💡 ${esc(q.distractor_reasoning)}</div>`;document.getElementById('fb-area').innerHTML=`<div class="feedback ${cls}"><div class="fb-head">${full?'✅ Perfect!':score>0?'⚡ Partial Credit':'❌ Missed'}</div><div class="fb-detail">${det}</div></div>`;multiSel.clear();document.getElementById('next-row').style.display='flex';}
 
-function submitFB(){if(answered)return;answered=true;const q=questions[currentQ];let score=0;const results=[];q.blanks.forEach((b,i)=>{const inp=document.getElementById(`bl-${i}`);const wrap=document.getElementById(`bl-${i}-w`);if(!inp)return;const uv=(inp.value||'').trim().toLowerCase();const cv=b.answer.toLowerCase();const ok=uv===cv||uv.includes(cv)||cv.includes(uv);if(ok)score++;if(wrap)wrap.classList.add(ok?'ok':'bad');inp.disabled=true;results.push({userVal:inp.value,correct:b.answer,isCorrect:ok});});const total=q.blanks.length,full=score===total;userAnswers[currentQ]={type:'fill_blank',results,score,total,isCorrect:full,concept:q.concept||''};let det=`<div class="part-pill">${score} of ${total} blanks correct</div>`;results.forEach(r=>{if(!r.isCorrect)det+=`<div class="missed">❌ "${esc(r.userVal||'(blank)')}" → <strong>${esc(r.correct)}</strong></div>`;});document.getElementById('fb-area').innerHTML=`<div class="feedback ${full?'fb-correct':score>0?'fb-partial':'fb-wrong'}"><div class="fb-head">${full?'✅ Correct!':'❌ Check blanks'}</div><div class="fb-detail">${det}</div></div>`;document.getElementById('next-row').style.display='flex';}
+function submitFB(){if(answered)return;answered=true;clearInterval(qTimer);const q=questions[currentQ];let score=0;const results=[];q.blanks.forEach((b,i)=>{const inp=document.getElementById(`bl-${i}`);const wrap=document.getElementById(`bl-${i}-w`);if(!inp)return;const uv=(inp.value||'').trim().toLowerCase();const cv=b.answer.toLowerCase();const ok=uv===cv||uv.includes(cv)||cv.includes(uv);if(ok)score++;if(wrap)wrap.classList.add(ok?'ok':'bad');inp.disabled=true;results.push({userVal:inp.value,correct:b.answer,isCorrect:ok});});const total=q.blanks.length,full=score===total;userAnswers[currentQ]={type:'fill_blank',results,score,total,isCorrect:full,concept:q.concept||''};let det=`<div class="part-pill">${score} of ${total} blanks correct</div>`;results.forEach(r=>{if(!r.isCorrect)det+=`<div class="missed">❌ "${esc(r.userVal||'(blank)')}" → <strong>${esc(r.correct)}</strong></div>`;});document.getElementById('fb-area').innerHTML=`<div class="feedback ${full?'fb-correct':score>0?'fb-partial':'fb-wrong'}"><div class="fb-head">${full?'✅ Correct!':'❌ Check blanks'}</div><div class="fb-detail">${det}</div></div>`;document.getElementById('next-row').style.display='flex';}
 
-function nextQ(){currentQ++;multiSel.clear();if(currentQ>=questions.length)showResults();else renderQ();}
+function nextQ(){clearInterval(qTimer);clearTimeout(advanceTimer);currentQ++;multiSel.clear();if(currentQ>=questions.length)showResults();else renderQ();}
 
 // ── RESULTS ───────────────────────────────────────────────────────
 function showResults(){
+  clearInterval(qTimer);clearInterval(quizTimer);clearTimeout(advanceTimer);
   let ts=0,tp=0;userAnswers.forEach(a=>{if(!a)return;ts+=a.score||(a.isCorrect?1:0);tp+=a.total||1;});
   const pct=Math.round((ts/tp)*100);let emoji='😓',title='Keep Studying!';
   if(pct>=90){emoji='🏆';title='Outstanding!';}else if(pct>=75){emoji='🎉';title='Great Work!';}else if(pct>=60){emoji='👍';title='Getting There!';}else if(pct>=40){emoji='📚';title='Keep Practicing!';}
+  const missedConcepts=[...new Set(questions.filter((q,i)=>userAnswers[i]&&!userAnswers[i].isCorrect).map(q=>q.concept).filter(Boolean))];
+
+  // V3: persist session history + spaced-repetition queue before any rendering
+  if(quizLinkedToFile&&studyFile){
+    const correctConcepts=[...new Set(questions.filter((q,i)=>userAnswers[i]&&userAnswers[i].isCorrect).map(q=>q.concept).filter(Boolean))];
+    studyFile.sessions=studyFile.sessions||[];
+    studyFile.sessions.push({date:today(),score:ts,total:tp,pct,missed_concepts:missedConcepts,isTargetedRetry});
+    studyFile.missed_queue=studyFile.missed_queue||[];
+    missedConcepts.forEach(c=>{if(!studyFile.missed_queue.includes(c))studyFile.missed_queue.push(c);});
+    studyFile.missed_queue=studyFile.missed_queue.filter(c=>!(correctConcepts.includes(c)&&!missedConcepts.includes(c)));
+    studyFile.last_modified=today();
+    upsertLibraryEntry(studyFile);
+    renderQueueToggle();
+  }
+
   document.getElementById('res-emoji').textContent=emoji;document.getElementById('res-title').textContent=title;
   document.getElementById('res-sub').textContent=`You scored ${ts} of ${tp} points.`;
   document.getElementById('score-txt').textContent=`${ts} / ${tp} — ${pct}%`;
@@ -962,6 +1087,12 @@ function showResults(){
     if(origScore)document.getElementById('res-sub').textContent=`${ts} of ${tp} points on targeted topics · Original quiz: ${origScore.pct}%`;
   }else{deltaBanner.style.display='none';}
 
+  // V3: session trend line
+  if(quizLinkedToFile&&studyFile){
+    const trend=fileTrendHTML(studyFile);
+    if(trend)document.getElementById('res-sub').textContent+=` · ${trend}`;
+  }
+
   const missed=userAnswers.filter(a=>a&&!a.isCorrect).length;
   document.getElementById('sg-section').style.display=missed>0?'block':'none';
 
@@ -969,7 +1100,6 @@ function showResults(){
   const targetedSection=document.getElementById('targeted-section');
   if(!isTargetedRetry&&missed>0){
     targetedSection.style.display='block';
-    const missedConcepts=[...new Set(questions.filter((q,i)=>userAnswers[i]&&!userAnswers[i].isCorrect).map(q=>q.concept).filter(Boolean))];
     const estQ=Math.max(10,Math.min(missedConcepts.length*3,20));
     const over=missedConcepts.length*3>20;
     document.getElementById('targeted-sub').textContent=over
@@ -980,15 +1110,16 @@ function showResults(){
   const sp=document.getElementById('sg-panel');sp.style.display='none';sp.classList.remove('open');document.getElementById('sg-out').innerHTML='';
   const sb=document.getElementById('sg-btn');sb.disabled=false;sb.classList.remove('loading');sb.innerHTML='📖 Generate Study Guide';
 
-  // V2: concept tag in review items
+  // V2/V3: concept tag + timed-out handling in review items
   document.getElementById('review-list').innerHTML=questions.map((q,i)=>{
     const a=userAnswers[i];if(!a)return'';
     const ok=a.isCorrect,part=!ok&&a.score>0;
     const cls=ok?'ri-correct':part?'ri-partial':'ri-wrong';
-    const icon=ok?'✅':part?'⚡':'❌';
+    const icon=ok?'✅':part?'⚡':a.timedOut?'⏱️':'❌';
     const conceptTag=q.concept?`<div class="ri-concept">${esc(q.concept)}</div>`:'';
     let ah='';
-    if(q.type==='multi_select'){ah=`<div class="ri-pscore">${a.score}/${a.total} correct</div>`;a.correctlySelected?.forEach(x=>ah+=`<div class="ri-ok">✓ ${esc(x)}</div>`);a.missed?.forEach(x=>ah+=`<div class="ri-bad">❌ Missed: ${esc(x)}</div>`);}
+    if(a.timedOut){ah=`<div class="ri-bad">⏱️ Not answered — time ran out</div>`;}
+    else if(q.type==='multi_select'){ah=`<div class="ri-pscore">${a.score}/${a.total} correct</div>`;a.correctlySelected?.forEach(x=>ah+=`<div class="ri-ok">✓ ${esc(x)}</div>`);a.missed?.forEach(x=>ah+=`<div class="ri-bad">❌ Missed: ${esc(x)}</div>`);}
     else if(q.type==='fill_blank'){ah=`<div class="ri-pscore">${a.score}/${a.total} blanks</div>`;a.results?.forEach(r=>ah+=r.isCorrect?`<div class="ri-ok">✓ ${esc(r.correct)}</div>`:`<div class="ri-bad">✗ "${esc(r.userVal)}" → ${esc(r.correct)}</div>`);}
     else{ah+=`<div class="ri-ok">✓ ${esc(q.correct)}</div>`;if(!ok&&a.chosen)ah+=`<div class="ri-bad">✗ You: ${esc(a.chosen)}</div>`;}
     return`<div class="review-item ${cls}" style="animation-delay:${i*.04}s">${conceptTag}<div class="ri-q"><span class="ri-icon">${icon}</span><span>${esc(q.question)}</span></div><div class="ri-ans">${ah}</div></div>`;
@@ -1021,20 +1152,101 @@ function dlGuide(){const el=document.querySelector('.sg-content');if(!el)return;
 async function generateFlashcards(){
   const key=getKey(),content=getContent();const n=parseInt(document.getElementById('num-fc').value)||15;const err=document.getElementById('fc-err');err.classList.remove('show');
   if(!key)return showErr(err,'Please enter your API key.');if(!key.startsWith('sk-ant'))return showErr(err,'Key should start with sk-ant…');if(!content||content.length<50)return showErr(err,'Please paste content or load a study file.');
-  savedContent=content;savedNumFc=n;
+  savedContent=content;savedNumFc=n;fcLinkedToFile=!!studyFile;
+  const fcQueueOn=document.getElementById('fc-queue-toggle').checked&&studyFile?.missed_queue_cards?.length;
+  const pn=fcQueueOn?`\nREVIEW QUEUE — reintroduce and prioritize these previously-missed terms:\n${studyFile.missed_queue_cards.map(t=>`- ${t}`).join('\n')}`:'';
   showScreen('screen-loading');startSteps('Generating flashcards…','Extracting key terms and definitions.');
-  try{const raw=await claude(key,`Extract exactly ${n} term-definition pairs. Term: 1-5 words. Definition: 1-3 sentences plain language. OUTPUT: ONLY JSON array. [{"term":"...","definition":"..."}]\nCONTENT:\n${content.slice(0,12000)}`,3000);const parsed=parseJSON(raw);if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty data.');flashcards=parsed;fcIdx=0;fcFlipped=false;stopSteps();showScreen('screen-fc');renderFc();}
+  try{const raw=await claude(key,`Extract exactly ${n} term-definition pairs. Term: 1-5 words. Definition: 1-3 sentences plain language. OUTPUT: ONLY JSON array. [{"term":"...","definition":"..."}]${pn}\nCONTENT:\n${content.slice(0,12000)}`,3000);const parsed=parseJSON(raw);if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty data.');flashcards=parsed.map(c=>({...c,rating:null}));fcIdx=0;fcFlipped=false;stopSteps();showScreen('screen-fc');renderFc();}
   catch(e){stopSteps();showScreen('screen-setup');showErr(document.getElementById('fc-err'),'⚠️ '+e.message);}
 }
-function renderFc(){const c=flashcards[fcIdx],total=flashcards.length;document.getElementById('fc-count').textContent=`Card ${fcIdx+1} of ${total}`;document.getElementById('fc-nav-lbl').textContent=`${fcIdx+1}/${total}`;document.getElementById('fc-prog').style.width=`${((fcIdx+1)/total)*100}%`;document.getElementById('fc-front').textContent=c.definition;document.getElementById('fc-back').textContent=c.term;fcFlipped=false;document.getElementById('fc-card').classList.remove('flipped');document.getElementById('fc-prev').disabled=fcIdx===0;document.getElementById('fc-next').disabled=fcIdx===total-1;}
+function renderFc(){const c=flashcards[fcIdx],total=flashcards.length;document.getElementById('fc-count').textContent=`Card ${fcIdx+1} of ${total}`;document.getElementById('fc-nav-lbl').textContent=`${fcIdx+1}/${total}`;document.getElementById('fc-prog').style.width=`${((fcIdx+1)/total)*100}%`;document.getElementById('fc-front').textContent=c.definition;document.getElementById('fc-back').textContent=c.term;fcFlipped=false;document.getElementById('fc-card').classList.remove('flipped');document.getElementById('fc-prev').disabled=fcIdx===0;document.getElementById('fc-next').disabled=fcIdx===total-1;document.getElementById('fc-rate-again').classList.toggle('active',c.rating==='again');document.getElementById('fc-rate-good').classList.toggle('active',c.rating==='good');}
 function flipCard(){fcFlipped=!fcFlipped;document.getElementById('fc-card').classList.toggle('flipped',fcFlipped);document.getElementById('fc-hint').textContent=fcFlipped?'Tap to flip back':'Tap the card to flip it';}
 function fcNav(d){const n=fcIdx+d;if(n<0||n>=flashcards.length)return;fcIdx=n;renderFc();}
 function shuffleFc(){flashcards=flashcards.sort(()=>Math.random()-.5);fcIdx=0;renderFc();}
+// V3: per-card spaced-repetition rating
+function rateFc(v){
+  const c=flashcards[fcIdx];c.rating=v;
+  document.getElementById('fc-rate-again').classList.toggle('active',v==='again');
+  document.getElementById('fc-rate-good').classList.toggle('active',v==='good');
+  if(v==='again'){
+    const requeued={term:c.term,definition:c.definition,rating:null};
+    flashcards.push(requeued);
+    const insertAt=Math.min(fcIdx+4,flashcards.length-1);
+    flashcards.splice(flashcards.length-1,1);
+    flashcards.splice(insertAt,0,requeued);
+    document.getElementById('fc-count').textContent=`Card ${fcIdx+1} of ${flashcards.length}`;
+    document.getElementById('fc-next').disabled=fcIdx===flashcards.length-1;
+  }
+  if(fcLinkedToFile&&studyFile){
+    studyFile.missed_queue_cards=studyFile.missed_queue_cards||[];
+    if(v==='again'){if(!studyFile.missed_queue_cards.includes(c.term))studyFile.missed_queue_cards.push(c.term);}
+    else{studyFile.missed_queue_cards=studyFile.missed_queue_cards.filter(t=>t!==c.term);}
+    studyFile.last_modified=today();
+    upsertLibraryEntry(studyFile);
+    renderQueueToggle();
+  }
+}
 
 // ── NOTES ─────────────────────────────────────────────────────────
 function onNotesInput(){fileModified=true;setStatus('saving');clearTimeout(autoSaveTimer);autoSaveTimer=setTimeout(()=>{if(studyFile){studyFile.notes_md=document.getElementById('notes-editor').value;studyFile.last_modified=today();setStatus('saved');fileModified=false;}},2000);}
 function setStatus(s){const el=document.getElementById('save-status');const tx=document.getElementById('save-txt');el.className='save-status '+s;tx.textContent=s==='saving'?'Saving…':s==='saved'?'Saved ✓':'Unsaved';}
 function saveNotes(){if(!studyFile)return;clearTimeout(autoSaveTimer);studyFile.notes_md=document.getElementById('notes-editor').value;studyFile.last_modified=today();setStatus('saved');fileModified=false;}
+
+// ── LIBRARY ───────────────────────────────────────────────────────
+const LIB_KEY='studypulse_library';
+function newId(){return(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Date.now()+'-'+Math.random().toString(36).slice(2);}
+function loadLibrary(){try{const raw=localStorage.getItem(LIB_KEY);return raw?JSON.parse(raw):[];}catch(e){console.warn('Library load failed:',e);return[];}}
+function saveLibrary(arr){try{localStorage.setItem(LIB_KEY,JSON.stringify(arr));const w=document.getElementById('lib-storage-warn');if(w)w.classList.remove('show');return true;}catch(e){console.warn('Library save failed:',e);const w=document.getElementById('lib-storage-warn');if(w){w.textContent='⚠️ Local storage is full — delete some Library files to free space. This session\'s progress wasn\'t saved.';w.classList.add('show');}return false;}}
+function upsertLibraryEntry(file){
+  const lib=loadLibrary();
+  if(!file.id){
+    const match=lib.find(f=>(f.unit||'').trim().toLowerCase()===(file.unit||'').trim().toLowerCase());
+    if(match){file.id=match.id;file.sessions=file.sessions||match.sessions||[];file.missed_queue=file.missed_queue||match.missed_queue||[];file.missed_queue_cards=file.missed_queue_cards||match.missed_queue_cards||[];}
+    else file.id=newId();
+  }
+  const idx=lib.findIndex(f=>f.id===file.id);
+  if(idx>=0)lib[idx]=file;else lib.push(file);
+  saveLibrary(lib);
+  return file;
+}
+function deleteLibraryEntry(id){
+  if(!confirm('Delete this study file from your library? This cannot be undone.'))return;
+  const lib=loadLibrary().filter(f=>f.id!==id);
+  saveLibrary(lib);
+  if(studyFile&&studyFile.id===id){studyFile=null;document.getElementById('header-file').classList.remove('show');document.getElementById('notes-empty').style.display='block';document.getElementById('notes-area').style.display='none';document.getElementById('scope-toggle-row').style.display='none';document.getElementById('content-card').style.display='block';document.getElementById('s-file-info').innerHTML='<div style="color:var(--text3);font-size:14px;">No study file loaded.</div>';}
+  renderLibrary();
+}
+function fileTrendHTML(file){
+  if(!file.sessions||!file.sessions.length)return'';
+  const n=file.sessions.length,last=file.sessions[n-1].pct,best=Math.max(...file.sessions.map(s=>s.pct));
+  return`Taken ${n} time${n>1?'s':''} · Last ${last}% · Best ${best}%`;
+}
+function renderLibrary(){
+  const lib=loadLibrary();
+  document.getElementById('lib-empty').style.display=lib.length?'none':'block';
+  document.getElementById('lib-list').innerHTML=lib.slice().sort((a,b)=>(b.last_modified||'').localeCompare(a.last_modified||'')).map(f=>{
+    const trend=fileTrendHTML(f);
+    const queueBadge=(f.missed_queue&&f.missed_queue.length)?`<div class="lib-queue-badge">🎯 ${f.missed_queue.length} in review queue</div>`:'';
+    return`<div class="card lib-card" onclick="loadLibraryFile('${f.id}')">
+      <div class="lib-card-head"><div class="lib-card-title">${esc(f.unit||'Untitled')}</div><button class="lib-card-del" onclick="event.stopPropagation();deleteLibraryEntry('${f.id}')">🗑️</button></div>
+      <div class="lib-card-meta"><span class="meta-chip">Created ${f.created||'–'}</span><span class="meta-chip">Updated ${f.last_modified||'–'}</span></div>
+      ${trend?`<div class="lib-trend">${esc(trend)}</div>`:''}
+      ${queueBadge}
+    </div>`;
+  }).join('');
+}
+function resetFileState(){
+  scopeData=null;supplemented=[];
+  clearTimeout(autoSaveTimer);autoSaveTimer=null;fileModified=false;
+  const st=document.getElementById('scope-toggle'),ss=document.getElementById('s-scope');
+  if(st)st.checked=false;if(ss)ss.checked=false;
+  const bw=document.getElementById('scope-bar-wrap');if(bw)bw.style.display='none';
+}
+function loadLibraryFile(id){
+  const lib=loadLibrary();const f=lib.find(x=>x.id===id);if(!f)return;
+  resetFileState();resetToSetup();
+  studyFile=f;applyFile();setMode('quiz');switchTab('quiz');
+}
 
 // ── FILE LOAD / ADMIN ─────────────────────────────────────────────
 function loadFile(e){
@@ -1043,12 +1255,13 @@ function loadFile(e){
   reader.onload=(ev)=>{
     try{
       const s=JSON.parse(ev.target.result);
-      if(s.notes_md!==undefined||s.unit){studyFile=s;applyFile();return;}
+      if(s.notes_md!==undefined||s.unit){resetFileState();studyFile=s;applyFile();upsertLibraryEntry(studyFile);return;}
       if(!s.type||!s.version)throw new Error('Invalid file.');
+      quizLinkedToFile=false;fcLinkedToFile=false;
       if(s.apiKey){keyEl.value=s.apiKey;dotEl.className='api-dot'+(s.apiKey.startsWith('sk-ant')?' on':'');}
       if(s.content){document.getElementById('content-input').value=s.content;savedContent=s.content;}
-      if(s.type==='quiz'){savedNumQ=s.numQuestions||15;savedDiff=s.difficulty||'challenging';document.getElementById('num-q').value=savedNumQ;document.getElementById('difficulty').value=savedDiff;questions=s.questions.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;setMode('quiz');showScreen('screen-quiz');renderQ();}
-      else if(s.type==='flashcard'){flashcards=s.cards||[];fcIdx=0;fcFlipped=false;setMode('flashcard');showScreen('screen-fc');renderFc();}
+      if(s.type==='quiz'){savedNumQ=s.numQuestions||15;savedDiff=s.difficulty||'challenging';document.getElementById('num-q').value=savedNumQ;document.getElementById('difficulty').value=savedDiff;questions=s.questions.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;setMode('quiz');enterQuiz();}
+      else if(s.type==='flashcard'){flashcards=(s.cards||[]).map(c=>({...c,rating:null}));fcIdx=0;fcFlipped=false;setMode('flashcard');showScreen('screen-fc');renderFc();}
     }catch(err){alert('Could not load file: '+err.message);}
     e.target.value='';
   };
@@ -1063,9 +1276,10 @@ function applyFile(){
   document.getElementById('notes-editor').value=studyFile.notes_md||'';setStatus('saved');
   document.getElementById('scope-toggle-row').style.display='block';
   document.getElementById('content-card').style.display='none';
-  const meta=document.getElementById('notes-meta');const parts=[];if(studyFile.created)parts.push(`Created ${studyFile.created}`);if(studyFile.last_modified)parts.push(`Updated ${studyFile.last_modified}`);meta.innerHTML=parts.map(p=>`<span class="meta-chip">${p}</span>`).join('');
-  document.getElementById('s-file-info').innerHTML=`<div style="display:flex;flex-direction:column;gap:9px;font-size:14px;"><div><strong>${esc(studyFile.unit||'Untitled')}</strong></div><div style="color:var(--text3);">Created: ${studyFile.created||'–'} · Updated: ${studyFile.last_modified||'–'}</div>${studyFile.scope_check?`<div style="color:var(--text3);">Coverage: ${studyFile.scope_check.coverage_score||0}%</div>`:''}</div>`;
+  const meta=document.getElementById('notes-meta');const parts=[];if(studyFile.created)parts.push(`Created ${studyFile.created}`);if(studyFile.last_modified)parts.push(`Updated ${studyFile.last_modified}`);const trend=fileTrendHTML(studyFile);if(trend)parts.push(trend);meta.innerHTML=parts.map(p=>`<span class="meta-chip">${p}</span>`).join('');
+  document.getElementById('s-file-info').innerHTML=`<div style="display:flex;flex-direction:column;gap:9px;font-size:14px;"><div><strong>${esc(studyFile.unit||'Untitled')}</strong></div><div style="color:var(--text3);">Created: ${studyFile.created||'–'} · Updated: ${studyFile.last_modified||'–'}</div>${studyFile.scope_check?`<div style="color:var(--text3);">Coverage: ${studyFile.scope_check.coverage_score||0}%</div>`:''}${trend?`<div style="color:var(--text3);">${esc(trend)}</div>`:''}</div>`;
   if(studyFile.scope_check){scopeData=studyFile.scope_check;updateScopeBar();}
+  renderQueueToggle();
 }
 
 async function adminGenerate(){
@@ -1080,7 +1294,7 @@ async function adminGenerate(){
   const btn=document.querySelector('#tab-admin .btn-primary');btn.disabled=true;btn.innerHTML='<span class="btn-spin"></span> Analysing…';
   let sc=null;
   try{const raw=await claude(key,`Analyze study material for unit: "${unit}". Return ONLY JSON: {"covered_concepts":["c1"],"missing_concepts":[{"concept":"name","reason":"why tested"}],"coverage_score":72}\nJSON only.\nMATERIAL:\n${notes.slice(0,8000)}`,800);sc=parseJSON(raw);}catch(e){}
-  const fileObj={version:2,unit,created:today(),last_modified:today(),last_compiled:null,notes_md:notes,scope_check:sc,questions:[]};
+  const fileObj={version:2,unit,created:today(),last_modified:today(),last_compiled:null,notes_md:notes,scope_check:sc,questions:[],sessions:[],missed_queue:[],missed_queue_cards:[]};
   dlJSON(`studypulse-${unit.toLowerCase().replace(/\s+/g,'-').slice(0,30)}-${stamp()}.json`,fileObj);
   btn.disabled=false;btn.innerHTML='✅ File Generated';setTimeout(()=>{btn.innerHTML='Generate Study File ⚡';},3000);
 }
@@ -1089,7 +1303,7 @@ function downloadFile(){if(!studyFile)return;saveNotes();dlJSON(`studypulse-${(s
 function copyJson(){if(!studyFile)return;saveNotes();navigator.clipboard.writeText(JSON.stringify(studyFile,null,2)).then(()=>alert('JSON copied. Paste into a .json file.')).catch(()=>alert('Copy failed. Use Download instead.'));}
 function saveSession(){dlJSON(`studypulse-quiz-${stamp()}.json`,{type:'quiz',version:1,savedAt:new Date().toISOString(),apiKey:keyEl.value.trim(),content:savedContent,numQuestions:savedNumQ,difficulty:savedDiff,questions:questions.map(q=>q.type==='single_select'?{question:q.question,correct:q.correct,distractors:q.choices.filter(c=>c!==q.correct)}:q)});}
 function saveFc(){dlJSON(`studypulse-fc-${stamp()}.json`,{type:'flashcard',version:1,savedAt:new Date().toISOString(),content:savedContent,numCards:savedNumFc,cards:flashcards});}
-function resetToSetup(){questions=[];userAnswers=[];currentQ=0;answered=false;flashcards=[];fcIdx=0;fcFlipped=false;multiSel.clear();isTargetedRetry=false;targetedConcepts=[];origScore=null;stopSteps();showScreen('screen-setup');}
+function resetToSetup(){questions=[];userAnswers=[];currentQ=0;answered=false;flashcards=[];fcIdx=0;fcFlipped=false;multiSel.clear();isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=false;fcLinkedToFile=false;clearInterval(qTimer);clearInterval(quizTimer);clearTimeout(advanceTimer);stopSteps();showScreen('screen-setup');}
 window.addEventListener('beforeunload',e=>{if(fileModified){e.preventDefault();e.returnValue='';}});
 
 function showErr(el,msg){el.textContent=msg;el.classList.add('show');}
