@@ -14,13 +14,18 @@ An AI-powered quiz and flashcard generator for studying from your own notes, sli
 - **Study Guide + targeted retry** — after a quiz, generate a study guide for the concepts you missed, and re-quiz on just your weak areas.
 - **Study Library & review queue** — generated study files are saved in your browser and listed under the Library tab; a review queue prioritizes concepts/terms you've previously missed (spaced-repetition style).
 - **Notes tab** — attach and edit markdown notes alongside a study file.
-- **Admin mode** — an instructor/admin can paste in a unit's notes once, generate a study file, and hand the resulting `.json` file to students to load directly (so students don't need to re-paste content).
+- **Admin mode** — an instructor/parent pastes a unit once and generates a study file (`.json`). Two content types:
+  - **Notes**: material that already contains the answers.
+  - **Question & Vocab List**: a list of study questions and vocabulary words with no answers. Claude writes the answers and definitions once and saves them as the file's notes, so they can be reviewed and edited in the Notes tab.
+- **Pre-built quizzes & flashcards** — Admin can also pre-build a quiz and a flashcard deck into the study file. The student takes the saved quiz or studies the saved flashcards with **no API key**. Scores and "still learning" cards are still tracked. A key is only needed to generate fresh questions, study guides, or weak-area retries.
+- **Class Library** — any study file uploaded to this repo's [`study-files/`](study-files/) folder shows up automatically under **Library → Class Library** on the live site. It needs no GitHub token and no API key. See [`study-files/README.md`](study-files/README.md) for how to publish a unit.
+- **iPhone-friendly loading** — besides the file picker (which now accepts `.json` and `.txt`), a student can open a shared unit from a link (`?file=<name>` or `#library`) or paste a file's contents into **Or paste a study file…**.
 
 ## Getting started
 
 1. Open the [live app](https://napville2000.github.io/studypulse/) (or run it locally — see below).
 2. Get an API key from [console.anthropic.com](https://console.anthropic.com/) (starts with `sk-ant-...`) and paste it into the **API Key** field.
-3. Add study content: paste text, or upload a PDF/image in the Study Content card.
+3. Add study content (or open a unit from the **Class Library** — units with a saved quiz/flashcards need no key): paste text, or upload a PDF/image in the Study Content card.
 4. Pick **Quiz** or **Flashcard** mode, adjust settings (question count, difficulty, timed mode, etc.), and generate.
 5. Review your results, generate a study guide for anything you missed, and retry your weak areas.
 6. Use **Save** to download a session as a `.json` file you can reload later.
