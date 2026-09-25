@@ -1,0 +1,648 @@
+{
+  "version": 2,
+  "unit": "Chemical Bonding",
+  "created": "2026-09-25",
+  "last_modified": "2026-09-25",
+  "last_compiled": "2026-09-25",
+  "notes_md": "## Vocabulary\n\n- **Ion** — An atom or group of atoms that has a positive or negative charge because it has lost or gained electrons.\n- **Valence electron** — An electron in the highest occupied energy level of an atom; valence electrons take part in bonding.\n- **Electron (Lewis) dot diagram** — The element's symbol surrounded by dots, one for each valence electron.\n- **Cation** — A positively charged ion, formed when an atom loses electrons (usually a metal).\n- **Anion** — A negatively charged ion, formed when an atom gains electrons (usually a nonmetal).\n- **Octet rule** — Atoms tend to gain, lose or share electrons so they end up with eight valence electrons, a noble-gas configuration.\n- **Ionic compound** — A compound made of cations and anions held together by ionic bonds, usually a metal with a nonmetal; overall electrically neutral.\n- **Ionic bond** — The electrostatic attraction between oppositely charged ions.\n- **Chemical formula** — Shows the kinds and numbers of atoms in the smallest representative unit of a substance (e.g. H₂O, NaCl).\n- **Formula unit** — The lowest whole-number ratio of ions in an ionic compound (e.g. NaCl, CaCl₂).\n- **Molecular formula** — The chemical formula of a molecular compound; shows the actual number of each kind of atom in one molecule (e.g. C₆H₁₂O₆).\n- **Coordination number** — The number of ions of opposite charge that surround an ion in a crystal (NaCl: 6).\n- **Metallic bond** — The attraction between free-floating valence electrons (a 'sea of electrons') and positively charged metal ions.\n- **Alloy** — A mixture of two or more elements, at least one of them a metal, that has metallic properties (e.g. brass, steel).\n- **Monatomic ion** — An ion consisting of a single atom (e.g. Na⁺, Cl⁻, O²⁻).\n- **Polyatomic ion** — A tightly bound group of atoms that behaves as a unit and has an overall charge (e.g. SO₄²⁻, NO₃⁻, NH₄⁺).\n- **Oxidation number** — The charge an atom would have if its electrons were transferred completely; for a monatomic ion, it equals the ion's charge.\n- **Binary ionic compound** — An ionic compound made of two elements: a metal cation and a nonmetal anion (e.g. NaCl, MgO).\n- **Covalent compound** — A compound whose atoms are held together by covalent bonds (a molecular compound), usually made of nonmetals.\n- **Covalent bond** — A bond formed when two atoms share a pair of electrons.\n- **Molecule** — A neutral group of atoms joined together by covalent bonds.\n- **Binary molecular compound** — A molecular compound made of two nonmetal elements (e.g. CO₂, N₂O₄).\n- **Coordinate covalent bond** — A covalent bond in which one atom contributes both of the shared electrons (e.g. in CO and NH₄⁺).\n- **Bond dissociation energy** — The energy required to break the bond between two covalently bonded atoms.\n- **Resonance structures** — Two or more valid electron dot structures for the same molecule that differ only in where the electron pairs are (e.g. O₃); the real molecule is a hybrid of them.\n- **Acid** — A compound that produces hydrogen ions (H⁺) when dissolved in water (e.g. HCl).\n- **Base** — A compound that produces hydroxide ions (OH⁻) when dissolved in water (e.g. NaOH).\n- **Formal charge** — A charge assigned to an atom in a Lewis structure: valence electrons − nonbonding electrons − ½ bonding electrons. It is used to pick the best structure.\n- **VSEPR theory** — Valence-shell electron-pair repulsion theory: electron pairs around a central atom repel each other and spread as far apart as possible, which sets the molecule's shape.\n- **Polar covalent bond** — A covalent bond in which electrons are shared unequally because the atoms differ in electronegativity, giving partial charges (δ+ and δ−).\n- **Nonpolar covalent bond** — A covalent bond in which electrons are shared equally (e.g. H₂, Cl₂).\n- **Polar molecule** — A molecule with a partially positive end and a partially negative end (e.g. H₂O).\n- **Nonpolar molecule** — A molecule whose charge is evenly distributed, with no positive or negative end (e.g. CO₂, CH₄).\n- **Dipole** — A molecule, or part of one, that has two poles: a partially positive region and a partially negative region.\n- **Van der Waals forces** — The weakest attractions between molecules, including dipole interactions and dispersion forces.\n- **Dispersion forces** — The weakest intermolecular attractions, caused by moving electrons creating temporary dipoles. They occur between all molecules and are stronger for larger molecules.\n- **Hydrogen bonds** — A strong attraction between a hydrogen atom that is covalently bonded to a very electronegative atom (F, O or N) and an unshared electron pair on another electronegative atom.\n- **Network solid** — A solid in which all the atoms are covalently bonded to each other in a continuous network (e.g. diamond, quartz SiO₂); very high melting point.\n\n## Questions\n\n### 1. What is an ion?\nAn atom or group of atoms with an electric charge, formed when electrons are lost (positive ion) or gained (negative ion).\n\n### 2. How does a representative element's electron configuration change when it forms an ion? Why?\nIt gains or loses valence electrons until it has the electron configuration of the nearest noble gas. Metals lose electrons (Na → Na⁺ = [Ne]); nonmetals gain them (Cl → Cl⁻ = [Ar]). Why: a noble-gas configuration (a full octet) is especially stable, which is the octet rule.\n\n### 3. What are valence shells and valence electrons? What do these things have to do with ions?\nThe valence shell is an atom's outermost (highest occupied) energy level, and valence electrons are the electrons in it. Ions form when atoms lose or gain valence electrons; the charge equals the number of electrons lost (+) or gained (−).\n\n### 4. What are the two different types of ions and under what circumstances will each form?\nCations (positive) form when an atom loses electrons, typically metals with few valence electrons (groups 1, 2 and 13), which have low ionization energy. Anions (negative) form when an atom gains electrons, typically nonmetals with 5–7 valence electrons, which have high electronegativity.\n\n### 5. What does ion formation have to do with the octet rule?\nAtoms lose or gain electrons to reach an octet: eight valence electrons, a noble-gas configuration. Na loses 1 electron and Cl gains 1, and both end up with a stable octet. (H and Li aim for 2, like helium.)\n\n### 6. What role in ion formation does EN (electronegativity) play?\nElectronegativity is an atom's ability to attract electrons. Elements with high EN (nonmetals such as F, O and Cl) tend to gain electrons and form anions. Elements with low EN (metals such as Na and K) tend to lose electrons and form cations. A large EN difference between two elements (more than about 1.7–2.0) means electrons are transferred and an ionic bond forms.\n\n### 7. What types of elements tend to form positive ions? Negative ions?\nMetals (left side of the periodic table, e.g. groups 1 and 2) form positive ions. Nonmetals (right side, e.g. groups 15–17) form negative ions. Noble gases generally form no ions.\n\n### 8. Choose two different elements. Write the electron configurations for neutral atoms and ions of those elements.\nSodium: Na = 1s²2s²2p⁶3s¹ ([Ne]3s¹). Na⁺ = 1s²2s²2p⁶ ([Ne]); it lost its one 3s electron. Chlorine: Cl = 1s²2s²2p⁶3s²3p⁵ ([Ne]3s²3p⁵). Cl⁻ = 1s²2s²2p⁶3s²3p⁶ ([Ar]); it gained one electron. Another example: Mg = [Ne]3s² → Mg²⁺ = [Ne]; O = 1s²2s²2p⁴ → O²⁻ = 1s²2s²2p⁶ ([Ne]).\n\n### 9. What is an ionic bond?\nThe electrostatic attraction that holds oppositely charged ions together (e.g. between Na⁺ and Cl⁻ in NaCl).\n\n### 10. What is a monatomic ion?\nAn ion made of a single atom, such as Na⁺, Ca²⁺, Cl⁻ or O²⁻.\n\n### 11. How is a monatomic ion different from a polyatomic ion?\nA monatomic ion is one charged atom. A polyatomic ion is a group of covalently bonded atoms that acts as a unit and carries an overall charge (e.g. SO₄²⁻, NO₃⁻, OH⁻, NH₄⁺).\n\n### 12. How many elements will a binary ionic compound have?\nTwo: one metal (cation) and one nonmetal (anion). Examples: NaCl, MgO, Al₂O₃.\n\n### 13. How can you predict the ratio of atoms in a binary ionic compound?\nUse the ions' charges: combine them so the total positive charge equals the total negative charge (net charge zero). Al³⁺ and O²⁻ need 2 Al (+6) and 3 O (−6), so Al₂O₃. The crisscross method gives this quickly.\n\n### 14. What is a chemical formula? Explain the parts of a chemical formula.\nA chemical formula shows the kinds and numbers of atoms in the smallest representative unit of a substance. The element symbols show which elements are present. The subscripts show how many atoms (or ions) of each; no subscript means 1. Parentheses group a polyatomic ion that appears more than once. Example: in Ca(NO₃)₂ there is 1 Ca and 2 nitrate ions.\n\n### 15. How is an ionic compound's formula unit different from the compound's chemical formula?\nFor an ionic compound, the chemical formula is its formula unit: the lowest whole-number ratio of ions. It does not describe a separate molecule, because ionic compounds are large crystal lattices. By contrast, a molecular compound's formula gives the actual atoms in one molecule.\n\n### 16. What are some characteristics of ionic compounds?\nCrystalline solids at room temperature; high melting and boiling points; hard but brittle; don't conduct electricity as solids but do when melted or dissolved in water; many are soluble in water; made of a metal and a nonmetal.\n\n### 17. What does an ionic compound's coordination number tell us about that compound?\nIt tells how many oppositely charged ions surround each ion in the crystal, which describes the crystal's structure and packing. In NaCl each ion has 6 neighbors (coordination number 6); in CsCl each has 8.\n\n### 18. What is dissociation? Why does this occur in ionic compounds and what property does this give ionic compounds?\nDissociation is the separation of an ionic compound into its individual ions when it dissolves (NaCl → Na⁺ + Cl⁻). It happens because polar water molecules attract and surround the ions, pulling them out of the crystal. The free-moving ions let the solution conduct electricity, so ionic compounds are electrolytes.\n\n### 19. How do you name a monatomic cation? A monatomic anion?\nA cation uses the element's name, e.g. Na⁺ = sodium ion. For metals with more than one possible charge, add a Roman numeral: Fe³⁺ = iron(III) ion. An anion uses the root of the element name plus '-ide': Cl⁻ = chloride, O²⁻ = oxide, N³⁻ = nitride.\n\n### 20. How do you name a polyatomic ion?\nUse its specific name, found in the polyatomic ion table (e.g. SO₄²⁻ = sulfate, NO₃⁻ = nitrate, OH⁻ = hydroxide, NH₄⁺ = ammonium). Patterns: '-ate' ions have one more oxygen than '-ite' ions (sulfate SO₄²⁻, sulfite SO₃²⁻), and 'hydrogen' in front adds H⁺ (HCO₃⁻ = hydrogen carbonate).\n\n### 21. What is the procedure for writing the chemical formula of an ionic compound?\n1) Write the cation's symbol and charge, then the anion's symbol and charge. 2) Balance the charges so the total is zero, e.g. by crisscrossing the charge numbers into subscripts. 3) Reduce to the lowest whole-number ratio. 4) Put parentheses around a polyatomic ion that needs a subscript greater than 1. 5) Omit subscripts of 1. Example: calcium chloride, Ca²⁺ + Cl⁻ → CaCl₂.\n\n### 22. How are transition element cations different from representative element cations?\nMost representative metals form one predictable charge from their group number (Na⁺, Mg²⁺, Al³⁺). Many transition metals can form more than one charge (Fe²⁺/Fe³⁺, Cu⁺/Cu²⁺), so their names need a Roman numeral, e.g. iron(III) chloride.\n\n### 23. If you are given a chemical formula, how can you determine the charge of the cation? Should you use this procedure every time you name a chemical compound? If not, under what circumstances should you use this procedure?\nWork backward from the anion: total negative charge = number of anions × anion charge, and the cation's total must cancel it. Then divide by the number of cations. FeCl₃: 3 × (−1) = −3, so Fe is +3, giving iron(III) chloride. You only need this for metals that can have more than one charge (most transition metals, plus Sn and Pb), because their names need a Roman numeral. Metals with only one charge (groups 1, 2, Al, Zn, Ag) don't need it.\n\n### 24. Why do you cross the charges of ions when writing chemical formulas?\nCrisscrossing is a shortcut that makes the total positive charge equal the total negative charge, so the compound is neutral. With Al³⁺ and O²⁻, the 3 becomes O's subscript and the 2 becomes Al's: Al₂O₃ (+6 and −6).\n\n### 25. What should you always do with subscripts when writing the formula for an ionic compound?\nReduce them to the lowest whole-number ratio, because a formula unit is the simplest ratio. For example, Mg²⁺ and O²⁻ crisscross to Mg₂O₂, which reduces to MgO. Don't write a subscript of 1.\n\n### 26. When should your chemical formula have parentheses?\nWhen a compound contains more than one of the same polyatomic ion. Put the polyatomic ion in parentheses and write the subscript outside, e.g. Ca(OH)₂ or (NH₄)₃PO₄. If there's only one of the ion, no parentheses: NaOH.\n\n### 27. What is a covalent bond?\nA bond in which two atoms share one or more pairs of electrons.\n\n### 28. Between what types of atoms will covalent bonds form?\nBetween nonmetal atoms, which have similar, fairly high electronegativities, so neither atom can take electrons from the other. Examples: H₂O, CO₂, CH₄.\n\n### 29. How is a molecule different from a formula unit?\nA molecule is a discrete, neutral group of atoms held together by covalent bonds (e.g. one H₂O molecule). A formula unit is the lowest whole-number ratio of ions in an ionic crystal; it isn't a separate particle, just a ratio in a large lattice.\n\n### 30. What is a molecular formula? Is it any different from a chemical formula?\nA molecular formula is the chemical formula of a molecular compound. It shows the actual number of each type of atom in one molecule (e.g. glucose is C₆H₁₂O₆). 'Chemical formula' is the general term for both ionic and molecular compounds, so a molecular formula is one kind of chemical formula.\n\n### 31. How is a structural formula different from a chemical formula?\nA chemical formula only shows which atoms are present and how many. A structural formula also shows how the atoms are arranged and bonded, using lines for shared electron pairs (e.g. H–O–H for water).\n\n### 32. What are diatomic molecules?\nMolecules made of two atoms of the same element bonded covalently, e.g. H₂, O₂, N₂ and Cl₂.\n\n### 33. What are the seven elements that form diatomic molecules?\nHydrogen (H₂), nitrogen (N₂), oxygen (O₂), fluorine (F₂), chlorine (Cl₂), bromine (Br₂) and iodine (I₂). Memory trick: 'HOFBrINCl' ('Hofbrinkle'), or 'Have No Fear Of Ice Cold Beer'.\n\n### 34. What are some characteristics of covalent compounds? How do these characteristics compare with those of ionic compounds?\nCovalent (molecular) compounds are made of nonmetals. They are often gases, liquids or soft solids, with low melting and boiling points. They are usually poor conductors of electricity, even when dissolved. Many are less soluble in water. Ionic compounds, in contrast, are hard, brittle crystalline solids with high melting points, and they conduct electricity when melted or dissolved.\n\n### 35. How is naming a covalent compound different from naming an ionic compound?\nCovalent (binary molecular) compounds use prefixes to show how many atoms of each element there are: mono-, di-, tri-, tetra-, penta-, hexa-, hepta-, octa-, nona-, deca-. For example, CO₂ is carbon dioxide and N₂O₄ is dinitrogen tetroxide; mono- is not used on the first element. Ionic compounds don't use prefixes, because the charges determine the ratio: MgCl₂ is magnesium chloride, not magnesium dichloride.\n\n### 36. How can you look at the name of a molecule and know immediately that it is a molecule?\nIf the name has numerical prefixes (mono-, di-, tri-, tetra-, …), such as dinitrogen pentoxide or carbon monoxide, it's a molecular (covalent) compound. The name will also contain only nonmetals, with no metal and no polyatomic ion.\n\n### 37. What type of compound do you think is harder to name, ionic or covalent, and why?\nThis is an opinion question; either answer works if it's explained. Example: covalent compounds can be easier, because the prefixes give the formula directly. Ionic compounds can be harder, because you have to know ion charges, polyatomic ion names and when a transition metal needs a Roman numeral. Others find covalent harder because of memorizing all the prefixes.\n\n### 38. If given a compound name, how do you write the chemical formula of an ionic compound? What about a covalent compound?\nIonic: write each ion's symbol with its charge (a Roman numeral gives a transition metal's charge; polyatomic ions come from the table), then balance the charges to zero, crisscrossing and reducing. Iron(III) oxide: Fe³⁺ and O²⁻ give Fe₂O₃. Covalent: just turn the prefixes into subscripts, with no charges involved. Diphosphorus pentoxide = P₂O₅.\n\n### 39. What is an acid?\nA compound that contains hydrogen and produces hydrogen ions (H⁺) when dissolved in water, e.g. HCl (hydrochloric acid) and H₂SO₄ (sulfuric acid).\n\n### 40. What is a base?\nAn ionic compound that produces hydroxide ions (OH⁻) when dissolved in water, e.g. NaOH (sodium hydroxide).\n\n### 41. What is the difference between single, double and triple covalent bonds?\nA single bond shares 1 pair of electrons (2 electrons), e.g. H–H. A double bond shares 2 pairs (4 electrons), e.g. O=O. A triple bond shares 3 pairs (6 electrons), e.g. N≡N. More shared pairs make the bond shorter and stronger.\n\n### 42. Briefly describe how to draw the structural formula for a molecule.\n1) Count the total valence electrons of all atoms (add one electron for each negative charge; subtract one for each positive charge). 2) Pick the central atom, usually the least electronegative one and never H, and connect the other atoms to it with single bonds. 3) Put the remaining electrons as lone pairs on the outer atoms to complete their octets, then place any extras on the central atom. 4) If the central atom lacks an octet, turn lone pairs into double or triple bonds. 5) Draw each shared pair as a line.\n\n### 43. Two C atoms are covalently bound. Which of the following would have a higher bond dissociation: single bond, double bond or triple bond?\nThe triple bond (C≡C) has the highest bond dissociation energy. More shared electron pairs hold the atoms together more strongly, so it takes the most energy to break.\n\n### 44. What is the correlation between bond dissociation and bond length?\nThey are inversely related: the shorter the bond, the higher the bond dissociation energy, and the stronger the bond. Triple bonds are shortest and strongest; single bonds are longest and weakest.\n\n### 45. What is resonance? Give an example of a molecule that shows resonance.\nResonance happens when two or more valid electron dot structures can be drawn for a molecule, differing only in where the electron pairs are. The real molecule is an average (hybrid) of them, not flipping back and forth. Examples: ozone (O₃), where both O–O bonds are identical, and the nitrate (NO₃⁻) and carbonate (CO₃²⁻) ions.\n\n### 46. What are some exceptions to the octet rule?\n1) An odd number of valence electrons, so not every atom can have an octet, e.g. NO₂ and NO. 2) Fewer than eight electrons, e.g. boron in BF₃ (6 electrons) and beryllium in BeCl₂. 3) An expanded octet, with more than eight electrons, on elements in period 3 or below, e.g. PCl₅ (10 electrons) and SF₆ (12 electrons). Hydrogen needs only 2.\n\n### 47. What is bond polarity? Can an ionic bond be polar?\nBond polarity describes how evenly the electrons in a bond are shared, based on the electronegativity difference between the atoms. Unequal sharing makes a polar bond with partial charges (δ+ and δ−). An ionic bond is the extreme case: the EN difference is so large that electrons are transferred rather than shared, giving full charges. So it's more than polar; it's the far end of the polarity scale.\n\n### 48. Why are some bonds polar while others are nonpolar?\nIt depends on the electronegativity (EN) difference between the bonded atoms. With the same or nearly the same EN (difference about 0–0.4), electrons are shared equally, giving a nonpolar bond (H–H, C–H). A moderate difference (about 0.4–1.7) pulls the electrons toward the more electronegative atom, giving a polar bond (H–Cl, O–H).\n\n### 49. What is VSEPR Theory?\nValence-shell electron-pair repulsion theory: the electron pairs around a central atom (bonding pairs and lone pairs) repel each other and arrange themselves as far apart as possible. This determines the 3-D shape of the molecule (linear, trigonal planar, tetrahedral, pyramidal, bent, …).\n\n### 50. What is VSEPR Theory based on?\nIt's based on the repulsion between the negatively charged electron pairs (both shared and unshared) in the valence shell of the central atom. Because like charges repel, the pairs get as far from each other as possible.\n\n### 51. What makes a water molecule bent instead of linear?\nOxygen has two bonding pairs and two unshared (lone) pairs, so four electron pairs arranged roughly tetrahedrally. The lone pairs repel more strongly than bonding pairs and push the two H atoms closer together. The result is a bent shape with a bond angle of about 105°.\n\n### 52. Why is ammonia pyramidal instead of trigonal planar?\nNitrogen in NH₃ has three bonding pairs plus one unshared pair. That's four electron pairs arranged tetrahedrally, and the lone pair pushes the three N–H bonds down. The shape is a trigonal pyramid (bond angle about 107°). It would only be trigonal planar with three electron pairs and no lone pair, like BF₃.\n\n### 53. What is a polar covalent bond?\nA covalent bond in which the electrons are shared unequally, because one atom is more electronegative. That atom gets a partial negative charge (δ−) and the other gets a partial positive charge (δ+), e.g. the H–Cl bond.\n\n### 54. How can you determine if a covalent bond is polar or nonpolar?\nSubtract the two atoms' electronegativity values. A difference of about 0–0.4 is nonpolar covalent. About 0.4–1.7 (some texts say 2.0) is polar covalent. Above about 1.7–2.0 is generally ionic. Two identical atoms (like Cl–Cl) always form a nonpolar bond.\n\n### 55. Does the type of covalent bond (single, double, triple, even coordinate) affect whether or not a bond is polar or nonpolar?\nNo. Polarity depends only on the electronegativity difference between the two atoms, not on how many pairs are shared or who supplied the electrons. For example, the C=O double bond is polar and the N≡N triple bond is nonpolar.\n\n### 56. How can you show whether or not a covalent bond is polar when drawing the structural formula?\nLabel the atoms with δ+ (the less electronegative atom) and δ− (the more electronegative one). Or draw a polarity arrow along the bond pointing toward the more electronegative atom, with a small cross (+) at the positive end: H–Cl with the arrow pointing to Cl. Nonpolar bonds get no partial charges or arrow.\n\n### 57. What makes a molecule polar?\nA molecule is polar when it has polar bonds and its shape is unsymmetrical, so the bond polarities don't cancel. One end is partially positive and the other partially negative (a dipole). Water (bent) and ammonia (pyramidal) are polar.\n\n### 58. What is a dipole?\nA molecule, or bond, with two poles: one region with a partial positive charge and one with a partial negative charge. Polar molecules are dipoles.\n\n### 59. Can a molecule be polar if it contains no polar bonds?\nNo. Without polar bonds there's no uneven sharing of electrons anywhere, so the charge is evenly distributed and the molecule is nonpolar (e.g. H₂, Cl₂, O₂).\n\n### 60. Can a molecule be nonpolar if it contains polar bonds?\nYes, if the molecule's shape is symmetrical so the bond polarities cancel out. CO₂ (linear) and CCl₄ (tetrahedral) have polar bonds but are nonpolar molecules.\n\n### 61. What two things must we know in order to determine molecular polarity?\n1) Whether the bonds are polar, which depends on the electronegativity differences. 2) The molecule's shape (geometry, from VSEPR), which tells whether the bond polarities cancel out or add up.\n\n### 62. What are van der Waals forces?\nThe weakest attractions between molecules (intermolecular forces). There are two types: dipole interactions and dispersion forces.\n\n### 63. Define the two types of van der Waals forces: dipole interactions and dispersion forces.\nDipole interactions happen when polar molecules are attracted to one another: the δ+ end of one molecule attracts the δ− end of another. Dispersion forces are the weakest attractions of all. They are caused by the motion of electrons, which creates temporary (momentary) dipoles in neighboring molecules. They occur between all molecules, even nonpolar ones, and get stronger as the number of electrons (the molecule's size) increases.\n\n### 64. What type of van der Waals forces is a hydrogen bond? What makes it unique from all other van der Waals forces?\nA hydrogen bond is a special, very strong kind of dipole interaction. It's unique because it occurs only when hydrogen is covalently bonded to a very electronegative atom (F, O or N). That leaves the hydrogen nearly a bare proton, strongly attracted to an unshared electron pair on another electronegative atom. It's the strongest intermolecular force, though still much weaker than a covalent or ionic bond.\n\n### 65. What are some important roles that hydrogen bonds have in biology?\nThey hold the two strands of DNA together (between base pairs) while still letting them separate for copying. They help proteins fold into their shapes (α-helices and β-sheets). They also give water its special properties: a high boiling point, surface tension, high specific heat (which helps stabilize climate and body temperature), and ice that floats, insulating lakes so life survives winter.\n\n### 66. Why is there such a diverse range of properties among covalent compounds?\nThe attractions between molecules vary widely in type and strength: dispersion forces, dipole interactions and hydrogen bonds. They depend on each molecule's size, shape and polarity. Some covalent substances are even network solids held together entirely by covalent bonds. So melting points, boiling points and solubility range from gases like O₂ to extremely hard solids like diamond.\n\n### 67. What is a network solid?\nA solid in which all the atoms are covalently bonded to one another in a continuous 3-D network, so the whole crystal is essentially one giant molecule.\n\n### 68. What bonds must be broken in order for a network solid to melt?\nCovalent bonds throughout the network. Covalent bonds are very strong, so network solids have very high melting points, and some decompose instead of melting.\n\n### 69. Give two examples of network solids.\nDiamond (carbon) and quartz/silicon dioxide (SiO₂). Silicon carbide (SiC, carborundum) and graphite are other examples.",
+  "scope_check": null,
+  "questions": [
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "What is the electron configuration of Na⁺?",
+      "correct": "1s²2s²2p⁶ (same as neon)",
+      "distractors": [
+        "1s²2s²2p⁶3s²",
+        "1s²2s²2p⁶3s¹",
+        "1s²2s²2p⁵"
+      ],
+      "distractor_reasoning": "Sodium loses its single 3s electron, leaving the neon configuration."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "Chlorine gains one electron to form Cl⁻. Its ion has the electron configuration of which noble gas?",
+      "correct": "Argon",
+      "distractors": [
+        "Neon",
+        "Krypton",
+        "Helium"
+      ],
+      "distractor_reasoning": "Cl⁻ = 1s²2s²2p⁶3s²3p⁶, the same as argon, the next noble gas."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "Which kind of element tends to form anions?",
+      "correct": "Nonmetals with high electronegativity",
+      "distractors": [
+        "Metals with low electronegativity",
+        "Noble gases",
+        "Alkali metals"
+      ],
+      "distractor_reasoning": "Highly electronegative nonmetals gain electrons to complete their octet."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Octet Rule",
+      "question": "The octet rule states that atoms tend to:",
+      "correct": "Gain, lose or share electrons to get eight valence electrons",
+      "distractors": [
+        "Have eight protons in the nucleus",
+        "Form eight bonds each",
+        "Lose all of their valence electrons"
+      ],
+      "distractor_reasoning": "Eight valence electrons is a noble-gas configuration; the rule is about electrons, not protons."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Bonds",
+      "question": "An ionic bond is:",
+      "correct": "The electrostatic attraction between oppositely charged ions",
+      "distractors": [
+        "A shared pair of electrons between two nonmetals",
+        "The attraction between metal ions and a sea of electrons",
+        "A weak attraction between polar molecules"
+      ],
+      "distractor_reasoning": "Shared pairs are covalent bonds, the electron sea is metallic bonding, and weak molecular attractions are van der Waals forces."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "What is the formula for the compound formed from Al³⁺ and O²⁻?",
+      "correct": "Al₂O₃",
+      "distractors": [
+        "AlO",
+        "Al₃O₂",
+        "AlO₃"
+      ],
+      "distractor_reasoning": "2 Al (+6) and 3 O (−6) give a net charge of zero."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "What is the correct formula for calcium hydroxide?",
+      "correct": "Ca(OH)₂",
+      "distractors": [
+        "CaOH₂",
+        "CaOH",
+        "Ca₂OH"
+      ],
+      "distractor_reasoning": "Two hydroxide ions are needed, and a polyatomic ion that appears more than once goes in parentheses."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "Mg²⁺ and O²⁻ crisscross to Mg₂O₂. What is the correct formula?",
+      "correct": "MgO",
+      "distractors": [
+        "Mg₂O₂",
+        "Mg₂O",
+        "MgO₂"
+      ],
+      "distractor_reasoning": "Formula units are always reduced to the lowest whole-number ratio."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ions",
+      "question": "What is the name of the Cl⁻ ion?",
+      "correct": "Chloride",
+      "distractors": [
+        "Chlorine",
+        "Chlorate",
+        "Chlorite"
+      ],
+      "distractor_reasoning": "Monatomic anions end in -ide; chlorate and chlorite are polyatomic ions."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "What is the name of FeCl₃?",
+      "correct": "Iron(III) chloride",
+      "distractors": [
+        "Iron trichloride",
+        "Iron(II) chloride",
+        "Iron chlorine"
+      ],
+      "distractor_reasoning": "3 Cl⁻ = −3, so iron is +3. Ionic names use Roman numerals, not prefixes."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "Which is a property of ionic compounds?",
+      "correct": "They conduct electricity when melted or dissolved in water",
+      "distractors": [
+        "They have low melting points",
+        "They are usually gases at room temperature",
+        "They conduct electricity as solids"
+      ],
+      "distractor_reasoning": "The ions are locked in place in the solid, but move freely when melted or dissolved."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "In a NaCl crystal, each ion is surrounded by 6 ions of opposite charge. This number is the:",
+      "correct": "Coordination number",
+      "distractors": [
+        "Oxidation number",
+        "Formula unit",
+        "Atomic number"
+      ],
+      "distractor_reasoning": "The coordination number counts the nearest oppositely charged neighbors in the crystal."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Metallic Bonds",
+      "question": "Metallic bonds are best described as:",
+      "correct": "Metal cations attracted to a sea of shared valence electrons",
+      "distractors": [
+        "Transfer of electrons from a metal to a nonmetal",
+        "Pairs of electrons shared by two nonmetals",
+        "Attractions between polar molecules"
+      ],
+      "distractor_reasoning": "The mobile electron sea explains why metals conduct electricity and are malleable."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "Covalent bonds usually form between:",
+      "correct": "Two nonmetal atoms",
+      "distractors": [
+        "A metal and a nonmetal",
+        "Two metal atoms",
+        "A metal and a noble gas"
+      ],
+      "distractor_reasoning": "A metal with a nonmetal forms an ionic bond; metal atoms bond to each other with metallic bonds."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Diatomic Molecules",
+      "question": "Which element does NOT exist as a diatomic molecule?",
+      "correct": "Sulfur",
+      "distractors": [
+        "Nitrogen",
+        "Bromine",
+        "Hydrogen"
+      ],
+      "distractor_reasoning": "The seven diatomic elements are H, N, O, F, Cl, Br and I."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What is the name of N₂O₄?",
+      "correct": "Dinitrogen tetroxide",
+      "distractors": [
+        "Nitrogen oxide",
+        "Nitrogen(IV) oxide",
+        "Dinitrogen quadoxide"
+      ],
+      "distractor_reasoning": "Binary molecular compounds use Greek prefixes: di = 2, tetra = 4."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What is the formula for diphosphorus pentoxide?",
+      "correct": "P₂O₅",
+      "distractors": [
+        "P₅O₂",
+        "PO₅",
+        "P₂O"
+      ],
+      "distractor_reasoning": "The prefixes give the subscripts directly: di = 2, penta = 5."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "How many electrons are shared in a triple covalent bond?",
+      "correct": "6",
+      "distractors": [
+        "3",
+        "2",
+        "9"
+      ],
+      "distractor_reasoning": "A triple bond is 3 shared pairs = 6 electrons."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bond Strength",
+      "question": "Which carbon–carbon bond has the highest bond dissociation energy?",
+      "correct": "Triple bond",
+      "distractors": [
+        "Single bond",
+        "Double bond",
+        "They are all equal"
+      ],
+      "distractor_reasoning": "More shared pairs make a shorter, stronger bond that needs more energy to break."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bond Strength",
+      "question": "As bond length decreases, bond dissociation energy:",
+      "correct": "Increases",
+      "distractors": [
+        "Decreases",
+        "Stays the same",
+        "Becomes zero"
+      ],
+      "distractor_reasoning": "Shorter bonds are stronger, so it takes more energy to break them."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Octet Rule Exceptions",
+      "question": "Which molecule is an exception to the octet rule because the central atom has MORE than eight electrons?",
+      "correct": "PCl₅",
+      "distractors": [
+        "CH₄",
+        "H₂O",
+        "NH₃"
+      ],
+      "distractor_reasoning": "Phosphorus in PCl₅ has 10 electrons (an expanded octet); the others follow the octet rule."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "Why is a water molecule bent instead of linear?",
+      "correct": "The two lone pairs on oxygen push the bonding pairs closer together",
+      "distractors": [
+        "Hydrogen atoms repel the oxygen nucleus",
+        "Water has double bonds",
+        "Oxygen has no lone pairs"
+      ],
+      "distractor_reasoning": "Oxygen has 2 bonding and 2 unshared pairs; the lone pairs repel strongly, giving about 105°."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "What is the shape of an ammonia (NH₃) molecule?",
+      "correct": "Trigonal pyramidal",
+      "distractors": [
+        "Trigonal planar",
+        "Linear",
+        "Tetrahedral with four atoms"
+      ],
+      "distractor_reasoning": "Three bonding pairs plus one lone pair on N make a pyramid (about 107°)."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Which bond is nonpolar covalent?",
+      "correct": "Cl–Cl",
+      "distractors": [
+        "H–Cl",
+        "O–H",
+        "Na–Cl"
+      ],
+      "distractor_reasoning": "Identical atoms have zero electronegativity difference; Na–Cl is ionic."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "CO₂ contains polar C=O bonds but is a nonpolar molecule because:",
+      "correct": "Its linear, symmetrical shape makes the bond polarities cancel",
+      "distractors": [
+        "Carbon and oxygen have the same electronegativity",
+        "Double bonds are never polar",
+        "It has no electrons to share"
+      ],
+      "distractor_reasoning": "Molecular polarity depends on both bond polarity and shape."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "A hydrogen bond forms when hydrogen is covalently bonded to:",
+      "correct": "A very electronegative atom such as F, O or N",
+      "distractors": [
+        "Any metal atom",
+        "Carbon",
+        "Another hydrogen atom"
+      ],
+      "distractor_reasoning": "Only F, O and N pull electrons strongly enough to make H nearly a bare proton."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Which intermolecular force exists between ALL molecules, even nonpolar ones?",
+      "correct": "Dispersion forces",
+      "distractors": [
+        "Hydrogen bonds",
+        "Dipole interactions",
+        "Ionic bonds"
+      ],
+      "distractor_reasoning": "Moving electrons create temporary dipoles in every molecule."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Network Solids",
+      "question": "What must be broken for a network solid like diamond to melt?",
+      "correct": "Covalent bonds",
+      "distractors": [
+        "Hydrogen bonds",
+        "Dispersion forces",
+        "Ionic bonds"
+      ],
+      "distractor_reasoning": "Every atom is covalently bonded in a continuous network, so melting means breaking covalent bonds."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Acids and Bases",
+      "question": "A base is a compound that produces which ion in water?",
+      "correct": "OH⁻ (hydroxide)",
+      "distractors": [
+        "H⁺ (hydrogen)",
+        "Cl⁻ (chloride)",
+        "Na⁺ (sodium)"
+      ],
+      "distractor_reasoning": "Acids produce H⁺; bases produce OH⁻."
+    },
+    {
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Diatomic Molecules",
+      "question": "Which THREE elements exist as diatomic molecules?",
+      "correct_count": 3,
+      "options": [
+        "Oxygen",
+        "Iodine",
+        "Nitrogen",
+        "Neon",
+        "Carbon",
+        "Sodium"
+      ],
+      "correct_answers": [
+        "Oxygen",
+        "Iodine",
+        "Nitrogen"
+      ],
+      "distractor_reasoning": "Neon is a monatomic noble gas; carbon and sodium do not form diatomic molecules under normal conditions."
+    },
+    {
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Ionic vs Covalent",
+      "question": "Which THREE are properties of typical ionic compounds?",
+      "correct_count": 3,
+      "options": [
+        "High melting point",
+        "Brittle crystalline solid",
+        "Conducts electricity when dissolved",
+        "Low boiling point",
+        "Soft and waxy",
+        "Made only of nonmetals"
+      ],
+      "correct_answers": [
+        "High melting point",
+        "Brittle crystalline solid",
+        "Conducts electricity when dissolved"
+      ],
+      "distractor_reasoning": "Low boiling points, softness and all-nonmetal composition describe molecular (covalent) compounds."
+    },
+    {
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Network Solids",
+      "question": "Which THREE are examples of network solids?",
+      "correct_count": 3,
+      "options": [
+        "Diamond",
+        "Quartz (SiO₂)",
+        "Silicon carbide (SiC)",
+        "Table salt (NaCl)",
+        "Ice (H₂O)",
+        "Copper"
+      ],
+      "correct_answers": [
+        "Diamond",
+        "Quartz (SiO₂)",
+        "Silicon carbide (SiC)"
+      ],
+      "distractor_reasoning": "NaCl is ionic, ice is a molecular solid held by hydrogen bonds, and copper is metallic."
+    },
+    {
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "The polyatomic ion SO₄²⁻ is named ___, and NH₄⁺ is named ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "sulfate"
+        },
+        {
+          "id": 1,
+          "answer": "ammonium"
+        }
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "A bond in which one atom contributes both shared electrons is a ___ covalent bond.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "coordinate"
+        }
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "In VSEPR theory, electron pairs around a central atom ___ each other and move as far apart as possible.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "repel"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "term": "Ion",
+      "definition": "An atom or group of atoms that has a positive or negative charge because it has lost or gained electrons."
+    },
+    {
+      "term": "Valence electron",
+      "definition": "An electron in the highest occupied energy level of an atom; valence electrons take part in bonding."
+    },
+    {
+      "term": "Electron (Lewis) dot diagram",
+      "definition": "The element's symbol surrounded by dots, one for each valence electron."
+    },
+    {
+      "term": "Cation",
+      "definition": "A positively charged ion, formed when an atom loses electrons (usually a metal)."
+    },
+    {
+      "term": "Anion",
+      "definition": "A negatively charged ion, formed when an atom gains electrons (usually a nonmetal)."
+    },
+    {
+      "term": "Octet rule",
+      "definition": "Atoms tend to gain, lose or share electrons so they end up with eight valence electrons, a noble-gas configuration."
+    },
+    {
+      "term": "Ionic compound",
+      "definition": "A compound made of cations and anions held together by ionic bonds, usually a metal with a nonmetal; overall electrically neutral."
+    },
+    {
+      "term": "Ionic bond",
+      "definition": "The electrostatic attraction between oppositely charged ions."
+    },
+    {
+      "term": "Chemical formula",
+      "definition": "Shows the kinds and numbers of atoms in the smallest representative unit of a substance (e.g. H₂O, NaCl)."
+    },
+    {
+      "term": "Formula unit",
+      "definition": "The lowest whole-number ratio of ions in an ionic compound (e.g. NaCl, CaCl₂)."
+    },
+    {
+      "term": "Molecular formula",
+      "definition": "The chemical formula of a molecular compound; shows the actual number of each kind of atom in one molecule (e.g. C₆H₁₂O₆)."
+    },
+    {
+      "term": "Coordination number",
+      "definition": "The number of ions of opposite charge that surround an ion in a crystal (NaCl: 6)."
+    },
+    {
+      "term": "Metallic bond",
+      "definition": "The attraction between free-floating valence electrons (a 'sea of electrons') and positively charged metal ions."
+    },
+    {
+      "term": "Alloy",
+      "definition": "A mixture of two or more elements, at least one of them a metal, that has metallic properties (e.g. brass, steel)."
+    },
+    {
+      "term": "Monatomic ion",
+      "definition": "An ion consisting of a single atom (e.g. Na⁺, Cl⁻, O²⁻)."
+    },
+    {
+      "term": "Polyatomic ion",
+      "definition": "A tightly bound group of atoms that behaves as a unit and has an overall charge (e.g. SO₄²⁻, NO₃⁻, NH₄⁺)."
+    },
+    {
+      "term": "Oxidation number",
+      "definition": "The charge an atom would have if its electrons were transferred completely; for a monatomic ion, it equals the ion's charge."
+    },
+    {
+      "term": "Binary ionic compound",
+      "definition": "An ionic compound made of two elements: a metal cation and a nonmetal anion (e.g. NaCl, MgO)."
+    },
+    {
+      "term": "Covalent compound",
+      "definition": "A compound whose atoms are held together by covalent bonds (a molecular compound), usually made of nonmetals."
+    },
+    {
+      "term": "Covalent bond",
+      "definition": "A bond formed when two atoms share a pair of electrons."
+    },
+    {
+      "term": "Molecule",
+      "definition": "A neutral group of atoms joined together by covalent bonds."
+    },
+    {
+      "term": "Binary molecular compound",
+      "definition": "A molecular compound made of two nonmetal elements (e.g. CO₂, N₂O₄)."
+    },
+    {
+      "term": "Coordinate covalent bond",
+      "definition": "A covalent bond in which one atom contributes both of the shared electrons (e.g. in CO and NH₄⁺)."
+    },
+    {
+      "term": "Bond dissociation energy",
+      "definition": "The energy required to break the bond between two covalently bonded atoms."
+    },
+    {
+      "term": "Resonance structures",
+      "definition": "Two or more valid electron dot structures for the same molecule that differ only in where the electron pairs are (e.g. O₃); the real molecule is a hybrid of them."
+    },
+    {
+      "term": "Acid",
+      "definition": "A compound that produces hydrogen ions (H⁺) when dissolved in water (e.g. HCl)."
+    },
+    {
+      "term": "Base",
+      "definition": "A compound that produces hydroxide ions (OH⁻) when dissolved in water (e.g. NaOH)."
+    },
+    {
+      "term": "Formal charge",
+      "definition": "A charge assigned to an atom in a Lewis structure: valence electrons − nonbonding electrons − ½ bonding electrons. It is used to pick the best structure."
+    },
+    {
+      "term": "VSEPR theory",
+      "definition": "Valence-shell electron-pair repulsion theory: electron pairs around a central atom repel each other and spread as far apart as possible, which sets the molecule's shape."
+    },
+    {
+      "term": "Polar covalent bond",
+      "definition": "A covalent bond in which electrons are shared unequally because the atoms differ in electronegativity, giving partial charges (δ+ and δ−)."
+    },
+    {
+      "term": "Nonpolar covalent bond",
+      "definition": "A covalent bond in which electrons are shared equally (e.g. H₂, Cl₂)."
+    },
+    {
+      "term": "Polar molecule",
+      "definition": "A molecule with a partially positive end and a partially negative end (e.g. H₂O)."
+    },
+    {
+      "term": "Nonpolar molecule",
+      "definition": "A molecule whose charge is evenly distributed, with no positive or negative end (e.g. CO₂, CH₄)."
+    },
+    {
+      "term": "Dipole",
+      "definition": "A molecule, or part of one, that has two poles: a partially positive region and a partially negative region."
+    },
+    {
+      "term": "Van der Waals forces",
+      "definition": "The weakest attractions between molecules, including dipole interactions and dispersion forces."
+    },
+    {
+      "term": "Dispersion forces",
+      "definition": "The weakest intermolecular attractions, caused by moving electrons creating temporary dipoles. They occur between all molecules and are stronger for larger molecules."
+    },
+    {
+      "term": "Hydrogen bonds",
+      "definition": "A strong attraction between a hydrogen atom that is covalently bonded to a very electronegative atom (F, O or N) and an unshared electron pair on another electronegative atom."
+    },
+    {
+      "term": "Network solid",
+      "definition": "A solid in which all the atoms are covalently bonded to each other in a continuous network (e.g. diamond, quartz SiO₂); very high melting point."
+    }
+  ],
+  "sessions": [],
+  "missed_queue": [],
+  "missed_queue_cards": []
+}

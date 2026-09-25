@@ -1,0 +1,519 @@
+{
+  "version": 2,
+  "unit": "Electrons in Atoms",
+  "created": "2026-09-25",
+  "last_modified": "2026-09-25",
+  "last_compiled": "2026-09-25",
+  "notes_md": "## Study Questions\n\n### 1. What element did Bohr work with nearly exclusively and what phenomenon caused him to develop his own atomic model?\nHydrogen. Rutherford's model could not explain hydrogen's atomic emission (line) spectrum: excited hydrogen gives off only certain specific frequencies of light, not a continuous rainbow. Rutherford's model also couldn't explain why electrons don't spiral into the nucleus. Bohr built his model to explain these observations.\n\n### 2. What improvements did Bohr make upon Rutherford's atomic model?\nRutherford had a dense positive nucleus with electrons somewhere around it. Bohr proposed that electrons travel in fixed circular orbits (energy levels) around the nucleus. Each orbit has a specific energy, and electrons cannot exist between orbits. An electron absorbs or emits energy only when it jumps from one level to another. This explained why atoms are stable and why they emit only certain frequencies of light.\n\n### 3. How can we use a periodic table to determine the number of principal energy levels an atom of a given element has?\nThe period (row) number equals the number of occupied principal energy levels in a ground-state atom. For example, sodium is in period 3, so its electrons occupy three energy levels (n = 1, 2 and 3).\n\n### 4. According to the Bohr model, how many electrons can each of the first three energy levels hold?\nIn the Bohr diagrams used for the first 20 elements: 2 electrons in the first level, 8 in the second and 8 in the third. (The general maximum is 2n², so the third level can eventually hold 18 once its d sublevel fills, but it holds 8 before the fourth level starts filling.)\n\n### 5. What sort of research did Planck conduct and how is it directly related to the Bohr model?\nMax Planck studied the light given off by heated objects (blackbody radiation). He found that matter gains or loses energy only in small, specific amounts called quanta, with E = hν. Bohr applied this idea to the atom: an electron can only have certain quantized energies (energy levels), and it emits or absorbs a photon whose energy equals the difference between two levels.\n\n### 6. What is a quantum?\nA quantum is the minimum amount of energy that can be gained or lost by an atom. Energy comes in these discrete 'packets' rather than in any amount.\n\n### 7. What does it mean to quantize something?\nTo quantize something means it can only have certain specific (discrete) values, not any value in between. A staircase is quantized (you can stand only on steps), while a ramp is continuous.\n\n### 8. Are all quanta equal? Explain.\nNo. The energy of a quantum depends on the frequency of the radiation: E = hν. Higher-frequency radiation (like UV or X-rays) comes in larger quanta than lower-frequency radiation (like radio waves or red light).\n\n### 9. What do we call a quantum of electromagnetic radiation?\nA photon: a massless particle that carries a quantum of energy.\n\n### 10. Draw a transverse wave and label the parts.\nDraw a wave that goes up and down across a horizontal line (the rest position, or origin). Label these parts: the **crest** (the highest point), the **trough** (the lowest point), the **wavelength (λ)** (the distance from one crest to the next crest, or trough to trough), and the **amplitude** (the height from the rest line up to a crest, or down to a trough). Frequency (ν) is the number of waves that pass a point per second, measured in hertz (Hz).\n\n### 11. What revolutionary concept did Einstein propose as an explanation for the photoelectric effect?\nEinstein proposed that light has a particle nature as well as a wave nature (wave–particle duality). A beam of light is a stream of photons, each with energy E = hν. An electron is ejected from a metal only if a single photon has enough energy, meaning the light must be at or above a threshold frequency, no matter how bright it is.\n\n### 12. What is an atomic emission spectrum and how did Bohr's atomic model explain it?\nAn atomic emission spectrum is the set of specific frequencies of light emitted by an element's excited atoms. It appears as separate colored lines, and it is unique to each element, like a fingerprint. Bohr explained it this way: an electron absorbs energy and jumps to a higher energy level (excited state). When it falls back to a lower level, it emits a photon whose energy equals the difference between the two levels. Only certain energy differences are possible, so only certain frequencies (lines) appear.\n\n### 13. Can we calculate the amount of energy a photon has? If so, how?\nYes. E(photon) = hν, where h is Planck's constant (6.626 × 10⁻³⁴ J·s) and ν is the frequency in Hz (s⁻¹). If you know the wavelength instead, first find the frequency with ν = c/λ (c = 3.00 × 10⁸ m/s), so E = hc/λ.\n\n### 14. If the velocity of two waves is the same, how can we determine which wave has more energy?\nCompare their wavelengths or frequencies. Since c = λν, the wave with the shorter wavelength has the higher frequency, and since E = hν, the higher-frequency wave has more energy.\n\n### 15. What affects the frequency of a photon more, speed or wavelength?\nWavelength. All photons travel at the same speed in a vacuum (c = 3.00 × 10⁸ m/s), so speed does not change from photon to photon. Frequency depends on wavelength: ν = c/λ. Shorter wavelength means higher frequency.\n\n### 16. What about a hydrogen atom is Bohr's model able to accurately predict? What are the limitations of the Bohr model?\nBohr's model correctly predicts the energy levels of hydrogen's single electron, and therefore the frequencies (lines) in hydrogen's emission spectrum. Its limitations: it fails to predict the spectra of atoms with more than one electron. It doesn't explain the chemical behavior of atoms. And it wrongly treats electrons as particles moving in fixed circular orbits (which also conflicts with the Heisenberg uncertainty principle).\n\n### 17. What effect did de Broglie's equation have on the atomic model? How did it change Bohr's model?\nDe Broglie proposed that all moving particles, including electrons, have wave properties: λ = h/mv. Treating the electron as a wave meant only certain wavelengths (standing waves) could fit around the nucleus. This explained why only certain energy levels are allowed. It moved the model away from electrons as tiny particles on circular tracks and toward a wave-based (quantum mechanical) model.\n\n### 18. How did Schrödinger use de Broglie's wave equation and Heisenberg's uncertainty principle to devise the quantum mechanical model of the atom?\nSchrödinger treated the electron as a wave, following de Broglie, and wrote a wave equation for the hydrogen atom. Its solutions (wave functions) give the allowed energies of the electron. Heisenberg's uncertainty principle says you can't know both an electron's exact position and velocity at the same time. So the model doesn't give exact paths. Instead, the wave functions describe the probability of finding the electron in regions around the nucleus (atomic orbitals, or the 'electron cloud').\n\n### 19. Where does the quantum mechanical model state that electrons may be found? How is this different from Bohr's model?\nElectrons are found in atomic orbitals: three-dimensional regions around the nucleus where there is a high probability (about 90%) of finding the electron. You can only say where an electron probably is. In Bohr's model, electrons travel in exact circular paths at fixed distances from the nucleus.\n\n### 20. What is a sublevel? How is it different from a principal energy level?\nA principal energy level (n = 1, 2, 3, …) is a main energy level of the atom. Each principal energy level is divided into sublevels (s, p, d, f), and level n contains n sublevels (n = 2 has 2s and 2p). A sublevel is a smaller division within a principal level, made up of orbitals of the same shape and energy.\n\n### 21. What is an orbital? What determines the shape of an orbital?\nAn orbital is a three-dimensional region around the nucleus that describes the electron's probable location. Each orbital holds a maximum of 2 electrons, with opposite spins. Its shape is determined by its sublevel type (s, p, d or f), which comes from the solutions to the Schrödinger equation.\n\n### 22. What determines the size of an orbital?\nThe principal energy level (principal quantum number, n). The higher n is, the larger the orbital and the farther the electron is, on average, from the nucleus (a 3s orbital is bigger than a 2s, which is bigger than a 1s).\n\n### 23. What are the four sublevels and what is the maximum number of associated orbitals for each one?\ns: 1 orbital (2 electrons). p: 3 orbitals (6 electrons). d: 5 orbitals (10 electrons). f: 7 orbitals (14 electrons).\n\n### 24. What is the shape of an s orbital?\nSpherical (a sphere centered on the nucleus).\n\n### 25. What is the shape of a p orbital?\nDumbbell-shaped. There are three p orbitals in each p sublevel, oriented along the x, y and z axes.\n\n### 26. At what point, in the quantum mechanical model do the energy states of the principal energy levels start to overlap?\nStarting with the third and fourth energy levels. The 4s sublevel is lower in energy than the 3d sublevel, so 4s fills before 3d. (Likewise 5s fills before 4d, and 6s before 4f.)\n\n### 27. What is the rule for determining the principal energy level of a d sublevel? An f sublevel?\nd sublevel: principal energy level = period number − 1 (the d block in period 4 is 3d). f sublevel: principal energy level = period number − 2 (the f block in period 6 is 4f).\n\n### 28. Under what circumstances will the Aufbau principle be violated? Why is this?\nIt is violated when a half-filled or completely filled d sublevel can be reached, as with chromium and copper. Half-filled and filled sublevels are especially stable, and the 4s and 3d energies are very close. So one 4s electron moves into 3d: Cr is [Ar]4s¹3d⁵ (not 4s²3d⁴), and Cu is [Ar]4s¹3d¹⁰ (not 4s²3d⁹).\n\n### 29. How is noble gas notation different from complete sublevel notation?\nComplete notation writes every sublevel, for example sodium = 1s²2s²2p⁶3s¹. Noble gas notation replaces the inner electrons with the symbol of the previous noble gas in brackets, then writes only the remaining electrons: sodium = [Ne]3s¹. It's shorter and highlights the valence electrons.\n\n### 30. What are valence electrons and what can they tell us about an atom?\nValence electrons are the electrons in an atom's outermost (highest) principal energy level. They determine the element's chemical properties: how it bonds, which ions it forms and how reactive it is. For representative elements, the group number tells how many there are (group 1 = 1, group 2 = 2, groups 13–18 = group number − 10). They are shown in electron dot diagrams.\n\n### 31. How are the electron configurations of elements in the same family/group similar?\nThey have the same number of valence electrons with the same outer configuration pattern. For example, all group 1 elements end in ns¹, and all halogens end in ns²np⁵. That's why elements in the same group have similar chemical properties.\n\n### 32. How do ions form?\nAtoms gain or lose valence electrons. Losing electrons makes a positive ion; gaining electrons makes a negative ion. Atoms usually do this to reach a stable noble-gas electron configuration (an octet).\n\n### 33. How is a cation different from an anion?\nA cation is a positively charged ion formed when an atom loses electrons (metals usually form cations, e.g. Na⁺). An anion is a negatively charged ion formed when an atom gains electrons (nonmetals usually form anions, e.g. Cl⁻).\n\n### 34. How does a representative element's electron configuration change when it forms an ion?\nIt ends up with the electron configuration of a noble gas. Metals lose their valence electrons and take the configuration of the previous noble gas: Na [Ne]3s¹ → Na⁺ [Ne]. Nonmetals gain electrons to complete their octet and take the configuration of the next noble gas: Cl [Ne]3s²3p⁵ → Cl⁻ [Ne]3s²3p⁶ = [Ar].",
+  "scope_check": null,
+  "questions": [
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "Bohr developed his atomic model mainly to explain the emission spectrum of which element?",
+      "correct": "Hydrogen",
+      "distractors": [
+        "Helium",
+        "Neon",
+        "Sodium"
+      ],
+      "distractor_reasoning": "Bohr worked almost exclusively with hydrogen, whose single electron made its line spectrum the simplest to explain."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "Which idea did Bohr add to Rutherford's model of the atom?",
+      "correct": "Electrons move in fixed orbits that each have a specific energy",
+      "distractors": [
+        "The atom has a small, dense, positive nucleus",
+        "Electrons are embedded in a sphere of positive charge",
+        "Electrons can have any amount of energy"
+      ],
+      "distractor_reasoning": "The dense nucleus was Rutherford's idea; the 'plum pudding' sphere was Thomson's. Bohr's contribution was quantized orbits."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Energy Levels",
+      "question": "How many principal energy levels are occupied in a ground-state atom of an element in period 4?",
+      "correct": "4",
+      "distractors": [
+        "2",
+        "8",
+        "18"
+      ],
+      "distractor_reasoning": "The period number equals the number of occupied principal energy levels."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "In a Bohr diagram for calcium (20 electrons), how are the electrons arranged?",
+      "correct": "2, 8, 8, 2",
+      "distractors": [
+        "2, 8, 10",
+        "2, 18",
+        "8, 8, 4"
+      ],
+      "distractor_reasoning": "The Bohr pattern for the first 20 elements fills 2, then 8, then 8, then begins the fourth level."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "What is a quantum?",
+      "correct": "The minimum amount of energy that can be gained or lost by an atom",
+      "distractors": [
+        "The smallest particle of matter",
+        "A wave with a very long wavelength",
+        "The total energy of an atom's electrons"
+      ],
+      "distractor_reasoning": "A quantum is a packet of energy, not a particle of matter."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "Which statement about quanta is true?",
+      "correct": "Higher-frequency radiation comes in larger quanta",
+      "distractors": [
+        "All quanta have the same energy",
+        "Lower-frequency radiation comes in larger quanta",
+        "The size of a quantum depends on the speed of light only"
+      ],
+      "distractor_reasoning": "E = hν, so the energy of a quantum increases with frequency."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photons",
+      "question": "What is a quantum of electromagnetic radiation called?",
+      "correct": "A photon",
+      "distractors": [
+        "A proton",
+        "A quark",
+        "An orbital"
+      ],
+      "distractor_reasoning": "Protons and quarks are matter particles; an orbital is a region where electrons are likely to be."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Waves",
+      "question": "On a transverse wave, the distance from one crest to the next crest is the:",
+      "correct": "Wavelength",
+      "distractors": [
+        "Amplitude",
+        "Frequency",
+        "Trough"
+      ],
+      "distractor_reasoning": "Amplitude is the height from the rest line; frequency is waves per second; the trough is the lowest point."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Waves",
+      "question": "The height of a wave measured from the rest position to a crest is its:",
+      "correct": "Amplitude",
+      "distractors": [
+        "Wavelength",
+        "Frequency",
+        "Period"
+      ],
+      "distractor_reasoning": "Wavelength is a horizontal distance; amplitude is the vertical height."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photoelectric Effect",
+      "question": "Einstein explained the photoelectric effect by proposing that:",
+      "correct": "Light behaves as a stream of particles (photons), each with energy hν",
+      "distractors": [
+        "Electrons orbit the nucleus in circular paths",
+        "Brighter light always ejects electrons regardless of color",
+        "Light is only a wave"
+      ],
+      "distractor_reasoning": "Below the threshold frequency no electrons are ejected, however bright the light, because each photon has too little energy."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Emission Spectra",
+      "question": "Why does an element's emission spectrum show only certain colored lines?",
+      "correct": "Electrons can only drop between specific energy levels, releasing photons with specific energies",
+      "distractors": [
+        "Atoms absorb all colors except those lines",
+        "Electrons have any energy, but only some colors are visible",
+        "The nucleus emits light at specific frequencies"
+      ],
+      "distractor_reasoning": "Each line corresponds to an electron falling from a higher to a lower allowed energy level."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "Which equation gives the energy of a photon?",
+      "correct": "E = hν",
+      "distractors": [
+        "E = mc",
+        "E = λ/ν",
+        "E = h/λν"
+      ],
+      "distractor_reasoning": "Planck's constant times frequency; equivalently E = hc/λ."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "Two waves travel at the same speed. Wave A has a shorter wavelength than wave B. Which has more energy?",
+      "correct": "Wave A, because shorter wavelength means higher frequency",
+      "distractors": [
+        "Wave B, because longer waves carry more energy",
+        "They have equal energy because their speeds are equal",
+        "It cannot be determined without the amplitude"
+      ],
+      "distractor_reasoning": "c = λν means shorter λ gives higher ν, and E = hν."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "All electromagnetic waves travel at the same speed in a vacuum. What determines a photon's frequency?",
+      "correct": "Its wavelength",
+      "distractors": [
+        "Its speed",
+        "Its amplitude",
+        "Its mass"
+      ],
+      "distractor_reasoning": "ν = c/λ; the speed c is constant, so the frequency depends on the wavelength."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "What is a major limitation of the Bohr model?",
+      "correct": "It cannot explain the spectra of atoms with more than one electron",
+      "distractors": [
+        "It cannot explain hydrogen's spectrum",
+        "It has no nucleus",
+        "It says electrons can have any energy"
+      ],
+      "distractor_reasoning": "Bohr's model works for hydrogen but fails for multi-electron atoms."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Mechanical Model",
+      "question": "De Broglie's key idea was that:",
+      "correct": "Moving particles such as electrons have wave properties",
+      "distractors": [
+        "Light is made of particles",
+        "Electrons orbit in perfect circles",
+        "The nucleus contains neutrons"
+      ],
+      "distractor_reasoning": "λ = h/mv, so electrons have wavelengths too, which helps explain why only certain energy levels are allowed."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Mechanical Model",
+      "question": "According to the quantum mechanical model, an electron is located:",
+      "correct": "In an orbital: a 3-D region of high probability around the nucleus",
+      "distractors": [
+        "On a fixed circular path at a set distance from the nucleus",
+        "Inside the nucleus",
+        "At an exactly known position and velocity"
+      ],
+      "distractor_reasoning": "The Heisenberg uncertainty principle means only probabilities can be given, not exact paths."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What determines the SIZE of an orbital?",
+      "correct": "The principal energy level (n)",
+      "distractors": [
+        "The sublevel letter (s, p, d, f)",
+        "The number of protons only",
+        "The electron's spin"
+      ],
+      "distractor_reasoning": "Orbitals get larger as n increases; the sublevel type determines the shape."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What is the shape of an s orbital?",
+      "correct": "Spherical",
+      "distractors": [
+        "Dumbbell",
+        "Cloverleaf",
+        "Flat circle"
+      ],
+      "distractor_reasoning": "p orbitals are dumbbell-shaped; most d orbitals are cloverleaf-shaped."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What is the shape of a p orbital?",
+      "correct": "Dumbbell",
+      "distractors": [
+        "Spherical",
+        "Cube",
+        "Ring"
+      ],
+      "distractor_reasoning": "s orbitals are spherical; p orbitals are dumbbells along the x, y and z axes."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "Why does the 4s sublevel fill before the 3d sublevel?",
+      "correct": "The 4s sublevel is lower in energy than 3d",
+      "distractors": [
+        "4s is closer to the nucleus than 3d",
+        "3d orbitals can only hold 2 electrons",
+        "Hund's rule requires it"
+      ],
+      "distractor_reasoning": "From n = 3 onward, the energy levels overlap, and 4s is slightly lower in energy than 3d."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "What is the correct electron configuration for chromium (Cr)?",
+      "correct": "[Ar]4s¹3d⁵",
+      "distractors": [
+        "[Ar]4s²3d⁴",
+        "[Ar]3d⁶",
+        "[Kr]4s¹3d⁵"
+      ],
+      "distractor_reasoning": "A half-filled d sublevel is extra stable, so one 4s electron moves to 3d."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electron Configuration",
+      "question": "What is the noble gas notation for sodium?",
+      "correct": "[Ne]3s¹",
+      "distractors": [
+        "[Ar]3s¹",
+        "[Ne]2s¹",
+        "1s²2s²2p⁶3s¹"
+      ],
+      "distractor_reasoning": "[Ne] stands for 1s²2s²2p⁶; the last choice is complete notation, not noble gas notation."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "How many valence electrons does an atom of oxygen (group 16) have?",
+      "correct": "6",
+      "distractors": [
+        "2",
+        "8",
+        "16"
+      ],
+      "distractor_reasoning": "For groups 13–18, the number of valence electrons = group number − 10."
+    },
+    {
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "When a representative metal forms an ion, it usually:",
+      "correct": "Loses valence electrons to reach the configuration of the previous noble gas",
+      "distractors": [
+        "Gains electrons to reach the next noble gas",
+        "Loses protons to become positive",
+        "Shares electrons with a nonmetal"
+      ],
+      "distractor_reasoning": "Metals lose electrons (e.g. Na → Na⁺, [Ne]); ions form by changing electrons, never protons."
+    },
+    {
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "Which THREE statements about sublevels are correct?",
+      "correct_count": 3,
+      "options": [
+        "A p sublevel has 3 orbitals",
+        "A d sublevel can hold 10 electrons",
+        "An f sublevel has 7 orbitals",
+        "An s sublevel has 3 orbitals",
+        "Every orbital can hold 8 electrons",
+        "The first energy level has s and p sublevels"
+      ],
+      "correct_answers": [
+        "A p sublevel has 3 orbitals",
+        "A d sublevel can hold 10 electrons",
+        "An f sublevel has 7 orbitals"
+      ],
+      "distractor_reasoning": "s has 1 orbital; every orbital holds at most 2 electrons; n = 1 has only an s sublevel."
+    },
+    {
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "Which THREE scientists' ideas led to the quantum mechanical model of the atom?",
+      "correct_count": 3,
+      "options": [
+        "de Broglie",
+        "Heisenberg",
+        "Schrödinger",
+        "Mendeleev",
+        "Dalton",
+        "Avogadro"
+      ],
+      "correct_answers": [
+        "de Broglie",
+        "Heisenberg",
+        "Schrödinger"
+      ],
+      "distractor_reasoning": "Mendeleev built the periodic table, Dalton proposed atomic theory, and Avogadro is known for counting particles."
+    },
+    {
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "In the equation E = hν, h is called ___ constant.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "Planck's"
+        }
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "For a d sublevel, the principal energy level equals the period number minus ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "1"
+        }
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "A positively charged ion is called a ___, and a negatively charged ion is called an ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "cation"
+        },
+        {
+          "id": 1,
+          "answer": "anion"
+        }
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "term": "Quantum",
+      "definition": "The minimum amount of energy that can be gained or lost by an atom."
+    },
+    {
+      "term": "Photon",
+      "definition": "A massless particle that carries a quantum of electromagnetic energy (E = hν)."
+    },
+    {
+      "term": "Planck's constant (h)",
+      "definition": "6.626 × 10⁻³⁴ J·s; relates a photon's energy to its frequency in E = hν."
+    },
+    {
+      "term": "Wavelength (λ)",
+      "definition": "The distance between corresponding points on consecutive waves, such as crest to crest."
+    },
+    {
+      "term": "Frequency (ν)",
+      "definition": "The number of waves that pass a given point per second, measured in hertz (Hz)."
+    },
+    {
+      "term": "Amplitude",
+      "definition": "The height of a wave from the rest position to a crest (or trough)."
+    },
+    {
+      "term": "Photoelectric effect",
+      "definition": "Electrons are ejected from a metal when light of at least a threshold frequency shines on it."
+    },
+    {
+      "term": "Atomic emission spectrum",
+      "definition": "The unique set of frequencies (colored lines) of light given off by an element's excited atoms."
+    },
+    {
+      "term": "Ground state",
+      "definition": "The lowest allowable energy state of an atom."
+    },
+    {
+      "term": "Excited state",
+      "definition": "A state in which an atom has more energy than in its ground state."
+    },
+    {
+      "term": "Energy level",
+      "definition": "A fixed energy an electron can have; Bohr pictured these as circular orbits."
+    },
+    {
+      "term": "De Broglie equation",
+      "definition": "λ = h/mv; says moving particles such as electrons have wave properties."
+    },
+    {
+      "term": "Heisenberg uncertainty principle",
+      "definition": "It is impossible to know both the exact position and velocity of an electron at the same time."
+    },
+    {
+      "term": "Quantum mechanical model",
+      "definition": "Model of the atom that treats electrons as waves and describes where they probably are, using orbitals."
+    },
+    {
+      "term": "Atomic orbital",
+      "definition": "A 3-D region around the nucleus with a high probability of finding an electron; holds up to 2 electrons."
+    },
+    {
+      "term": "Principal energy level (n)",
+      "definition": "A main energy level of an atom; higher n means larger orbitals farther from the nucleus."
+    },
+    {
+      "term": "Sublevel",
+      "definition": "A division of a principal energy level (s, p, d or f) containing orbitals of the same shape."
+    },
+    {
+      "term": "Aufbau principle",
+      "definition": "Electrons occupy the lowest-energy orbitals available first."
+    },
+    {
+      "term": "Pauli exclusion principle",
+      "definition": "An orbital holds at most two electrons, and they must have opposite spins."
+    },
+    {
+      "term": "Hund's rule",
+      "definition": "Electrons occupy equal-energy orbitals singly, with parallel spins, before pairing up."
+    },
+    {
+      "term": "Noble gas notation",
+      "definition": "A shortcut electron configuration using the previous noble gas in brackets, e.g. Na = [Ne]3s¹."
+    },
+    {
+      "term": "Valence electrons",
+      "definition": "Electrons in the outermost energy level; they determine an element's chemical properties."
+    },
+    {
+      "term": "Cation",
+      "definition": "A positively charged ion formed when an atom loses electrons."
+    },
+    {
+      "term": "Anion",
+      "definition": "A negatively charged ion formed when an atom gains electrons."
+    }
+  ],
+  "sessions": [],
+  "missed_queue": [],
+  "missed_queue_cards": []
+}
