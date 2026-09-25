@@ -303,6 +303,17 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
 .lib-card-del{background:none;border:none;color:var(--text3);cursor:pointer;font-size:16px;min-width:36px;min-height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .lib-card-del:hover{color:var(--wrong);background:rgba(244,63,94,.1);}
 .lib-card-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--text3);}
+.paste-file{margin:-4px 0 14px;font-size:13px;color:var(--text3);}
+.paste-file summary{cursor:pointer;padding:6px 2px;min-height:32px;}
+.paste-file textarea{margin:8px 0;}
+.saved-acts{display:flex;flex-wrap:wrap;gap:10px;}
+.saved-acts .btn{flex:1;min-width:180px;}
+.lib-section-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet2);margin:6px 2px 12px;}
+.class-lib-msg{font-size:13px;color:var(--text3);line-height:1.55;}
+.class-lib-item{flex-direction:row;align-items:center;gap:12px;}
+.class-lib-item .lib-card-title{flex:1;}
+.admin-done{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:var(--radius);padding:16px 18px;font-size:13px;line-height:1.6;margin-bottom:14px;display:none;}
+.admin-done a{color:var(--violet2);}
 .lib-trend{font-size:12px;color:var(--text2);font-family:'DM Mono',monospace;}
 .lib-queue-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.28);border-radius:99px;padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#fcd34d;width:fit-content;}
 .lib-storage-warn{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25);border-radius:var(--radius-sm);padding:11px 13px;font-size:12px;color:#ff8fa8;margin-bottom:14px;display:none;}
@@ -380,11 +391,29 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
       <div style="font-size:11px;color:var(--text3);margin-top:8px;">Held in memory only &#x2014; never stored.</div>
     </div>
     <label class="load-strip">
-      <input type="file" id="load-input" accept=".json" onchange="loadFile(event)"/>
+      <input type="file" id="load-input" accept=".json,application/json,text/plain,.txt" onchange="loadFile(event)"/>
       <div class="strip-icon">&#x1F4C2;</div>
-      <div style="flex:1"><div class="strip-title">Load Study File</div><div class="strip-sub">Load an admin-created study file (.json)</div></div>
+      <div style="flex:1"><div class="strip-title">Load Study File</div><div class="strip-sub">Load an admin-created study file (.json or .txt)</div></div>
       <div style="color:var(--text3);font-size:20px;">&#x203A;</div>
     </label>
+    <div class="load-strip" onclick="switchTab('library')">
+      <div class="strip-icon">&#x1F4DA;</div>
+      <div style="flex:1"><div class="strip-title">Class Library</div><div class="strip-sub">Browse shared quizzes &amp; flashcards &#x2014; no file needed</div></div>
+      <div style="color:var(--text3);font-size:20px;">&#x203A;</div>
+    </div>
+    <details class="paste-file">
+      <summary>Or paste a study file&#x2026;</summary>
+      <textarea id="paste-file-input" placeholder="Paste the contents of a StudyPulse .json file here (e.g. from a text or email)" style="min-height:110px"></textarea>
+      <button class="btn btn-secondary btn-sm" onclick="loadPastedFile()">Load Pasted File</button>
+    </details>
+    <div class="card a2" id="saved-card" style="display:none">
+      <div class="card-label">Ready to Study &#x2014; no API key needed</div>
+      <div class="saved-acts">
+        <button class="btn btn-primary" id="saved-quiz-btn" onclick="takeSavedQuiz()">&#x25B6; Take Saved Quiz</button>
+        <button class="btn btn-secondary" id="saved-fc-btn" onclick="studySavedCards()">&#x1F0CF; Study Saved Flashcards</button>
+      </div>
+      <div class="tgl-desc" style="margin-top:10px">Want fresh questions instead? Enter an API key and use Generate below.</div>
+    </div>
     <div class="card a2" id="content-card">
       <div class="card-label">Study Content</div>
       <div class="content-tabs">
@@ -524,6 +553,7 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
     </div>
     <div class="review-list" id="review-list"></div>
     <div class="res-actions">
+      <button class="btn btn-primary" id="retake-saved-btn" style="display:none" onclick="takeSavedQuiz()">&#x1F501; Retake Saved Quiz</button>
       <button class="btn btn-primary" onclick="tryAgain()">&#x1F504; New Questions</button>
       <button class="btn btn-secondary" onclick="saveSession()">&#x1F4BE; Save</button>
       <button class="btn btn-secondary" onclick="resetToSetup()">&#x1F4DD; New Content</button>
@@ -560,6 +590,9 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
 <!-- LIBRARY TAB -->
 <div id="tab-library" class="tab-screen">
   <div class="lib-storage-warn" id="lib-storage-warn"></div>
+  <div class="lib-section-title">&#x1F4DA; Class Library</div>
+  <div id="class-lib"><div class="card class-lib-msg">Loading&#x2026;</div></div>
+  <div class="lib-section-title" style="margin-top:22px">&#x1F4C1; My Library</div>
   <div id="lib-empty" class="no-file">
     <div class="no-file-icon">&#x1F4DA;</div>
     <div class="no-file-title">Your Library is Empty</div>
@@ -624,7 +657,7 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
 <div id="tab-admin" class="tab-screen">
   <div class="admin-banner">
     <div class="admin-icon">&#x2699;&#xFE0F;</div>
-    <div><div class="admin-title">Admin &#x2014; Create Study File</div><div class="admin-desc">Paste the unit name and study notes. Generate a file to send to the student once.</div></div>
+    <div><div class="admin-title">Admin &#x2014; Create Study File</div><div class="admin-desc">Paste notes &#x2014; or just a list of study questions and vocab words. Claude writes the answers and pre-builds a quiz and flashcards once, so the student can study with no API key. Publish the file to the Class Library to share it.</div></div>
   </div>
   <div class="card a1">
     <div class="card-label">API Key</div>
@@ -636,7 +669,15 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
   </div>
   <div class="card a2"><div class="card-label">Unit Name</div><input type="text" id="admin-unit" placeholder="e.g. Cell Division and Cell Differentiation"/></div>
   <div class="card a2">
-      <div class="card-label">Study Notes</div>
+      <div class="card-label">Content Type</div>
+      <div class="mode-toggle" style="margin-bottom:0">
+        <button class="mode-btn active" id="admin-type-notes" onclick="setAdminType('notes')">&#x1F4DD; Notes</button>
+        <button class="mode-btn" id="admin-type-list" onclick="setAdminType('list')">&#x2753; Question &amp; Vocab List</button>
+      </div>
+      <div class="tgl-desc" id="admin-type-desc" style="margin-top:10px">Notes that already contain the facts and answers.</div>
+  </div>
+  <div class="card a2">
+      <div class="card-label" id="admin-notes-label">Study Notes</div>
       <div class="content-tabs">
         <button class="content-tab active" id="admin-ctab-paste" onclick="switchAdminCtab('paste')">&#x270F;&#xFE0F; Paste Text</button>
         <button class="content-tab" id="admin-ctab-upload" onclick="switchAdminCtab('upload')">&#x1F4CE; Upload File</button>
@@ -670,8 +711,30 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
         </div>
       </div>
     </div>
-  <div class="card a3"><button class="btn btn-primary btn-full" onclick="adminGenerate()">Generate Study File &#x26A1;</button></div>
+  <div class="card a3">
+    <div class="card-label">Pre-build for the Student</div>
+    <div class="toggle-row">
+      <div class="toggle-info"><div class="tgl-label">Pre-build a quiz</div><div class="tgl-desc">Saved in the file &#x2014; student can take it with no API key</div></div>
+      <input type="number" id="admin-num-q" value="25" min="5" max="40" style="width:76px"/>
+      <label class="toggle-sw"><input type="checkbox" id="admin-prebuild-q" checked/><span class="tgl-track"></span></label>
+    </div>
+    <div class="toggle-row" style="border:none">
+      <div class="toggle-info"><div class="tgl-label">Pre-build flashcards</div><div class="tgl-desc">Uses the vocabulary list when there is one</div></div>
+      <input type="number" id="admin-num-fc" value="30" min="5" max="60" style="width:76px"/>
+      <label class="toggle-sw"><input type="checkbox" id="admin-prebuild-fc" checked/><span class="tgl-track"></span></label>
+    </div>
+    <div class="field-group" style="margin-top:10px"><div class="field-label">Quiz difficulty</div>
+      <select id="admin-difficulty">
+        <option value="standard">Standard</option>
+        <option value="challenging">Challenging</option>
+        <option value="easy">Easy</option>
+        <option value="certification">Certification</option>
+      </select>
+    </div>
+  </div>
+  <div class="card a3"><button class="btn btn-primary btn-full" id="admin-gen-btn" onclick="adminGenerate()">Generate Study File &#x26A1;</button></div>
   <div class="err-box" id="admin-err"></div>
+  <div class="admin-done" id="admin-done"></div>
 </div>
 
 </div></div>
@@ -716,9 +779,12 @@ let pendingAdminVisionFile=null,adminExtractedContent='';
 let quizLinkedToFile=false,fcLinkedToFile=false;
 let examMode='off',examSeconds=30,examMinutes=10;
 let qTimer=null,quizTimer=null,qTimeLeft=0,quizTimeLeft=0,advanceTimer=null;
+// V4: how much study content is sent to Claude per request
+const CONTENT_LIMIT=40000;
+let adminType='notes';
 
 // ── TAB / MODE ─────────────────────────────────────────────────────
-function switchTab(t){currentTab=t;document.querySelectorAll('.tab-screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.getElementById('tb-'+t).classList.add('active');window.scrollTo(0,0);if(t==='library')renderLibrary();}
+function switchTab(t){currentTab=t;document.querySelectorAll('.tab-screen').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');document.getElementById('tb-'+t).classList.add('active');window.scrollTo(0,0);if(t==='library'){renderLibrary();renderClassLib();}}
 function setMode(m){appMode=m;document.getElementById('mode-quiz-btn').classList.toggle('active',m==='quiz');document.getElementById('mode-fc-btn').classList.toggle('active',m==='flashcard');document.getElementById('quiz-settings').style.display=m==='quiz'?'block':'none';document.getElementById('fc-settings').style.display=m==='flashcard'?'block':'none';}
 function switchCtab(t){document.getElementById('ctab-paste').classList.toggle('active',t==='paste');document.getElementById('ctab-upload').classList.toggle('active',t==='upload');document.getElementById('cpanel-paste').classList.toggle('active',t==='paste');document.getElementById('cpanel-upload').classList.toggle('active',t==='upload');}
 function switchAdminCtab(t){document.getElementById('admin-ctab-paste').classList.toggle('active',t==='paste');document.getElementById('admin-ctab-upload').classList.toggle('active',t==='upload');document.getElementById('admin-cpanel-paste').classList.toggle('active',t==='paste');document.getElementById('admin-cpanel-upload').classList.toggle('active',t==='upload');}
@@ -879,16 +945,16 @@ async function generateQuiz(){
   startSteps('Generating your quiz…');
   const useMS=document.getElementById('s-multi').checked,useFB=document.getElementById('s-fitb').checked;
   try{
-    const raw=await claude(key,buildPrompt(content,numQ,diff,useMS,useFB,getPriorityConcepts()));
+    const raw=await claude(key,buildPrompt(content,numQ,diff,useMS,useFB,getPriorityConcepts()),quizMaxTokens(numQ));
     const parsed=parseJSON(raw);
     if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty quiz data received.');
     questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;
-    if(studyFile){studyFile.last_compiled=today();studyFile.questions=questions;}
+    if(studyFile){studyFile.last_compiled=today();studyFile.questions=questions;upsertLibraryEntry(studyFile);renderSavedCard();}
     stopSteps();enterQuiz();
   }catch(e){stopSteps();showScreen('screen-setup');showErr(document.getElementById('setup-err'),'⚠️ '+e.message);}
 }
 
-function buildPrompt(content,numQ,diff,useMS,useFB,priorityConcepts=[]){
+function buildPrompt(content,numQ,diff,useMS,useFB,priorityConcepts=[],supp=supplemented){
   const dn={
     easy:'Straightforward, clearly distinct choices.',
     standard:'Mix recall and comprehension. Plausible distractors.',
@@ -900,7 +966,7 @@ function buildPrompt(content,numQ,diff,useMS,useFB,priorityConcepts=[]){
   else if(useMS){const ms=Math.floor(numQ*.4);types.push(`${numQ-ms} single_select`,`${ms} multi_select`);}
   else if(useFB){const fb=Math.floor(numQ*.25);types.push(`${numQ-fb} single_select`,`${fb} fill_blank`);}
   else types.push(`${numQ} single_select`);
-  const sn=supplemented.length?`\nADDITIONAL CONCEPTS (tag source:"supplemented"):\n${supplemented.map(s=>`- ${s.concept}`).join('\n')}`:'';
+  const sn=supp.length?`\nADDITIONAL CONCEPTS (tag source:"supplemented"):\n${supp.map(s=>`- ${s.concept}`).join('\n')}`:'';
   const pn=priorityConcepts.length?`\nREVIEW QUEUE — the student previously missed these concepts. Weight roughly half the quiz toward them (still tag with the matching "concept" value):\n${priorityConcepts.map(c=>`- ${c}`).join('\n')}`:'';
   return `Expert quiz writer. Generate exactly ${numQ} questions.
 DIFFICULTY: ${diff.toUpperCase()} — ${dn}
@@ -912,7 +978,7 @@ OUTPUT: ONLY valid JSON array. No markdown.
 single_select: {"type":"single_select","source":"from_notes","concept":"Topic Label","question":"...","correct":"...","distractors":["...","...","..."],"distractor_reasoning":"..."}
 multi_select: {"type":"multi_select","source":"from_notes","concept":"Topic Label","question":"Which THREE...","correct_count":3,"options":["A","B","C","D","E","F"],"correct_answers":["A","C","D"],"distractor_reasoning":"..."}
 fill_blank: {"type":"fill_blank","source":"from_notes","concept":"Topic Label","question":"The ___ shows the ___ number...","blanks":[{"id":0,"answer":"karyotype"},{"id":1,"answer":"diploid"}]}
-CONTENT:\n${content.slice(0,12000)}`;
+CONTENT:\n${content.slice(0,CONTENT_LIMIT)}`;
 }
 function getPriorityConcepts(){const t=document.getElementById('queue-toggle');return(t&&t.checked&&studyFile?.missed_queue?.length)?studyFile.missed_queue:[];}
 function renderQueueToggle(){
@@ -926,7 +992,8 @@ function renderQueueToggle(){
 
 function normalizeQ(q){
   if(q.type==='multi_select'||q.type==='fill_blank')return{...q,concept:q.concept||''};
-  const choices=[q.correct,...(q.distractors||[])].sort(()=>Math.random()-.5);
+  // Saved questions may already be normalized (choices instead of distractors)
+  const choices=(q.choices?.length?[...q.choices]:[q.correct,...(q.distractors||[])]).sort(()=>Math.random()-.5);
   return{type:'single_select',question:q.question,source:q.source||'from_notes',concept:q.concept||'',correct:q.correct,choices,distractor_reasoning:q.distractor_reasoning||''};
 }
 
@@ -958,7 +1025,7 @@ async function startTargetedRetry(){
     targetedConcepts=concepts;
     // Step B: generate targeted quiz
     document.getElementById('load-step').textContent='Generating targeted questions…';
-    const prompt=`Expert quiz writer. Generate exactly ${targetQ} questions focused ONLY on these weak concepts:\n${concepts.map((c,i)=>`${i+1}. ${c}`).join('\n')}\n\nDIFFICULTY: ${savedDiff}\nSpread questions evenly across all listed concepts.\nInclude "concept" field matching one of the listed concepts.\nOUTPUT: ONLY valid JSON array. No markdown.\n{"type":"single_select","source":"from_notes","concept":"matching concept","question":"...","correct":"...","distractors":["...","...","..."],"distractor_reasoning":"..."}\n\nCONTENT:\n${savedContent.slice(0,12000)}`;
+    const prompt=`Expert quiz writer. Generate exactly ${targetQ} questions focused ONLY on these weak concepts:\n${concepts.map((c,i)=>`${i+1}. ${c}`).join('\n')}\n\nDIFFICULTY: ${savedDiff}\nSpread questions evenly across all listed concepts.\nInclude "concept" field matching one of the listed concepts.\nOUTPUT: ONLY valid JSON array. No markdown.\n{"type":"single_select","source":"from_notes","concept":"matching concept","question":"...","correct":"...","distractors":["...","...","..."],"distractor_reasoning":"..."}\n\nCONTENT:\n${savedContent.slice(0,CONTENT_LIMIT)}`;
     const raw=await claude(key,prompt);
     const parsed=parseJSON(raw);
     if(!Array.isArray(parsed)||!parsed.length)throw new Error('No targeted questions returned.');
@@ -973,7 +1040,7 @@ async function tryAgain(){
   isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=!!studyFile;
   showScreen('screen-loading');startSteps('Generating new questions…','Same topic, fresh questions.');
   const useMS=document.getElementById('s-multi').checked,useFB=document.getElementById('s-fitb').checked;
-  try{const raw=await claude(key,buildPrompt(savedContent,savedNumQ,savedDiff,useMS,useFB,getPriorityConcepts()));const parsed=parseJSON(raw);questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;stopSteps();enterQuiz();}
+  try{const raw=await claude(key,buildPrompt(savedContent,savedNumQ,savedDiff,useMS,useFB,getPriorityConcepts()),quizMaxTokens(savedNumQ));const parsed=parseJSON(raw);questions=parsed.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;stopSteps();enterQuiz();}
   catch(e){stopSteps();showScreen('screen-results');alert('Error: '+e.message);}
 }
 
@@ -1124,6 +1191,7 @@ function showResults(){
     else{ah+=`<div class="ri-ok">✓ ${esc(q.correct)}</div>`;if(!ok&&a.chosen)ah+=`<div class="ri-bad">✗ You: ${esc(a.chosen)}</div>`;}
     return`<div class="review-item ${cls}" style="animation-delay:${i*.04}s">${conceptTag}<div class="ri-q"><span class="ri-icon">${icon}</span><span>${esc(q.question)}</span></div><div class="ri-ans">${ah}</div></div>`;
   }).join('');
+  document.getElementById('retake-saved-btn').style.display=studyFile?.questions?.length?'':'none';
   document.getElementById('prog-fill').style.width='100%';showScreen('screen-results');
 }
 
@@ -1149,6 +1217,9 @@ function toggleSg(){document.getElementById('sg-panel').classList.toggle('open')
 function dlGuide(){const el=document.querySelector('.sg-content');if(!el)return;dlText('studypulse-guide.txt',el.innerText);}
 
 // ── FLASHCARDS ────────────────────────────────────────────────────
+function fcPrompt(content,n,pn=''){return`Extract exactly ${n} term-definition pairs. If the content has a Vocabulary or Glossary section, use those terms first. Term: 1-5 words. Definition: 1-3 sentences plain language. OUTPUT: ONLY JSON array. [{"term":"...","definition":"..."}]${pn}\nCONTENT:\n${content.slice(0,CONTENT_LIMIT)}`;}
+function fcMaxTokens(n){return Math.max(3000,n*120+1000);}
+function quizMaxTokens(n){return Math.max(5000,n*300+1000);}
 async function generateFlashcards(){
   const key=getKey(),content=getContent();const n=parseInt(document.getElementById('num-fc').value)||15;const err=document.getElementById('fc-err');err.classList.remove('show');
   if(!key)return showErr(err,'Please enter your API key.');if(!key.startsWith('sk-ant'))return showErr(err,'Key should start with sk-ant…');if(!content||content.length<50)return showErr(err,'Please paste content or load a study file.');
@@ -1156,7 +1227,7 @@ async function generateFlashcards(){
   const fcQueueOn=document.getElementById('fc-queue-toggle').checked&&studyFile?.missed_queue_cards?.length;
   const pn=fcQueueOn?`\nREVIEW QUEUE — reintroduce and prioritize these previously-missed terms:\n${studyFile.missed_queue_cards.map(t=>`- ${t}`).join('\n')}`:'';
   showScreen('screen-loading');startSteps('Generating flashcards…','Extracting key terms and definitions.');
-  try{const raw=await claude(key,`Extract exactly ${n} term-definition pairs. Term: 1-5 words. Definition: 1-3 sentences plain language. OUTPUT: ONLY JSON array. [{"term":"...","definition":"..."}]${pn}\nCONTENT:\n${content.slice(0,12000)}`,3000);const parsed=parseJSON(raw);if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty data.');flashcards=parsed.map(c=>({...c,rating:null}));fcIdx=0;fcFlipped=false;stopSteps();showScreen('screen-fc');renderFc();}
+  try{const raw=await claude(key,fcPrompt(content,n,pn),fcMaxTokens(n));const parsed=parseJSON(raw);if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty data.');flashcards=parsed.map(c=>({...c,rating:null}));if(studyFile){studyFile.cards=parsed.map(c=>({term:c.term,definition:c.definition}));upsertLibraryEntry(studyFile);renderSavedCard();}fcIdx=0;fcFlipped=false;stopSteps();showScreen('screen-fc');renderFc();}
   catch(e){stopSteps();showScreen('screen-setup');showErr(document.getElementById('fc-err'),'⚠️ '+e.message);}
 }
 function renderFc(){const c=flashcards[fcIdx],total=flashcards.length;document.getElementById('fc-count').textContent=`Card ${fcIdx+1} of ${total}`;document.getElementById('fc-nav-lbl').textContent=`${fcIdx+1}/${total}`;document.getElementById('fc-prog').style.width=`${((fcIdx+1)/total)*100}%`;document.getElementById('fc-front').textContent=c.definition;document.getElementById('fc-back').textContent=c.term;fcFlipped=false;document.getElementById('fc-card').classList.remove('flipped');document.getElementById('fc-prev').disabled=fcIdx===0;document.getElementById('fc-next').disabled=fcIdx===total-1;document.getElementById('fc-rate-again').classList.toggle('active',c.rating==='again');document.getElementById('fc-rate-good').classList.toggle('active',c.rating==='good');}
@@ -1201,7 +1272,7 @@ function upsertLibraryEntry(file){
   const lib=loadLibrary();
   if(!file.id){
     const match=lib.find(f=>(f.unit||'').trim().toLowerCase()===(file.unit||'').trim().toLowerCase());
-    if(match){file.id=match.id;file.sessions=file.sessions||match.sessions||[];file.missed_queue=file.missed_queue||match.missed_queue||[];file.missed_queue_cards=file.missed_queue_cards||match.missed_queue_cards||[];}
+    if(match){file.id=match.id;const keep=k=>{if(!file[k]?.length)file[k]=match[k]||[];};keep('sessions');keep('missed_queue');keep('missed_queue_cards');}
     else file.id=newId();
   }
   const idx=lib.findIndex(f=>f.id===file.id);
@@ -1213,7 +1284,7 @@ function deleteLibraryEntry(id){
   if(!confirm('Delete this study file from your library? This cannot be undone.'))return;
   const lib=loadLibrary().filter(f=>f.id!==id);
   saveLibrary(lib);
-  if(studyFile&&studyFile.id===id){studyFile=null;document.getElementById('header-file').classList.remove('show');document.getElementById('notes-empty').style.display='block';document.getElementById('notes-area').style.display='none';document.getElementById('scope-toggle-row').style.display='none';document.getElementById('content-card').style.display='block';document.getElementById('s-file-info').innerHTML='<div style="color:var(--text3);font-size:14px;">No study file loaded.</div>';}
+  if(studyFile&&studyFile.id===id){studyFile=null;document.getElementById('header-file').classList.remove('show');document.getElementById('notes-empty').style.display='block';document.getElementById('notes-area').style.display='none';document.getElementById('scope-toggle-row').style.display='none';document.getElementById('content-card').style.display='block';document.getElementById('s-file-info').innerHTML='<div style="color:var(--text3);font-size:14px;">No study file loaded.</div>';renderSavedCard();}
   renderLibrary();
 }
 function fileTrendHTML(file){
@@ -1229,7 +1300,7 @@ function renderLibrary(){
     const queueBadge=(f.missed_queue&&f.missed_queue.length)?`<div class="lib-queue-badge">🎯 ${f.missed_queue.length} in review queue</div>`:'';
     return`<div class="card lib-card" onclick="loadLibraryFile('${f.id}')">
       <div class="lib-card-head"><div class="lib-card-title">${esc(f.unit||'Untitled')}</div><button class="lib-card-del" onclick="event.stopPropagation();deleteLibraryEntry('${f.id}')">🗑️</button></div>
-      <div class="lib-card-meta"><span class="meta-chip">Created ${f.created||'–'}</span><span class="meta-chip">Updated ${f.last_modified||'–'}</span></div>
+      <div class="lib-card-meta"><span class="meta-chip">Created ${esc(f.created||'–')}</span><span class="meta-chip">Updated ${esc(f.last_modified||'–')}</span></div>
       ${trend?`<div class="lib-trend">${esc(trend)}</div>`:''}
       ${queueBadge}
     </div>`;
@@ -1253,19 +1324,104 @@ function loadFile(e){
   const file=e.target.files[0];if(!file)return;
   const reader=new FileReader();
   reader.onload=(ev)=>{
-    try{
-      const s=JSON.parse(ev.target.result);
-      if(s.notes_md!==undefined||s.unit){resetFileState();studyFile=s;applyFile();upsertLibraryEntry(studyFile);return;}
-      if(!s.type||!s.version)throw new Error('Invalid file.');
-      quizLinkedToFile=false;fcLinkedToFile=false;
-      if(s.apiKey){keyEl.value=s.apiKey;dotEl.className='api-dot'+(s.apiKey.startsWith('sk-ant')?' on':'');}
-      if(s.content){document.getElementById('content-input').value=s.content;savedContent=s.content;}
-      if(s.type==='quiz'){savedNumQ=s.numQuestions||15;savedDiff=s.difficulty||'challenging';document.getElementById('num-q').value=savedNumQ;document.getElementById('difficulty').value=savedDiff;questions=s.questions.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;setMode('quiz');enterQuiz();}
-      else if(s.type==='flashcard'){flashcards=(s.cards||[]).map(c=>({...c,rating:null}));fcIdx=0;fcFlipped=false;setMode('flashcard');showScreen('screen-fc');renderFc();}
-    }catch(err){alert('Could not load file: '+err.message);}
+    try{loadStudyData(ev.target.result);}catch(err){alert('Could not load file: '+err.message);}
     e.target.value='';
   };
   reader.readAsText(file);
+}
+// V4: shared loader for file picker, paste box, Class Library and ?file= links
+function loadStudyData(text){
+  let s;try{s=JSON.parse(String(text).trim());}catch(e){throw new Error('This is not a valid StudyPulse file.');}
+  if(!s||typeof s!=='object')throw new Error('Invalid file.');
+  if(s.notes_md!==undefined||s.unit){
+    if(s.id!==undefined&&!/^[\w-]{1,80}$/.test(String(s.id)))delete s.id;
+    resetFileState();resetToSetup();studyFile=s;upsertLibraryEntry(studyFile);applyFile();setMode('quiz');switchTab('quiz');return;
+  }
+  if(!s.type||!s.version)throw new Error('Invalid file.');
+  quizLinkedToFile=false;fcLinkedToFile=false;
+  if(s.apiKey){keyEl.value=s.apiKey;dotEl.className='api-dot'+(s.apiKey.startsWith('sk-ant')?' on':'');}
+  if(s.content){document.getElementById('content-input').value=s.content;savedContent=s.content;}
+  switchTab('quiz');
+  if(s.type==='quiz'){savedNumQ=s.numQuestions||15;savedDiff=s.difficulty||'challenging';document.getElementById('num-q').value=savedNumQ;document.getElementById('difficulty').value=savedDiff;questions=s.questions.map(normalizeQ);userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;setMode('quiz');enterQuiz();}
+  else if(s.type==='flashcard'){flashcards=(s.cards||[]).map(c=>({...c,rating:null}));fcIdx=0;fcFlipped=false;setMode('flashcard');showScreen('screen-fc');renderFc();}
+}
+function loadPastedFile(){
+  const el=document.getElementById('paste-file-input');
+  try{loadStudyData(el.value);el.value='';el.closest('details').open=false;}catch(err){alert('Could not load: '+err.message);}
+}
+
+// ── SAVED (PRE-BUILT) CONTENT ─────────────────────────────────────
+function renderSavedCard(){
+  const nq=studyFile?.questions?.length||0,nc=studyFile?.cards?.length||0;
+  document.getElementById('saved-card').style.display=(nq||nc)?'block':'none';
+  const qb=document.getElementById('saved-quiz-btn'),cb=document.getElementById('saved-fc-btn');
+  qb.style.display=nq?'':'none';qb.innerHTML=`▶ Take Saved Quiz (${nq})`;
+  cb.style.display=nc?'':'none';cb.innerHTML=`🃏 Study Saved Flashcards (${nc})`;
+}
+function takeSavedQuiz(){
+  if(!studyFile?.questions?.length)return;
+  questions=studyFile.questions.map(normalizeQ).sort(()=>Math.random()-.5);
+  userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;
+  isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=true;
+  savedContent=getContent();savedNumQ=questions.length;savedDiff=document.getElementById('difficulty').value;
+  examMode=document.getElementById('exam-mode').value;
+  enterQuiz();
+}
+function studySavedCards(){
+  if(!studyFile?.cards?.length)return;
+  flashcards=studyFile.cards.map(c=>({term:c.term,definition:c.definition,rating:null})).sort(()=>Math.random()-.5);
+  fcIdx=0;fcFlipped=false;fcLinkedToFile=true;savedContent=getContent();savedNumFc=flashcards.length;
+  showScreen('screen-fc');renderFc();
+}
+
+// ── CLASS LIBRARY (shared files in the repo's study-files/ folder) ─
+const CLASS_LIB_DIR='study-files';
+const CLASS_LIB_REPO=(()=>{const h=location.hostname,m=h.match(/^([\w-]+)\.github\.io$/i),seg=location.pathname.split('/').filter(Boolean)[0];return m&&seg&&!/\.html?$/i.test(seg)?`${m[1]}/${seg}`:'napville2000/studypulse';})();
+let classLibCache=null;
+function prettyName(file){return file.replace(/\.(json|txt)$/i,'').replace(/^studypulse-/i,'').replace(/-\d{8}$/,'').replace(/[-_]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase()).trim();}
+async function fetchClassLib(){
+  try{
+    const r=await fetch(`https://api.github.com/repos/${CLASS_LIB_REPO}/contents/${CLASS_LIB_DIR}`,{headers:{Accept:'application/vnd.github+json'}});
+    if(r.ok){
+      const arr=await r.json();
+      if(Array.isArray(arr))return arr.filter(f=>f.type==='file'&&/\.(json|txt)$/i.test(f.name)&&f.name.toLowerCase()!=='index.json').map(f=>({name:prettyName(f.name),path:`${CLASS_LIB_DIR}/${f.name}`,url:f.download_url}));
+    }
+  }catch(e){console.warn('Class Library listing failed:',e);}
+  // Fallback: optional hand-maintained manifest, served alongside the app
+  const r=await fetch(`${CLASS_LIB_DIR}/index.json`,{cache:'no-cache'});
+  if(!r.ok)throw new Error('Class Library is unavailable right now.');
+  const m=await r.json();
+  return(Array.isArray(m)?m:m.files||[]).map(f=>typeof f==='string'?{file:f}:f).filter(f=>f.file&&/^[\w\-.]+$/.test(f.file)).map(f=>({name:f.title||prettyName(f.file),path:`${CLASS_LIB_DIR}/${f.file}`}));
+}
+async function renderClassLib(force){
+  const el=document.getElementById('class-lib');
+  if(!classLibCache||force){
+    el.innerHTML='<div class="card class-lib-msg">Loading…</div>';
+    try{classLibCache=await fetchClassLib();}catch(e){el.innerHTML=`<div class="card class-lib-msg">⚠️ ${esc(e.message)} <button class="btn btn-ghost btn-sm" onclick="renderClassLib(true)">Retry</button></div>`;return;}
+  }
+  if(!classLibCache.length){el.innerHTML='<div class="card class-lib-msg">No shared files yet. Create one in Admin, then upload it to the <code>study-files</code> folder on GitHub.</div>';return;}
+  el.innerHTML=classLibCache.map((f,i)=>`<div class="card lib-card class-lib-item" onclick="openClassFile(${i})"><div class="strip-icon">📘</div><div class="lib-card-title">${esc(f.name)}</div><div style="color:var(--text3);font-size:20px;">›</div></div>`).join('');
+}
+async function openClassFile(i){
+  const f=classLibCache?.[i];if(!f)return;
+  try{await loadRemoteFile(f.url||f.path);}catch(e){alert('Could not open "'+f.name+'": '+e.message);}
+}
+async function loadRemoteFile(url){
+  const r=await fetch(url,{cache:'no-cache'});
+  if(!r.ok)throw new Error(`Download failed (${r.status})`);
+  loadStudyData(await r.text());
+}
+// ?file=<name> opens a shared file directly; restricted to this site's study-files/ folder
+function safeClassPath(v){
+  v=String(v||'').trim().replace(/^\/+/,'');
+  if(!v.includes('/'))v=`${CLASS_LIB_DIR}/${v}`;
+  if(!/\.(json|txt)$/i.test(v))v+='.json';
+  return new RegExp(`^${CLASS_LIB_DIR}/[\\w\\-.]+\\.(json|txt)$`,'i').test(v)&&!v.includes('..')?v:null;
+}
+function initFromUrl(){
+  const q=new URLSearchParams(location.search).get('file');
+  if(q){const p=safeClassPath(q);if(!p){alert('That link does not point to a Class Library file.');return;}loadRemoteFile(p).catch(e=>alert('Could not open shared file: '+e.message));return;}
+  if(location.hash.replace('#','')==='library')switchTab('library');
 }
 
 function applyFile(){
@@ -1276,27 +1432,80 @@ function applyFile(){
   document.getElementById('notes-editor').value=studyFile.notes_md||'';setStatus('saved');
   document.getElementById('scope-toggle-row').style.display='block';
   document.getElementById('content-card').style.display='none';
-  const meta=document.getElementById('notes-meta');const parts=[];if(studyFile.created)parts.push(`Created ${studyFile.created}`);if(studyFile.last_modified)parts.push(`Updated ${studyFile.last_modified}`);const trend=fileTrendHTML(studyFile);if(trend)parts.push(trend);meta.innerHTML=parts.map(p=>`<span class="meta-chip">${p}</span>`).join('');
-  document.getElementById('s-file-info').innerHTML=`<div style="display:flex;flex-direction:column;gap:9px;font-size:14px;"><div><strong>${esc(studyFile.unit||'Untitled')}</strong></div><div style="color:var(--text3);">Created: ${studyFile.created||'–'} · Updated: ${studyFile.last_modified||'–'}</div>${studyFile.scope_check?`<div style="color:var(--text3);">Coverage: ${studyFile.scope_check.coverage_score||0}%</div>`:''}${trend?`<div style="color:var(--text3);">${esc(trend)}</div>`:''}</div>`;
+  const meta=document.getElementById('notes-meta');const parts=[];if(studyFile.created)parts.push(`Created ${studyFile.created}`);if(studyFile.last_modified)parts.push(`Updated ${studyFile.last_modified}`);const trend=fileTrendHTML(studyFile);if(trend)parts.push(trend);meta.innerHTML=parts.map(p=>`<span class="meta-chip">${esc(p)}</span>`).join('');
+  document.getElementById('s-file-info').innerHTML=`<div style="display:flex;flex-direction:column;gap:9px;font-size:14px;"><div><strong>${esc(studyFile.unit||'Untitled')}</strong></div><div style="color:var(--text3);">Created: ${esc(studyFile.created||'–')} · Updated: ${esc(studyFile.last_modified||'–')}</div>${studyFile.scope_check?`<div style="color:var(--text3);">Coverage: ${esc(studyFile.scope_check.coverage_score||0)}%</div>`:''}${trend?`<div style="color:var(--text3);">${esc(trend)}</div>`:''}</div>`;
   if(studyFile.scope_check){scopeData=studyFile.scope_check;updateScopeBar();}
-  renderQueueToggle();
+  renderQueueToggle();renderSavedCard();
 }
 
+function setAdminType(t){
+  adminType=t;
+  document.getElementById('admin-type-notes').classList.toggle('active',t==='notes');
+  document.getElementById('admin-type-list').classList.toggle('active',t==='list');
+  document.getElementById('admin-type-desc').textContent=t==='list'?'A list of study questions and/or vocabulary words with no answers. Claude writes the answers and definitions once and saves them as the study notes — review them in the Notes tab.':'Notes that already contain the facts and answers.';
+  document.getElementById('admin-notes-label').textContent=t==='list'?'Questions & Vocabulary':'Study Notes';
+  document.getElementById('admin-notes').placeholder=t==='list'?'Paste study questions and vocabulary words…':'Paste study material in markdown…';
+}
+function answerListPrompt(unit,list){
+  return`You are an expert teacher writing a study guide for the unit "${unit}". Below is a list of study questions and/or vocabulary terms a student was given, without answers.
+Write complete, accurate answers at the level of the course (assume high school unless the material suggests otherwise).
+FORMAT (markdown only, no preamble):
+- Keep any section headings from the list as "## " headings, in the original order.
+- Each question: "### <number>. <question text exactly as given>" followed by a concise answer (2-5 sentences). For "draw" or "label" questions, describe the drawing and its labeled parts in words. For "choose an example" questions, give a worked example.
+- Vocabulary: a "## Vocabulary" section with one line per term: "- **Term** — definition (1-2 sentences)".
+LIST:
+${list.slice(0,CONTENT_LIMIT)}`;
+}
+function adminSlug(unit){return unit.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,50)||'study-file';}
 async function adminGenerate(){
   const key=document.getElementById('admin-key').value.trim()||keyEl.value.trim();
   const unit=document.getElementById('admin-unit').value.trim();
   const uploadActive=document.getElementById('admin-cpanel-upload').classList.contains('active');
-  const notes=uploadActive?adminExtractedContent:document.getElementById('admin-notes').value.trim();
+  const input=uploadActive?adminExtractedContent:document.getElementById('admin-notes').value.trim();
   const err=document.getElementById('admin-err');err.classList.remove('show');
+  const done=document.getElementById('admin-done');done.style.display='none';
   if(!key||!key.startsWith('sk-ant'))return showErr(err,'Please enter a valid Anthropic API key.');
   if(!unit)return showErr(err,'Please enter a unit name.');
-  if(!notes||notes.length<20)return showErr(err,uploadActive?'Please upload a file first — no text was extracted.':'Please paste study notes.');
-  const btn=document.querySelector('#tab-admin .btn-primary');btn.disabled=true;btn.innerHTML='<span class="btn-spin"></span> Analysing…';
-  let sc=null;
-  try{const raw=await claude(key,`Analyze study material for unit: "${unit}". Return ONLY JSON: {"covered_concepts":["c1"],"missing_concepts":[{"concept":"name","reason":"why tested"}],"coverage_score":72}\nJSON only.\nMATERIAL:\n${notes.slice(0,8000)}`,800);sc=parseJSON(raw);}catch(e){}
-  const fileObj={version:2,unit,created:today(),last_modified:today(),last_compiled:null,notes_md:notes,scope_check:sc,questions:[],sessions:[],missed_queue:[],missed_queue_cards:[]};
-  dlJSON(`studypulse-${unit.toLowerCase().replace(/\s+/g,'-').slice(0,30)}-${stamp()}.json`,fileObj);
-  btn.disabled=false;btn.innerHTML='✅ File Generated';setTimeout(()=>{btn.innerHTML='Generate Study File ⚡';},3000);
+  if(!input||input.length<20)return showErr(err,uploadActive?'Please upload a file first — no text was extracted.':'Please paste study notes.');
+  const wantQ=document.getElementById('admin-prebuild-q').checked,wantFc=document.getElementById('admin-prebuild-fc').checked;
+  const numQ=Math.min(40,Math.max(5,parseInt(document.getElementById('admin-num-q').value)||25));
+  const numFc=Math.min(60,Math.max(5,parseInt(document.getElementById('admin-num-fc').value)||30));
+  const diff=document.getElementById('admin-difficulty').value;
+  const btn=document.getElementById('admin-gen-btn');btn.disabled=true;
+  const step=t=>{btn.innerHTML=`<span class="btn-spin"></span> ${t}`;};
+  const warnings=[];
+  try{
+    let notes=input;
+    if(adminType==='list'){
+      step('Writing answers & definitions…');
+      notes=(await claude(key,answerListPrompt(unit,input),16000)).trim();
+      if(notes.length<50)throw new Error('Claude returned no answers — please try again.');
+    }
+    step('Analysing coverage…');
+    let sc=null;
+    try{const raw=await claude(key,`Analyze study material for unit: "${unit}". Return ONLY JSON: {"covered_concepts":["c1"],"missing_concepts":[{"concept":"name","reason":"why tested"}],"coverage_score":72}\nJSON only.\nMATERIAL:\n${notes.slice(0,8000)}`,800);sc=parseJSON(raw);}catch(e){}
+    let qs=[],cards=[];
+    if(wantQ){
+      step(`Building ${numQ}-question quiz…`);
+      try{const parsed=parseJSON(await claude(key,buildPrompt(notes,numQ,diff,document.getElementById('s-multi').checked,document.getElementById('s-fitb').checked,[],[]),quizMaxTokens(numQ)));if(Array.isArray(parsed))qs=parsed.map(normalizeQ);}catch(e){warnings.push('quiz ('+e.message+')');}
+    }
+    if(wantFc){
+      step(`Building ${numFc} flashcards…`);
+      try{const parsed=parseJSON(await claude(key,fcPrompt(notes,numFc),fcMaxTokens(numFc)));if(Array.isArray(parsed))cards=parsed.filter(c=>c&&c.term&&c.definition).map(c=>({term:c.term,definition:c.definition}));}catch(e){warnings.push('flashcards ('+e.message+')');}
+    }
+    const fileObj={version:2,unit,created:today(),last_modified:today(),last_compiled:qs.length?today():null,notes_md:notes,scope_check:sc,questions:qs,cards,sessions:[],missed_queue:[],missed_queue_cards:[]};
+    const fname=`${adminSlug(unit)}.json`;
+    dlJSON(fname,fileObj);
+    const uploadUrl=`https://github.com/${CLASS_LIB_REPO}/upload/master/${CLASS_LIB_DIR}`;
+    const shareUrl=`${location.origin}${location.pathname}?file=${encodeURIComponent(adminSlug(unit))}`;
+    done.innerHTML=`✅ <strong>${esc(fname)}</strong> downloaded — ${qs.length} quiz questions, ${cards.length} flashcards${adminType==='list'?', answers written':''}.${warnings.length?`<br>⚠️ Could not pre-build: ${esc(warnings.join(', '))}. The student can still generate these with a key.`:''}
+      <br><br><strong>Share it:</strong> <a href="${esc(uploadUrl)}" target="_blank" rel="noopener">upload the file to the Class Library on GitHub</a>. After about a minute it appears in the Class Library, and this link opens it directly:<br><code style="word-break:break-all">${esc(shareUrl)}</code>
+      <br><br><button class="btn btn-secondary btn-sm" id="admin-open-btn">Open it here to review</button>`;
+    done.style.display='block';
+    document.getElementById('admin-open-btn').onclick=()=>loadStudyData(JSON.stringify(fileObj));
+    btn.innerHTML='✅ File Generated';
+  }catch(e){showErr(err,'⚠️ '+e.message);btn.innerHTML='Generate Study File ⚡';}
+  btn.disabled=false;setTimeout(()=>{btn.innerHTML='Generate Study File ⚡';},3000);
 }
 
 function downloadFile(){if(!studyFile)return;saveNotes();dlJSON(`studypulse-${(studyFile.unit||'notes').toLowerCase().replace(/\s+/g,'-').slice(0,30)}-${stamp()}.json`,studyFile);}
@@ -1304,6 +1513,7 @@ function copyJson(){if(!studyFile)return;saveNotes();navigator.clipboard.writeTe
 function saveSession(){dlJSON(`studypulse-quiz-${stamp()}.json`,{type:'quiz',version:1,savedAt:new Date().toISOString(),apiKey:keyEl.value.trim(),content:savedContent,numQuestions:savedNumQ,difficulty:savedDiff,questions:questions.map(q=>q.type==='single_select'?{question:q.question,correct:q.correct,distractors:q.choices.filter(c=>c!==q.correct)}:q)});}
 function saveFc(){dlJSON(`studypulse-fc-${stamp()}.json`,{type:'flashcard',version:1,savedAt:new Date().toISOString(),content:savedContent,numCards:savedNumFc,cards:flashcards});}
 function resetToSetup(){questions=[];userAnswers=[];currentQ=0;answered=false;flashcards=[];fcIdx=0;fcFlipped=false;multiSel.clear();isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=false;fcLinkedToFile=false;clearInterval(qTimer);clearInterval(quizTimer);clearTimeout(advanceTimer);stopSteps();showScreen('screen-setup');}
+initFromUrl();
 window.addEventListener('beforeunload',e=>{if(fileModified){e.preventDefault();e.returnValue='';}});
 
 function showErr(el,msg){el.textContent=msg;el.classList.add('show');}
