@@ -412,7 +412,21 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
         <button class="btn btn-primary" id="saved-quiz-btn" onclick="takeSavedQuiz()">&#x25B6; Take Saved Quiz</button>
         <button class="btn btn-secondary" id="saved-fc-btn" onclick="studySavedCards()">&#x1F0CF; Study Saved Flashcards</button>
       </div>
-      <div class="tgl-desc" style="margin-top:10px">Want fresh questions instead? Enter an API key and use Generate below.</div>
+      <div class="setup-row" style="margin-top:14px">
+        <div class="field-group"><div class="field-label">Questions per quiz</div><input type="number" id="saved-num" value="20" min="5" max="100"/></div>
+        <div class="field-group"><div class="field-label">Flashcards show first</div>
+          <select id="fc-dir">
+            <option value="mixed">Mixed</option>
+            <option value="definition">Definition</option>
+            <option value="term">Term</option>
+          </select>
+        </div>
+      </div>
+      <div class="toggle-row" id="saved-vocab-row" style="border:none;padding-bottom:0">
+        <div class="toggle-info"><div class="tgl-label">Mix in vocabulary questions</div><div class="tgl-desc">Built from the flashcards with different wrong answers each time</div></div>
+        <label class="toggle-sw"><input type="checkbox" id="saved-vocab" checked/><span class="tgl-track"></span></label>
+      </div>
+      <div class="tgl-desc" style="margin-top:10px">Each quiz picks different questions, wordings and wrong answers. &#x1F504; For brand-new questions written from these notes, enter an API key and use Generate below.</div>
     </div>
     <div class="card a2" id="content-card">
       <div class="card-label">Study Content</div>
@@ -565,8 +579,8 @@ textarea{resize:vertical;min-height:180px;line-height:1.65;font-size:14px;}
     <div class="prog-wrap"><div class="prog-fill" id="fc-prog" style="width:0%"></div></div>
     <div class="fc-scene" onclick="flipCard()">
       <div class="fc-card" id="fc-card">
-        <div class="fc-face fc-front"><div class="fc-lbl">Definition</div><div class="fc-txt" id="fc-front">Loading&#x2026;</div><div class="fc-hint">Tap to reveal the term</div></div>
-        <div class="fc-face fc-back"><div class="fc-lbl">Term</div><div class="fc-txt" id="fc-back">&#x2026;</div></div>
+        <div class="fc-face fc-front"><div class="fc-lbl" id="fc-front-lbl">Definition</div><div class="fc-txt" id="fc-front">Loading&#x2026;</div><div class="fc-hint" id="fc-front-hint">Tap to reveal the term</div></div>
+        <div class="fc-face fc-back"><div class="fc-lbl" id="fc-back-lbl">Term</div><div class="fc-txt" id="fc-back">&#x2026;</div></div>
       </div>
     </div>
     <div class="fc-flip-hint" id="fc-hint">Tap the card to flip it</div>
@@ -992,8 +1006,9 @@ function renderQueueToggle(){
 
 function normalizeQ(q){
   if(q.type==='multi_select'||q.type==='fill_blank')return{...q,concept:q.concept||''};
-  // Saved questions may already be normalized (choices instead of distractors)
-  const choices=(q.choices?.length?[...q.choices]:[q.correct,...(q.distractors||[])]).sort(()=>Math.random()-.5);
+  // Saved questions may already be normalized (choices instead of distractors).
+  // A bank question can carry a larger distractor pool; 3 are drawn per attempt.
+  const choices=shuffle(q.choices?.length?[...q.choices]:[q.correct,...shuffle([...(q.distractors||[])]).slice(0,3)]);
   return{type:'single_select',question:q.question,source:q.source||'from_notes',concept:q.concept||'',correct:q.correct,choices,distractor_reasoning:q.distractor_reasoning||''};
 }
 
@@ -1230,7 +1245,7 @@ async function generateFlashcards(){
   try{const raw=await claude(key,fcPrompt(content,n,pn),fcMaxTokens(n));const parsed=parseJSON(raw);if(!Array.isArray(parsed)||!parsed.length)throw new Error('Empty data.');flashcards=parsed.map(c=>({...c,rating:null}));if(studyFile){studyFile.cards=parsed.map(c=>({term:c.term,definition:c.definition}));upsertLibraryEntry(studyFile);renderSavedCard();}fcIdx=0;fcFlipped=false;stopSteps();showScreen('screen-fc');renderFc();}
   catch(e){stopSteps();showScreen('screen-setup');showErr(document.getElementById('fc-err'),'⚠️ '+e.message);}
 }
-function renderFc(){const c=flashcards[fcIdx],total=flashcards.length;document.getElementById('fc-count').textContent=`Card ${fcIdx+1} of ${total}`;document.getElementById('fc-nav-lbl').textContent=`${fcIdx+1}/${total}`;document.getElementById('fc-prog').style.width=`${((fcIdx+1)/total)*100}%`;document.getElementById('fc-front').textContent=c.definition;document.getElementById('fc-back').textContent=c.term;fcFlipped=false;document.getElementById('fc-card').classList.remove('flipped');document.getElementById('fc-prev').disabled=fcIdx===0;document.getElementById('fc-next').disabled=fcIdx===total-1;document.getElementById('fc-rate-again').classList.toggle('active',c.rating==='again');document.getElementById('fc-rate-good').classList.toggle('active',c.rating==='good');}
+function renderFc(){const c=flashcards[fcIdx],total=flashcards.length;document.getElementById('fc-count').textContent=`Card ${fcIdx+1} of ${total}`;document.getElementById('fc-nav-lbl').textContent=`${fcIdx+1}/${total}`;document.getElementById('fc-prog').style.width=`${((fcIdx+1)/total)*100}%`;document.getElementById('fc-front').textContent=c.termFirst?c.term:c.definition;document.getElementById('fc-front-lbl').textContent=c.termFirst?'Term':'Definition';document.getElementById('fc-back-lbl').textContent=c.termFirst?'Definition':'Term';document.getElementById('fc-front-hint').textContent=c.termFirst?'Tap to reveal the definition':'Tap to reveal the term';document.getElementById('fc-back').textContent=c.termFirst?c.definition:c.term;fcFlipped=false;document.getElementById('fc-card').classList.remove('flipped');document.getElementById('fc-prev').disabled=fcIdx===0;document.getElementById('fc-next').disabled=fcIdx===total-1;document.getElementById('fc-rate-again').classList.toggle('active',c.rating==='again');document.getElementById('fc-rate-good').classList.toggle('active',c.rating==='good');}
 function flipCard(){fcFlipped=!fcFlipped;document.getElementById('fc-card').classList.toggle('flipped',fcFlipped);document.getElementById('fc-hint').textContent=fcFlipped?'Tap to flip back':'Tap the card to flip it';}
 function fcNav(d){const n=fcIdx+d;if(n<0||n>=flashcards.length)return;fcIdx=n;renderFc();}
 function shuffleFc(){flashcards=flashcards.sort(()=>Math.random()-.5);fcIdx=0;renderFc();}
@@ -1240,7 +1255,7 @@ function rateFc(v){
   document.getElementById('fc-rate-again').classList.toggle('active',v==='again');
   document.getElementById('fc-rate-good').classList.toggle('active',v==='good');
   if(v==='again'){
-    const requeued={term:c.term,definition:c.definition,rating:null};
+    const requeued={term:c.term,definition:c.definition,rating:null,termFirst:c.termFirst};
     flashcards.push(requeued);
     const insertAt=Math.min(fcIdx+4,flashcards.length-1);
     flashcards.splice(flashcards.length-1,1);
@@ -1351,16 +1366,35 @@ function loadPastedFile(){
 }
 
 // ── SAVED (PRE-BUILT) CONTENT ─────────────────────────────────────
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+// Questions sharing a "group" are rewordings of the same idea; ungrouped questions stand alone
+function savedGroups(){const m=new Map();(studyFile?.questions||[]).forEach((q,i)=>{const g=q.group||('_'+i);if(!m.has(g))m.set(g,[]);m.get(g).push(q);});return[...m.values()];}
 function renderSavedCard(){
-  const nq=studyFile?.questions?.length||0,nc=studyFile?.cards?.length||0;
+  const nq=studyFile?.questions?.length||0,nc=studyFile?.cards?.length||0,ng=nq?savedGroups().length:0;
   document.getElementById('saved-card').style.display=(nq||nc)?'block':'none';
   const qb=document.getElementById('saved-quiz-btn'),cb=document.getElementById('saved-fc-btn');
-  qb.style.display=nq?'':'none';qb.innerHTML=`▶ Take Saved Quiz (${nq})`;
+  qb.style.display=nq?'':'none';qb.innerHTML=nq>ng?`▶ Take Saved Quiz (bank of ${nq})`:`▶ Take Saved Quiz (${nq})`;
   cb.style.display=nc?'':'none';cb.innerHTML=`🃏 Study Saved Flashcards (${nc})`;
+  document.getElementById('saved-vocab-row').style.display=(nq&&nc>=4)?'flex':'none';
+}
+// Vocab questions built from the flashcards: term→definition or definition→term, random distractors
+function vocabQuestion(card,deck){
+  const others=shuffle(deck.filter(c=>c.term!==card.term)).slice(0,3);
+  if(Math.random()<.5)return{type:'single_select',source:'from_notes',concept:card.term,question:`Which term matches this definition: “${card.definition}”`,correct:card.term,distractors:others.map(c=>c.term)};
+  return{type:'single_select',source:'from_notes',concept:card.term,question:`Which is the best definition of “${card.term}”?`,correct:card.definition,distractors:others.map(c=>c.definition)};
+}
+function buildSavedQuiz(n){
+  const picks=shuffle(savedGroups()).map(g=>g[Math.floor(Math.random()*g.length)]);
+  const deck=studyFile.cards||[];
+  const vocabOn=document.getElementById('saved-vocab').checked&&deck.length>=4;
+  const nVocab=vocabOn?Math.min(deck.length,Math.round(n*.25)):0;
+  const qs=[...picks.slice(0,n-nVocab),...shuffle([...deck]).slice(0,nVocab).map(c=>vocabQuestion(c,deck))];
+  return shuffle(qs.map(normalizeQ));
 }
 function takeSavedQuiz(){
   if(!studyFile?.questions?.length)return;
-  questions=studyFile.questions.map(normalizeQ).sort(()=>Math.random()-.5);
+  const n=Math.max(5,Math.min(100,parseInt(document.getElementById('saved-num').value)||20));
+  questions=buildSavedQuiz(n);
   userAnswers=new Array(questions.length).fill(null);currentQ=0;answered=false;
   isTargetedRetry=false;targetedConcepts=[];origScore=null;quizLinkedToFile=true;
   savedContent=getContent();savedNumQ=questions.length;savedDiff=document.getElementById('difficulty').value;
@@ -1369,7 +1403,8 @@ function takeSavedQuiz(){
 }
 function studySavedCards(){
   if(!studyFile?.cards?.length)return;
-  flashcards=studyFile.cards.map(c=>({term:c.term,definition:c.definition,rating:null})).sort(()=>Math.random()-.5);
+  const dir=document.getElementById('fc-dir').value;
+  flashcards=shuffle(studyFile.cards.map(c=>({term:c.term,definition:c.definition,rating:null,termFirst:dir==='term'||(dir==='mixed'&&Math.random()<.5)})));
   fcIdx=0;fcFlipped=false;fcLinkedToFile=true;savedContent=getContent();savedNumFc=flashcards.length;
   showScreen('screen-fc');renderFc();
 }

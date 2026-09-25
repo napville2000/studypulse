@@ -8,6 +8,39 @@
   "scope_check": null,
   "questions": [
     {
+      "group": "B01",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "What is an ion?",
+      "correct": "An atom or group of atoms with a charge from losing or gaining electrons",
+      "distractors": [
+        "An atom with extra neutrons",
+        "A neutral group of atoms joined by covalent bonds",
+        "An atom that has lost protons",
+        "A pair of shared electrons",
+        "A particle of light"
+      ],
+      "distractor_reasoning": "Ions form by changing electrons, never protons; atoms with extra neutrons are isotopes."
+    },
+    {
+      "group": "B01",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "Which particle is an ion?",
+      "correct": "S²⁻",
+      "distractors": [
+        "S",
+        "H₂O",
+        "Ne",
+        "CO₂",
+        "O₂"
+      ],
+      "distractor_reasoning": "Only S²⁻ carries a charge."
+    },
+    {
+      "group": "B02",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ion Formation",
@@ -16,11 +49,30 @@
       "distractors": [
         "1s²2s²2p⁶3s²",
         "1s²2s²2p⁶3s¹",
-        "1s²2s²2p⁵"
+        "1s²2s²2p⁵",
+        "[Ar]",
+        "1s²2s²"
       ],
       "distractor_reasoning": "Sodium loses its single 3s electron, leaving the neon configuration."
     },
     {
+      "group": "B02",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "Why do representative elements gain or lose electrons when forming ions?",
+      "correct": "To reach a stable noble-gas electron configuration",
+      "distractors": [
+        "To change into a different element",
+        "To increase their atomic mass",
+        "To gain more protons",
+        "To become radioactive",
+        "To fill their d sublevel"
+      ],
+      "distractor_reasoning": "A full octet (noble-gas configuration) is especially stable."
+    },
+    {
+      "group": "B02",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ion Formation",
@@ -29,11 +81,46 @@
       "distractors": [
         "Neon",
         "Krypton",
-        "Helium"
+        "Helium",
+        "Xenon",
+        "Chlorine"
       ],
       "distractor_reasoning": "Cl⁻ = 1s²2s²2p⁶3s²3p⁶, the same as argon, the next noble gas."
     },
     {
+      "group": "B03",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "The valence shell of an atom is its:",
+      "correct": "Outermost occupied energy level",
+      "distractors": [
+        "Nucleus",
+        "First energy level",
+        "Innermost d sublevel",
+        "Empty orbitals",
+        "Neutron layer"
+      ],
+      "distractor_reasoning": "Valence electrons live in the valence shell and are the ones gained or lost when ions form."
+    },
+    {
+      "group": "B03",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "Calcium has 2 valence electrons. What ion does it usually form?",
+      "correct": "Ca²⁺",
+      "distractors": [
+        "Ca²⁻",
+        "Ca⁺",
+        "Ca⁶⁻",
+        "Ca³⁺",
+        "Ca⁻"
+      ],
+      "distractor_reasoning": "Losing both valence electrons gives a 2+ charge."
+    },
+    {
+      "group": "B04",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ion Formation",
@@ -42,11 +129,30 @@
       "distractors": [
         "Metals with low electronegativity",
         "Noble gases",
-        "Alkali metals"
+        "Alkali metals",
+        "Transition metals",
+        "Alkaline earth metals"
       ],
       "distractor_reasoning": "Highly electronegative nonmetals gain electrons to complete their octet."
     },
     {
+      "group": "B04",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "An atom with 1, 2 or 3 valence electrons will most likely:",
+      "correct": "Lose electrons and form a cation",
+      "distractors": [
+        "Gain electrons and form an anion",
+        "Share electrons and form a molecule",
+        "Not react at all",
+        "Gain protons",
+        "Form a noble gas"
+      ],
+      "distractor_reasoning": "It's easier to lose a few electrons than to gain 5–7."
+    },
+    {
+      "group": "B05",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Octet Rule",
@@ -55,11 +161,158 @@
       "distractors": [
         "Have eight protons in the nucleus",
         "Form eight bonds each",
-        "Lose all of their valence electrons"
+        "Lose all of their valence electrons",
+        "Have eight neutrons",
+        "Fill all of their d orbitals"
       ],
       "distractor_reasoning": "Eight valence electrons is a noble-gas configuration; the rule is about electrons, not protons."
     },
     {
+      "group": "B05",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Octet Rule",
+      "question": "Which atom needs only 2 electrons, not 8, to have a noble-gas configuration?",
+      "correct": "Hydrogen",
+      "distractors": [
+        "Oxygen",
+        "Carbon",
+        "Chlorine",
+        "Sodium",
+        "Nitrogen"
+      ],
+      "distractor_reasoning": "Hydrogen reaches helium's configuration with 2 electrons."
+    },
+    {
+      "group": "B06",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electronegativity",
+      "question": "Electronegativity is an atom's ability to:",
+      "correct": "Attract electrons in a chemical bond",
+      "distractors": [
+        "Give away protons",
+        "Conduct electricity",
+        "Absorb light",
+        "Form a nucleus",
+        "Repel other atoms"
+      ],
+      "distractor_reasoning": "High-EN atoms pull electrons toward themselves."
+    },
+    {
+      "group": "B06",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electronegativity",
+      "question": "A large difference in electronegativity between two atoms (greater than about 1.7–2.0) usually means they form:",
+      "correct": "An ionic bond",
+      "distractors": [
+        "A nonpolar covalent bond",
+        "A metallic bond",
+        "No bond",
+        "A hydrogen bond",
+        "A dispersion force"
+      ],
+      "distractor_reasoning": "When the difference is large, electrons are transferred rather than shared."
+    },
+    {
+      "group": "B06",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electronegativity",
+      "question": "Which element has the highest electronegativity?",
+      "correct": "Fluorine",
+      "distractors": [
+        "Sodium",
+        "Cesium",
+        "Carbon",
+        "Iron",
+        "Hydrogen"
+      ],
+      "distractor_reasoning": "Fluorine is the most electronegative element."
+    },
+    {
+      "group": "B07",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "Which type of element tends to form positive ions?",
+      "correct": "Metals",
+      "distractors": [
+        "Nonmetals",
+        "Noble gases",
+        "Halogens",
+        "Metalloids only",
+        "Diatomic elements"
+      ],
+      "distractor_reasoning": "Metals have few valence electrons and low electronegativity."
+    },
+    {
+      "group": "B07",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "Which element is most likely to form a NEGATIVE ion?",
+      "correct": "Bromine",
+      "distractors": [
+        "Potassium",
+        "Magnesium",
+        "Aluminum",
+        "Argon",
+        "Calcium"
+      ],
+      "distractor_reasoning": "Bromine is a halogen and gains one electron; argon is a noble gas and doesn't form ions."
+    },
+    {
+      "group": "B08",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "What is the electron configuration of Mg²⁺?",
+      "correct": "1s²2s²2p⁶",
+      "distractors": [
+        "1s²2s²2p⁶3s²",
+        "1s²2s²2p⁶3s²3p²",
+        "1s²2s²2p⁴",
+        "1s²2s²2p⁶3s¹",
+        "1s²2s²2p⁶3s²3p⁶"
+      ],
+      "distractor_reasoning": "Magnesium loses its two 3s electrons."
+    },
+    {
+      "group": "B08",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "What is the electron configuration of O²⁻?",
+      "correct": "1s²2s²2p⁶",
+      "distractors": [
+        "1s²2s²2p⁴",
+        "1s²2s²2p²",
+        "1s²2s²2p⁶3s²",
+        "1s²2s²",
+        "1s²2s²2p⁵"
+      ],
+      "distractor_reasoning": "Oxygen (2p⁴) gains two electrons to reach 2p⁶."
+    },
+    {
+      "group": "B08",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ion Formation",
+      "question": "Which pair has the SAME electron configuration?",
+      "correct": "Na⁺ and F⁻",
+      "distractors": [
+        "Na and Na⁺",
+        "Cl and Cl⁻",
+        "K⁺ and Ne",
+        "Mg²⁺ and Ar",
+        "O and O²⁻"
+      ],
+      "distractor_reasoning": "Na⁺ and F⁻ both have 10 electrons, like neon."
+    },
+    {
+      "group": "B09",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ionic Bonds",
@@ -68,11 +321,126 @@
       "distractors": [
         "A shared pair of electrons between two nonmetals",
         "The attraction between metal ions and a sea of electrons",
-        "A weak attraction between polar molecules"
+        "A weak attraction between polar molecules",
+        "The attraction between protons and neutrons",
+        "A bond where one atom gives both shared electrons"
       ],
       "distractor_reasoning": "Shared pairs are covalent bonds, the electron sea is metallic bonding, and weak molecular attractions are van der Waals forces."
     },
     {
+      "group": "B09",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Bonds",
+      "question": "Which pair of elements is most likely to form an ionic bond?",
+      "correct": "Potassium and chlorine",
+      "distractors": [
+        "Carbon and oxygen",
+        "Nitrogen and hydrogen",
+        "Chlorine and chlorine",
+        "Carbon and hydrogen",
+        "Sulfur and oxygen"
+      ],
+      "distractor_reasoning": "A metal plus a nonmetal forms an ionic bond; two nonmetals form a covalent bond."
+    },
+    {
+      "group": "B10",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "Which of these is a monatomic ion?",
+      "correct": "Ca²⁺",
+      "distractors": [
+        "SO₄²⁻",
+        "NH₄⁺",
+        "OH⁻",
+        "NO₃⁻",
+        "CO₃²⁻"
+      ],
+      "distractor_reasoning": "Monatomic means one atom; the others are polyatomic ions."
+    },
+    {
+      "group": "B10",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "A monatomic ion is:",
+      "correct": "An ion made of a single atom",
+      "distractors": [
+        "An ion made of two atoms",
+        "A neutral single atom",
+        "A group of atoms with a charge",
+        "A molecule of one element",
+        "An atom with one electron"
+      ],
+      "distractor_reasoning": "Examples: Na⁺, Cl⁻, O²⁻."
+    },
+    {
+      "group": "B11",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "How is a polyatomic ion different from a monatomic ion?",
+      "correct": "It is a group of covalently bonded atoms that has an overall charge",
+      "distractors": [
+        "It has no charge",
+        "It contains only metals",
+        "It is always positive",
+        "It is a single atom with a large charge",
+        "It is held together by ionic bonds inside the ion"
+      ],
+      "distractor_reasoning": "The atoms inside a polyatomic ion are covalently bonded, e.g. SO₄²⁻."
+    },
+    {
+      "group": "B11",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "Which is a polyatomic ion?",
+      "correct": "NO₃⁻",
+      "distractors": [
+        "Cl⁻",
+        "Na⁺",
+        "O²⁻",
+        "Fe³⁺",
+        "N³⁻"
+      ],
+      "distractor_reasoning": "Nitrate contains 4 atoms bonded together."
+    },
+    {
+      "group": "B12",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "How many elements are in a binary ionic compound?",
+      "correct": "2",
+      "distractors": [
+        "1",
+        "3",
+        "4",
+        "It varies from 2 to 5",
+        "Any number"
+      ],
+      "distractor_reasoning": "'Binary' means two elements: one metal and one nonmetal."
+    },
+    {
+      "group": "B12",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "Which is a binary ionic compound?",
+      "correct": "MgBr₂",
+      "distractors": [
+        "NaNO₃",
+        "CO₂",
+        "CaCO₃",
+        "H₂O",
+        "KOH"
+      ],
+      "distractor_reasoning": "MgBr₂ has only two elements, a metal and a nonmetal. NaNO₃, CaCO₃ and KOH contain polyatomic ions; CO₂ and H₂O are covalent."
+    },
+    {
+      "group": "B13",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ionic Formulas",
@@ -81,63 +449,126 @@
       "distractors": [
         "AlO",
         "Al₃O₂",
-        "AlO₃"
+        "AlO₃",
+        "Al₂O",
+        "AlO₂"
       ],
       "distractor_reasoning": "2 Al (+6) and 3 O (−6) give a net charge of zero."
     },
     {
+      "group": "B13",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ionic Formulas",
-      "question": "What is the correct formula for calcium hydroxide?",
-      "correct": "Ca(OH)₂",
+      "question": "What is the formula for the compound formed from calcium and nitrogen?",
+      "correct": "Ca₃N₂",
       "distractors": [
-        "CaOH₂",
-        "CaOH",
-        "Ca₂OH"
+        "CaN",
+        "Ca₂N₃",
+        "CaN₂",
+        "Ca₃N",
+        "Ca₂N"
       ],
-      "distractor_reasoning": "Two hydroxide ions are needed, and a polyatomic ion that appears more than once goes in parentheses."
+      "distractor_reasoning": "Ca²⁺ and N³⁻: 3 × (+2) = +6 and 2 × (−3) = −6."
     },
     {
+      "group": "B13",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ionic Formulas",
-      "question": "Mg²⁺ and O²⁻ crisscross to Mg₂O₂. What is the correct formula?",
-      "correct": "MgO",
+      "question": "How do you predict the ratio of ions in a binary ionic compound?",
+      "correct": "Combine ions so the total positive charge equals the total negative charge",
       "distractors": [
-        "Mg₂O₂",
-        "Mg₂O",
-        "MgO₂"
+        "Always use a 1:1 ratio",
+        "Use the ratio of their atomic masses",
+        "Use the ratio of their period numbers",
+        "Match the number of neutrons",
+        "Use the ratio of their valence electrons plus 8"
       ],
-      "distractor_reasoning": "Formula units are always reduced to the lowest whole-number ratio."
+      "distractor_reasoning": "The compound must be electrically neutral."
     },
     {
+      "group": "B14",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Naming Ions",
-      "question": "What is the name of the Cl⁻ ion?",
-      "correct": "Chloride",
+      "concept": "Chemical Formulas",
+      "question": "In the formula Ca(NO₃)₂, what does the subscript 2 tell you?",
+      "correct": "There are two nitrate ions",
       "distractors": [
-        "Chlorine",
-        "Chlorate",
-        "Chlorite"
+        "There are two calcium ions",
+        "There are two oxygen atoms total",
+        "The charge of calcium is 2−",
+        "There are two molecules",
+        "There are two nitrogen atoms in each nitrate"
       ],
-      "distractor_reasoning": "Monatomic anions end in -ide; chlorate and chlorite are polyatomic ions."
+      "distractor_reasoning": "A subscript outside the parentheses multiplies the whole polyatomic ion."
     },
     {
+      "group": "B14",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Naming Ionic Compounds",
-      "question": "What is the name of FeCl₃?",
-      "correct": "Iron(III) chloride",
+      "concept": "Chemical Formulas",
+      "question": "How many oxygen atoms are in one formula unit of Ca(NO₃)₂?",
+      "correct": "6",
       "distractors": [
-        "Iron trichloride",
-        "Iron(II) chloride",
-        "Iron chlorine"
+        "3",
+        "2",
+        "5",
+        "9",
+        "1"
       ],
-      "distractor_reasoning": "3 Cl⁻ = −3, so iron is +3. Ionic names use Roman numerals, not prefixes."
+      "distractor_reasoning": "2 nitrate ions × 3 oxygen atoms = 6."
     },
     {
+      "group": "B14",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Chemical Formulas",
+      "question": "A chemical formula shows:",
+      "correct": "The kinds and numbers of atoms in the smallest representative unit of a substance",
+      "distractors": [
+        "Only the elements, not how many",
+        "The shape of the molecule",
+        "The mass of the compound",
+        "The charges of every electron",
+        "How fast the compound reacts"
+      ],
+      "distractor_reasoning": "Symbols show which elements; subscripts show how many."
+    },
+    {
+      "group": "B15",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Formula Units",
+      "question": "What is a formula unit?",
+      "correct": "The lowest whole-number ratio of ions in an ionic compound",
+      "distractors": [
+        "One molecule of a covalent compound",
+        "A single atom",
+        "The mass of one mole",
+        "A polyatomic ion",
+        "The actual number of atoms in one molecule"
+      ],
+      "distractor_reasoning": "Ionic compounds form huge lattices, so the formula shows a ratio, not a separate molecule."
+    },
+    {
+      "group": "B15",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Formula Units",
+      "question": "Why is the formula of an ionic compound called a formula unit rather than a molecule?",
+      "correct": "Ionic compounds form large crystal lattices with no separate molecules",
+      "distractors": [
+        "Ionic compounds are made of only one element",
+        "Formula units are always gases",
+        "Ionic compounds share electrons",
+        "Molecules can only contain metals",
+        "It's just another name for a molecule"
+      ],
+      "distractor_reasoning": "NaCl means 1 Na⁺ for every Cl⁻ in the crystal."
+    },
+    {
+      "group": "B16",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ionic Compounds",
@@ -146,11 +577,52 @@
       "distractors": [
         "They have low melting points",
         "They are usually gases at room temperature",
-        "They conduct electricity as solids"
+        "They conduct electricity as solids",
+        "They are soft and waxy",
+        "They are made only of nonmetals"
       ],
       "distractor_reasoning": "The ions are locked in place in the solid, but move freely when melted or dissolved."
     },
     {
+      "group": "B16",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "Which THREE are properties of typical ionic compounds?",
+      "correct_count": 3,
+      "options": [
+        "High melting point",
+        "Brittle crystalline solid",
+        "Conducts electricity when dissolved",
+        "Low boiling point",
+        "Soft and waxy",
+        "Made only of nonmetals"
+      ],
+      "correct_answers": [
+        "High melting point",
+        "Brittle crystalline solid",
+        "Conducts electricity when dissolved"
+      ],
+      "distractor_reasoning": "Low boiling points, softness and all-nonmetal composition describe molecular (covalent) compounds."
+    },
+    {
+      "group": "B16",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "Why do ionic compounds have high melting points?",
+      "correct": "Strong attractions between many oppositely charged ions must be overcome",
+      "distractors": [
+        "They contain weak dispersion forces",
+        "Their molecules are very small",
+        "Their electrons are shared equally",
+        "They are held by hydrogen bonds",
+        "They have no electrons"
+      ],
+      "distractor_reasoning": "Every ion is attracted to many neighbors in the lattice."
+    },
+    {
+      "group": "B17",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Ionic Compounds",
@@ -159,24 +631,428 @@
       "distractors": [
         "Oxidation number",
         "Formula unit",
-        "Atomic number"
+        "Atomic number",
+        "Mass number",
+        "Valence number"
       ],
       "distractor_reasoning": "The coordination number counts the nearest oppositely charged neighbors in the crystal."
     },
     {
+      "group": "B17",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Metallic Bonds",
-      "question": "Metallic bonds are best described as:",
-      "correct": "Metal cations attracted to a sea of shared valence electrons",
+      "concept": "Ionic Compounds",
+      "question": "In CsCl, each Cs⁺ ion is surrounded by 8 Cl⁻ ions. What is the coordination number of Cs⁺?",
+      "correct": "8",
       "distractors": [
-        "Transfer of electrons from a metal to a nonmetal",
-        "Pairs of electrons shared by two nonmetals",
-        "Attractions between polar molecules"
+        "1",
+        "6",
+        "2",
+        "4",
+        "16"
       ],
-      "distractor_reasoning": "The mobile electron sea explains why metals conduct electricity and are malleable."
+      "distractor_reasoning": "It counts the nearest oppositely charged neighbors."
     },
     {
+      "group": "B18",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "What happens when an ionic compound dissociates in water?",
+      "correct": "It separates into its individual ions",
+      "distractors": [
+        "Its atoms share electrons",
+        "It turns into a gas",
+        "Its ions gain protons",
+        "It forms a network solid",
+        "It becomes a covalent molecule"
+      ],
+      "distractor_reasoning": "For example, NaCl → Na⁺ + Cl⁻."
+    },
+    {
+      "group": "B18",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Compounds",
+      "question": "Why does a solution of salt water conduct electricity?",
+      "correct": "The dissolved ions are free to move and carry charge",
+      "distractors": [
+        "Water molecules are charged ions",
+        "The salt forms metallic bonds",
+        "Electrons flow through the solid crystal",
+        "Salt is a covalent compound",
+        "Water contains dispersion forces"
+      ],
+      "distractor_reasoning": "Moving ions carry current, so ionic compounds are electrolytes."
+    },
+    {
+      "group": "B19",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ions",
+      "question": "What is the name of the Cl⁻ ion?",
+      "correct": "Chloride",
+      "distractors": [
+        "Chlorine",
+        "Chlorate",
+        "Chlorite",
+        "Chloric",
+        "Perchlorate"
+      ],
+      "distractor_reasoning": "Monatomic anions end in -ide; chlorate and chlorite are polyatomic ions."
+    },
+    {
+      "group": "B19",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ions",
+      "question": "What is the name of the N³⁻ ion?",
+      "correct": "Nitride",
+      "distractors": [
+        "Nitrogen",
+        "Nitrate",
+        "Nitrite",
+        "Nitric",
+        "Nitrous"
+      ],
+      "distractor_reasoning": "Root of the element + -ide."
+    },
+    {
+      "group": "B19",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ions",
+      "question": "How is a monatomic cation such as K⁺ named?",
+      "correct": "With the element's name: potassium ion",
+      "distractors": [
+        "Potasside ion",
+        "Potassate ion",
+        "Potassium(I) ide",
+        "Kalium ion",
+        "Potassite ion"
+      ],
+      "distractor_reasoning": "Cations keep the element name; only anions change to -ide."
+    },
+    {
+      "group": "B20",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "What is the name of SO₄²⁻?",
+      "correct": "Sulfate",
+      "distractors": [
+        "Sulfite",
+        "Sulfide",
+        "Sulfur",
+        "Thiosulfate",
+        "Hydrogen sulfate"
+      ],
+      "distractor_reasoning": "-ate ions have one more oxygen than -ite ions: sulfate SO₄²⁻, sulfite SO₃²⁻."
+    },
+    {
+      "group": "B20",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "What is the name of NH₄⁺?",
+      "correct": "Ammonium",
+      "distractors": [
+        "Ammonia",
+        "Nitride",
+        "Amine",
+        "Nitrate",
+        "Hydrogen nitride"
+      ],
+      "distractor_reasoning": "Ammonia is the molecule NH₃; ammonium is the ion NH₄⁺."
+    },
+    {
+      "group": "B20",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "What is the formula of the hydroxide ion?",
+      "correct": "OH⁻",
+      "distractors": [
+        "H⁻",
+        "O²⁻",
+        "H₃O⁺",
+        "HO₂⁻",
+        "OH⁺"
+      ],
+      "distractor_reasoning": "Hydroxide is a polyatomic ion with a 1− charge."
+    },
+    {
+      "group": "B20",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Polyatomic Ions",
+      "question": "The polyatomic ion SO₄²⁻ is named ___, and NH₄⁺ is named ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "sulfate"
+        },
+        {
+          "id": 1,
+          "answer": "ammonium"
+        }
+      ]
+    },
+    {
+      "group": "B21",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "What is the correct formula for calcium chloride?",
+      "correct": "CaCl₂",
+      "distractors": [
+        "CaCl",
+        "Ca₂Cl",
+        "CaCl₃",
+        "Ca₂Cl₂",
+        "ClCa₂"
+      ],
+      "distractor_reasoning": "Ca²⁺ needs two Cl⁻ ions; the cation is written first."
+    },
+    {
+      "group": "B21",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "What is the correct formula for sodium sulfide?",
+      "correct": "Na₂S",
+      "distractors": [
+        "NaS",
+        "NaS₂",
+        "Na₂SO₄",
+        "Na₃S",
+        "SNa₂"
+      ],
+      "distractor_reasoning": "Na⁺ and S²⁻ need 2 Na for each S. Na₂SO₄ is sodium sulfate."
+    },
+    {
+      "group": "B22",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "How are many transition metal cations different from representative metal cations?",
+      "correct": "They can form more than one possible charge",
+      "distractors": [
+        "They never form ions",
+        "They always have a 1+ charge",
+        "They form negative ions",
+        "They have no valence electrons",
+        "Their charge equals their group number"
+      ],
+      "distractor_reasoning": "Fe can be Fe²⁺ or Fe³⁺, so names need Roman numerals."
+    },
+    {
+      "group": "B22",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "Which metal's compound names need a Roman numeral?",
+      "correct": "Copper",
+      "distractors": [
+        "Sodium",
+        "Calcium",
+        "Aluminum",
+        "Magnesium",
+        "Potassium"
+      ],
+      "distractor_reasoning": "Copper can be Cu⁺ or Cu²⁺; the others have only one common charge."
+    },
+    {
+      "group": "B23",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "What is the name of FeCl₃?",
+      "correct": "Iron(III) chloride",
+      "distractors": [
+        "Iron trichloride",
+        "Iron(II) chloride",
+        "Iron chlorine",
+        "Iron(I) chloride",
+        "Ferric trichloride"
+      ],
+      "distractor_reasoning": "3 Cl⁻ = −3, so iron is +3. Ionic names use Roman numerals, not prefixes."
+    },
+    {
+      "group": "B23",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "What is the charge on copper in CuO?",
+      "correct": "2+",
+      "distractors": [
+        "1+",
+        "2−",
+        "3+",
+        "1−",
+        "4+"
+      ],
+      "distractor_reasoning": "O is 2−, so Cu must be 2+: copper(II) oxide."
+    },
+    {
+      "group": "B23",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "When do you need to work out the cation's charge from the formula to name a compound?",
+      "correct": "When the metal can form more than one charge, such as most transition metals",
+      "distractors": [
+        "For every compound, including NaCl",
+        "Only for covalent compounds",
+        "Only for acids",
+        "Never; the charge is always in the formula",
+        "Only when the anion is polyatomic"
+      ],
+      "distractor_reasoning": "Group 1 and 2 metals, Al, Zn and Ag have one charge, so no Roman numeral is needed."
+    },
+    {
+      "group": "B24",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "Why does the crisscross method work when writing ionic formulas?",
+      "correct": "It makes the total positive and negative charges equal, so the compound is neutral",
+      "distractors": [
+        "It matches the atomic masses",
+        "It doubles the number of electrons",
+        "It makes all subscripts equal to 1",
+        "It shows the shape of the compound",
+        "It lists the elements alphabetically"
+      ],
+      "distractor_reasoning": "Al³⁺ and O²⁻ crisscross to Al₂O₃: +6 and −6."
+    },
+    {
+      "group": "B24",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "Using the crisscross method, Mg²⁺ and N³⁻ combine to form:",
+      "correct": "Mg₃N₂",
+      "distractors": [
+        "Mg₂N₃",
+        "MgN",
+        "Mg₃N",
+        "MgN₂",
+        "Mg₂N"
+      ],
+      "distractor_reasoning": "The 3 from N becomes Mg's subscript, and the 2 from Mg becomes N's subscript."
+    },
+    {
+      "group": "B25",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "Mg²⁺ and O²⁻ crisscross to Mg₂O₂. What is the correct formula?",
+      "correct": "MgO",
+      "distractors": [
+        "Mg₂O₂",
+        "Mg₂O",
+        "MgO₂",
+        "Mg₄O₄",
+        "OMg"
+      ],
+      "distractor_reasoning": "Formula units are always reduced to the lowest whole-number ratio."
+    },
+    {
+      "group": "B25",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "Which formula is written correctly for an ionic compound?",
+      "correct": "CaS",
+      "distractors": [
+        "Ca₂S₂",
+        "Na₂Cl₂",
+        "Ba₂O₂",
+        "Mg₂O₂",
+        "Sr₂S₂"
+      ],
+      "distractor_reasoning": "Every other choice can be reduced to a lower whole-number ratio, e.g. Ca₂S₂ → CaS."
+    },
+    {
+      "group": "B26",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "What is the correct formula for calcium hydroxide?",
+      "correct": "Ca(OH)₂",
+      "distractors": [
+        "CaOH₂",
+        "CaOH",
+        "Ca₂OH",
+        "Ca(OH₂)",
+        "CaO₂H₂"
+      ],
+      "distractor_reasoning": "Two hydroxide ions are needed, and a polyatomic ion that appears more than once goes in parentheses."
+    },
+    {
+      "group": "B26",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "Which formula correctly needs parentheses?",
+      "correct": "(NH₄)₃PO₄",
+      "distractors": [
+        "(Na)Cl",
+        "Ca(Cl)₂",
+        "(K)₂S",
+        "Na(NO₃)",
+        "Mg(O)"
+      ],
+      "distractor_reasoning": "Parentheses are only for a polyatomic ion that appears more than once."
+    },
+    {
+      "group": "B26",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic Formulas",
+      "question": "What is the correct formula for aluminum sulfate?",
+      "correct": "Al₂(SO₄)₃",
+      "distractors": [
+        "Al₂SO₄₃",
+        "AlSO₄",
+        "Al₃(SO₄)₂",
+        "Al(SO₄)₃",
+        "Al₂S₃"
+      ],
+      "distractor_reasoning": "Al³⁺ and SO₄²⁻: 2 × (+3) = +6 and 3 × (−2) = −6. Al₂S₃ would be aluminum sulfide."
+    },
+    {
+      "group": "B27",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "What is a covalent bond?",
+      "correct": "A bond formed when atoms share a pair of electrons",
+      "distractors": [
+        "The attraction between oppositely charged ions",
+        "Metal ions surrounded by a sea of electrons",
+        "A weak attraction between molecules",
+        "The transfer of electrons from a metal to a nonmetal",
+        "A bond between a proton and an electron"
+      ],
+      "distractor_reasoning": "Transfer of electrons makes ions; sharing makes covalent bonds."
+    },
+    {
+      "group": "B27",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "A bond in which two atoms share a pair of electrons is a ___ bond.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "covalent"
+        }
+      ]
+    },
+    {
+      "group": "B28",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Covalent Bonds",
@@ -185,11 +1061,158 @@
       "distractors": [
         "A metal and a nonmetal",
         "Two metal atoms",
-        "A metal and a noble gas"
+        "A metal and a noble gas",
+        "Any two ions",
+        "Two noble gases"
       ],
       "distractor_reasoning": "A metal with a nonmetal forms an ionic bond; metal atoms bond to each other with metallic bonds."
     },
     {
+      "group": "B28",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "Which compound has covalent bonds?",
+      "correct": "CH₄",
+      "distractors": [
+        "NaCl",
+        "MgO",
+        "KBr",
+        "CaF₂",
+        "LiCl"
+      ],
+      "distractor_reasoning": "C and H are both nonmetals; the others are metal + nonmetal (ionic)."
+    },
+    {
+      "group": "B29",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Molecules",
+      "question": "How is a molecule different from a formula unit?",
+      "correct": "A molecule is a separate group of covalently bonded atoms; a formula unit is a ratio of ions in a crystal",
+      "distractors": [
+        "They are exactly the same thing",
+        "A formula unit is made of shared electrons",
+        "A molecule is always charged",
+        "A formula unit is a single atom",
+        "A molecule only exists in ionic compounds"
+      ],
+      "distractor_reasoning": "H₂O is a real, separate particle; NaCl is a 1:1 ratio in a lattice."
+    },
+    {
+      "group": "B29",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Molecules",
+      "question": "Which substance is described by a formula unit rather than a molecule?",
+      "correct": "KCl",
+      "distractors": [
+        "H₂O",
+        "CO₂",
+        "NH₃",
+        "O₂",
+        "CH₄"
+      ],
+      "distractor_reasoning": "KCl is ionic; the others are molecular."
+    },
+    {
+      "group": "B30",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Chemical Formulas",
+      "question": "A molecular formula shows:",
+      "correct": "The actual number of each kind of atom in one molecule",
+      "distractors": [
+        "The lowest ratio of ions in a crystal",
+        "The shape of the molecule",
+        "Only the elements present",
+        "The charges on each atom",
+        "How the atoms are connected"
+      ],
+      "distractor_reasoning": "Glucose's molecular formula is C₆H₁₂O₆."
+    },
+    {
+      "group": "B30",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Chemical Formulas",
+      "question": "How does a molecular formula relate to a chemical formula?",
+      "correct": "A molecular formula is one kind of chemical formula, used for molecular compounds",
+      "distractors": [
+        "They are unrelated",
+        "A chemical formula is only for molecules",
+        "A molecular formula is only for ionic compounds",
+        "A molecular formula shows bonds and a chemical formula does not",
+        "Chemical formulas never use subscripts"
+      ],
+      "distractor_reasoning": "'Chemical formula' covers both ionic and molecular compounds."
+    },
+    {
+      "group": "B31",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Structural Formulas",
+      "question": "How is a structural formula different from a chemical formula?",
+      "correct": "It shows how the atoms are arranged and bonded",
+      "distractors": [
+        "It shows only the elements present",
+        "It shows the mass of each atom",
+        "It lists ions in order of charge",
+        "It gives the lowest ratio of ions",
+        "It never shows hydrogen"
+      ],
+      "distractor_reasoning": "H–O–H shows water's bonds; H₂O only shows the atoms."
+    },
+    {
+      "group": "B31",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Structural Formulas",
+      "question": "In a structural formula, what does a single line between two atoms represent?",
+      "correct": "One shared pair of electrons",
+      "distractors": [
+        "One electron",
+        "A transferred electron",
+        "An ionic bond",
+        "A lone pair",
+        "A proton"
+      ],
+      "distractor_reasoning": "Each dash is one covalent bond (2 electrons)."
+    },
+    {
+      "group": "B32",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Diatomic Molecules",
+      "question": "A diatomic molecule is:",
+      "correct": "A molecule of two atoms of the same element",
+      "distractors": [
+        "Any molecule with two elements",
+        "A molecule with two double bonds",
+        "An ion with a 2− charge",
+        "A molecule of two different metals",
+        "A crystal with two ions"
+      ],
+      "distractor_reasoning": "Examples: H₂, O₂, N₂."
+    },
+    {
+      "group": "B32",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Diatomic Molecules",
+      "question": "Which is a diatomic molecule?",
+      "correct": "N₂",
+      "distractors": [
+        "NaCl",
+        "H₂O",
+        "CO₂",
+        "He",
+        "NH₃"
+      ],
+      "distractor_reasoning": "Two nitrogen atoms bonded together; He is a single atom."
+    },
+    {
+      "group": "B33",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Diatomic Molecules",
@@ -198,193 +1221,14 @@
       "distractors": [
         "Nitrogen",
         "Bromine",
-        "Hydrogen"
+        "Hydrogen",
+        "Iodine",
+        "Fluorine"
       ],
       "distractor_reasoning": "The seven diatomic elements are H, N, O, F, Cl, Br and I."
     },
     {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Naming Covalent Compounds",
-      "question": "What is the name of N₂O₄?",
-      "correct": "Dinitrogen tetroxide",
-      "distractors": [
-        "Nitrogen oxide",
-        "Nitrogen(IV) oxide",
-        "Dinitrogen quadoxide"
-      ],
-      "distractor_reasoning": "Binary molecular compounds use Greek prefixes: di = 2, tetra = 4."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Naming Covalent Compounds",
-      "question": "What is the formula for diphosphorus pentoxide?",
-      "correct": "P₂O₅",
-      "distractors": [
-        "P₅O₂",
-        "PO₅",
-        "P₂O"
-      ],
-      "distractor_reasoning": "The prefixes give the subscripts directly: di = 2, penta = 5."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Covalent Bonds",
-      "question": "How many electrons are shared in a triple covalent bond?",
-      "correct": "6",
-      "distractors": [
-        "3",
-        "2",
-        "9"
-      ],
-      "distractor_reasoning": "A triple bond is 3 shared pairs = 6 electrons."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Bond Strength",
-      "question": "Which carbon–carbon bond has the highest bond dissociation energy?",
-      "correct": "Triple bond",
-      "distractors": [
-        "Single bond",
-        "Double bond",
-        "They are all equal"
-      ],
-      "distractor_reasoning": "More shared pairs make a shorter, stronger bond that needs more energy to break."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Bond Strength",
-      "question": "As bond length decreases, bond dissociation energy:",
-      "correct": "Increases",
-      "distractors": [
-        "Decreases",
-        "Stays the same",
-        "Becomes zero"
-      ],
-      "distractor_reasoning": "Shorter bonds are stronger, so it takes more energy to break them."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Octet Rule Exceptions",
-      "question": "Which molecule is an exception to the octet rule because the central atom has MORE than eight electrons?",
-      "correct": "PCl₅",
-      "distractors": [
-        "CH₄",
-        "H₂O",
-        "NH₃"
-      ],
-      "distractor_reasoning": "Phosphorus in PCl₅ has 10 electrons (an expanded octet); the others follow the octet rule."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "VSEPR",
-      "question": "Why is a water molecule bent instead of linear?",
-      "correct": "The two lone pairs on oxygen push the bonding pairs closer together",
-      "distractors": [
-        "Hydrogen atoms repel the oxygen nucleus",
-        "Water has double bonds",
-        "Oxygen has no lone pairs"
-      ],
-      "distractor_reasoning": "Oxygen has 2 bonding and 2 unshared pairs; the lone pairs repel strongly, giving about 105°."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "VSEPR",
-      "question": "What is the shape of an ammonia (NH₃) molecule?",
-      "correct": "Trigonal pyramidal",
-      "distractors": [
-        "Trigonal planar",
-        "Linear",
-        "Tetrahedral with four atoms"
-      ],
-      "distractor_reasoning": "Three bonding pairs plus one lone pair on N make a pyramid (about 107°)."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Polarity",
-      "question": "Which bond is nonpolar covalent?",
-      "correct": "Cl–Cl",
-      "distractors": [
-        "H–Cl",
-        "O–H",
-        "Na–Cl"
-      ],
-      "distractor_reasoning": "Identical atoms have zero electronegativity difference; Na–Cl is ionic."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Polarity",
-      "question": "CO₂ contains polar C=O bonds but is a nonpolar molecule because:",
-      "correct": "Its linear, symmetrical shape makes the bond polarities cancel",
-      "distractors": [
-        "Carbon and oxygen have the same electronegativity",
-        "Double bonds are never polar",
-        "It has no electrons to share"
-      ],
-      "distractor_reasoning": "Molecular polarity depends on both bond polarity and shape."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Intermolecular Forces",
-      "question": "A hydrogen bond forms when hydrogen is covalently bonded to:",
-      "correct": "A very electronegative atom such as F, O or N",
-      "distractors": [
-        "Any metal atom",
-        "Carbon",
-        "Another hydrogen atom"
-      ],
-      "distractor_reasoning": "Only F, O and N pull electrons strongly enough to make H nearly a bare proton."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Intermolecular Forces",
-      "question": "Which intermolecular force exists between ALL molecules, even nonpolar ones?",
-      "correct": "Dispersion forces",
-      "distractors": [
-        "Hydrogen bonds",
-        "Dipole interactions",
-        "Ionic bonds"
-      ],
-      "distractor_reasoning": "Moving electrons create temporary dipoles in every molecule."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Network Solids",
-      "question": "What must be broken for a network solid like diamond to melt?",
-      "correct": "Covalent bonds",
-      "distractors": [
-        "Hydrogen bonds",
-        "Dispersion forces",
-        "Ionic bonds"
-      ],
-      "distractor_reasoning": "Every atom is covalently bonded in a continuous network, so melting means breaking covalent bonds."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Acids and Bases",
-      "question": "A base is a compound that produces which ion in water?",
-      "correct": "OH⁻ (hydroxide)",
-      "distractors": [
-        "H⁺ (hydrogen)",
-        "Cl⁻ (chloride)",
-        "Na⁺ (sodium)"
-      ],
-      "distractor_reasoning": "Acids produce H⁺; bases produce OH⁻."
-    },
-    {
+      "group": "B33",
       "type": "multi_select",
       "source": "from_notes",
       "concept": "Diatomic Molecules",
@@ -406,27 +1250,1310 @@
       "distractor_reasoning": "Neon is a monatomic noble gas; carbon and sodium do not form diatomic molecules under normal conditions."
     },
     {
-      "type": "multi_select",
+      "group": "B33",
+      "type": "single_select",
       "source": "from_notes",
-      "concept": "Ionic vs Covalent",
-      "question": "Which THREE are properties of typical ionic compounds?",
-      "correct_count": 3,
-      "options": [
-        "High melting point",
-        "Brittle crystalline solid",
-        "Conducts electricity when dissolved",
-        "Low boiling point",
-        "Soft and waxy",
-        "Made only of nonmetals"
+      "concept": "Diatomic Molecules",
+      "question": "How many elements naturally exist as diatomic molecules?",
+      "correct": "7",
+      "distractors": [
+        "2",
+        "5",
+        "8",
+        "10",
+        "18"
       ],
-      "correct_answers": [
-        "High melting point",
-        "Brittle crystalline solid",
-        "Conducts electricity when dissolved"
-      ],
-      "distractor_reasoning": "Low boiling points, softness and all-nonmetal composition describe molecular (covalent) compounds."
+      "distractor_reasoning": "H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂."
     },
     {
+      "group": "B34",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic vs Covalent",
+      "question": "Compared with ionic compounds, molecular (covalent) compounds generally have:",
+      "correct": "Lower melting and boiling points",
+      "distractors": [
+        "Higher melting points",
+        "Better electrical conductivity when dissolved",
+        "Crystal lattices of ions",
+        "Metal atoms in them",
+        "Stronger bonds between molecules"
+      ],
+      "distractor_reasoning": "Only weak forces hold separate molecules together."
+    },
+    {
+      "group": "B34",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ionic vs Covalent",
+      "question": "Which is a typical property of a covalent (molecular) compound?",
+      "correct": "It is a poor conductor of electricity",
+      "distractors": [
+        "It conducts when dissolved because of free ions",
+        "It is always a hard crystalline solid",
+        "It has a very high melting point",
+        "It contains a metal cation",
+        "It is made of formula units"
+      ],
+      "distractor_reasoning": "Molecular compounds don't form ions, so they generally don't conduct."
+    },
+    {
+      "group": "B35",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What is the name of N₂O₄?",
+      "correct": "Dinitrogen tetroxide",
+      "distractors": [
+        "Nitrogen oxide",
+        "Nitrogen(IV) oxide",
+        "Dinitrogen quadoxide",
+        "Nitrogen tetroxide",
+        "Dinitrogen oxide"
+      ],
+      "distractor_reasoning": "Binary molecular compounds use Greek prefixes: di = 2, tetra = 4."
+    },
+    {
+      "group": "B35",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What is the name of CO?",
+      "correct": "Carbon monoxide",
+      "distractors": [
+        "Monocarbon monoxide",
+        "Carbon oxide",
+        "Carbon(II) oxide",
+        "Carbon dioxide",
+        "Carbonate"
+      ],
+      "distractor_reasoning": "Mono- is not used on the first element."
+    },
+    {
+      "group": "B35",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "How does naming a covalent compound differ from naming an ionic compound?",
+      "correct": "Covalent names use prefixes to show the number of atoms; ionic names don't",
+      "distractors": [
+        "Ionic names use prefixes; covalent names don't",
+        "Covalent names use Roman numerals",
+        "Only ionic compounds end in -ide",
+        "Covalent compounds are named with the metal first",
+        "There is no difference"
+      ],
+      "distractor_reasoning": "MgCl₂ is magnesium chloride, not magnesium dichloride."
+    },
+    {
+      "group": "B36",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "Which name tells you immediately that the compound is molecular?",
+      "correct": "Sulfur hexafluoride",
+      "distractors": [
+        "Sodium fluoride",
+        "Iron(III) oxide",
+        "Calcium chloride",
+        "Potassium sulfate",
+        "Magnesium oxide"
+      ],
+      "distractor_reasoning": "Numerical prefixes (hexa- = 6) are used only in molecular compound names."
+    },
+    {
+      "group": "B36",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What clue in a compound's name tells you it is a molecule?",
+      "correct": "It uses prefixes such as mono-, di- or tri-",
+      "distractors": [
+        "It contains a Roman numeral",
+        "It ends in -ate",
+        "It starts with a metal",
+        "It contains 'ammonium'",
+        "It ends in -ite"
+      ],
+      "distractor_reasoning": "Prefixes appear only in binary molecular compound names."
+    },
+    {
+      "group": "B37",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Compounds",
+      "question": "Which fact must you know to name an ionic compound but NOT a binary molecular compound?",
+      "correct": "The charges of the ions",
+      "distractors": [
+        "The Greek prefixes",
+        "The symbols of the elements",
+        "That the second element ends in -ide",
+        "The number of atoms of each element",
+        "Which element is written first"
+      ],
+      "distractor_reasoning": "Molecular names come straight from atom counts; ionic names depend on ion charges."
+    },
+    {
+      "group": "B37",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Compounds",
+      "question": "What is the correct name for PCl₃?",
+      "correct": "Phosphorus trichloride",
+      "distractors": [
+        "Phosphorus(III) chloride",
+        "Monophosphorus trichloride",
+        "Phosphorus chloride",
+        "Triphosphorus chloride",
+        "Phosphate chloride"
+      ],
+      "distractor_reasoning": "Molecular: use prefixes, but skip mono- on the first element."
+    },
+    {
+      "group": "B38",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What is the formula for diphosphorus pentoxide?",
+      "correct": "P₂O₅",
+      "distractors": [
+        "P₅O₂",
+        "PO₅",
+        "P₂O",
+        "P₂O₄",
+        "PO₂"
+      ],
+      "distractor_reasoning": "The prefixes give the subscripts directly: di = 2, penta = 5."
+    },
+    {
+      "group": "B38",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Ionic Compounds",
+      "question": "What is the formula for iron(III) oxide?",
+      "correct": "Fe₂O₃",
+      "distractors": [
+        "FeO",
+        "Fe₃O₂",
+        "FeO₃",
+        "Fe₃O",
+        "Fe₂O"
+      ],
+      "distractor_reasoning": "Fe³⁺ and O²⁻ balance as 2 Fe (+6) and 3 O (−6)."
+    },
+    {
+      "group": "B38",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Naming Covalent Compounds",
+      "question": "What is the formula for carbon tetrachloride?",
+      "correct": "CCl₄",
+      "distractors": [
+        "C₄Cl",
+        "CCl",
+        "C₄Cl₄",
+        "CCl₂",
+        "CaCl₄"
+      ],
+      "distractor_reasoning": "Tetra = 4 chlorine atoms; mono- is left off the carbon."
+    },
+    {
+      "group": "B39",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Acids and Bases",
+      "question": "An acid is a compound that:",
+      "correct": "Produces hydrogen ions (H⁺) when dissolved in water",
+      "distractors": [
+        "Produces hydroxide ions (OH⁻) in water",
+        "Contains only metals",
+        "Is always a solid",
+        "Has no hydrogen",
+        "Produces oxide ions in water"
+      ],
+      "distractor_reasoning": "Bases produce OH⁻; acids produce H⁺."
+    },
+    {
+      "group": "B39",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Acids and Bases",
+      "question": "Which compound is an acid?",
+      "correct": "HCl",
+      "distractors": [
+        "NaOH",
+        "KOH",
+        "NaCl",
+        "CH₄",
+        "Ca(OH)₂"
+      ],
+      "distractor_reasoning": "HCl releases H⁺ in water; the hydroxides are bases."
+    },
+    {
+      "group": "B40",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Acids and Bases",
+      "question": "A base is a compound that produces which ion in water?",
+      "correct": "OH⁻ (hydroxide)",
+      "distractors": [
+        "H⁺ (hydrogen)",
+        "Cl⁻ (chloride)",
+        "Na⁺ (sodium)",
+        "O²⁻ (oxide)",
+        "SO₄²⁻ (sulfate)"
+      ],
+      "distractor_reasoning": "Acids produce H⁺; bases produce OH⁻."
+    },
+    {
+      "group": "B40",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Acids and Bases",
+      "question": "Which compound is a base?",
+      "correct": "NaOH",
+      "distractors": [
+        "HCl",
+        "H₂SO₄",
+        "HNO₃",
+        "NaCl",
+        "CO₂"
+      ],
+      "distractor_reasoning": "Sodium hydroxide releases OH⁻ in water."
+    },
+    {
+      "group": "B41",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "How many electrons are shared in a triple covalent bond?",
+      "correct": "6",
+      "distractors": [
+        "3",
+        "2",
+        "9",
+        "4",
+        "8"
+      ],
+      "distractor_reasoning": "A triple bond is 3 shared pairs = 6 electrons."
+    },
+    {
+      "group": "B41",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "How many shared pairs of electrons are in a double bond?",
+      "correct": "2",
+      "distractors": [
+        "1",
+        "4",
+        "3",
+        "6",
+        "8"
+      ],
+      "distractor_reasoning": "A double bond is 2 shared pairs = 4 electrons."
+    },
+    {
+      "group": "B41",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Covalent Bonds",
+      "question": "Which molecule contains a triple bond?",
+      "correct": "N₂",
+      "distractors": [
+        "O₂",
+        "H₂",
+        "Cl₂",
+        "F₂",
+        "H₂O"
+      ],
+      "distractor_reasoning": "N≡N; O₂ has a double bond, and H₂, Cl₂ and F₂ have single bonds."
+    },
+    {
+      "group": "B42",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Structural Formulas",
+      "question": "What is the FIRST step in drawing a structural formula?",
+      "correct": "Count the total number of valence electrons",
+      "distractors": [
+        "Draw all double bonds",
+        "Place lone pairs on the central atom",
+        "Put hydrogen in the center",
+        "Count the protons",
+        "Draw the molecule's 3-D shape"
+      ],
+      "distractor_reasoning": "You need the total electron count before placing bonds and lone pairs."
+    },
+    {
+      "group": "B42",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Structural Formulas",
+      "question": "Which atom can never be the central atom in a structural formula?",
+      "correct": "Hydrogen",
+      "distractors": [
+        "Carbon",
+        "Nitrogen",
+        "Oxygen",
+        "Phosphorus",
+        "Sulfur"
+      ],
+      "distractor_reasoning": "Hydrogen forms only one bond."
+    },
+    {
+      "group": "B42",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Structural Formulas",
+      "question": "How many valence electrons are used to draw the structure of CO₂?",
+      "correct": "16",
+      "distractors": [
+        "12",
+        "22",
+        "6",
+        "8",
+        "18"
+      ],
+      "distractor_reasoning": "C has 4 and each O has 6: 4 + 6 + 6 = 16."
+    },
+    {
+      "group": "B43",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bond Strength",
+      "question": "Which carbon–carbon bond has the highest bond dissociation energy?",
+      "correct": "Triple bond",
+      "distractors": [
+        "Single bond",
+        "Double bond",
+        "They are all equal",
+        "It depends on temperature",
+        "A single bond with lone pairs"
+      ],
+      "distractor_reasoning": "More shared pairs make a shorter, stronger bond that needs more energy to break."
+    },
+    {
+      "group": "B43",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bond Strength",
+      "question": "Which carbon–carbon bond is the weakest?",
+      "correct": "Single bond (C–C)",
+      "distractors": [
+        "Double bond (C=C)",
+        "Triple bond (C≡C)",
+        "All are equally strong",
+        "It depends on the molecule's color",
+        "Quadruple bond"
+      ],
+      "distractor_reasoning": "Fewer shared electrons = weaker bond."
+    },
+    {
+      "group": "B44",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bond Strength",
+      "question": "As bond length decreases, bond dissociation energy:",
+      "correct": "Increases",
+      "distractors": [
+        "Decreases",
+        "Stays the same",
+        "Becomes zero",
+        "Doubles every time",
+        "Depends only on the mass"
+      ],
+      "distractor_reasoning": "Shorter bonds are stronger, so it takes more energy to break them."
+    },
+    {
+      "group": "B44",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bond Strength",
+      "question": "Which is true of a C≡C triple bond compared with a C–C single bond?",
+      "correct": "It is shorter and stronger",
+      "distractors": [
+        "It is longer and stronger",
+        "It is longer and weaker",
+        "It is shorter and weaker",
+        "It is the same length",
+        "It has fewer shared electrons"
+      ],
+      "distractor_reasoning": "Bond length and bond strength are inversely related."
+    },
+    {
+      "group": "B45",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Resonance",
+      "question": "Resonance occurs when:",
+      "correct": "Two or more valid electron dot structures can be drawn for the same molecule",
+      "distractors": [
+        "A molecule vibrates rapidly",
+        "A bond breaks and re-forms",
+        "An ion changes its charge",
+        "Two molecules share a hydrogen bond",
+        "A molecule has only single bonds"
+      ],
+      "distractor_reasoning": "The real structure is an average (hybrid) of the resonance structures."
+    },
+    {
+      "group": "B45",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Resonance",
+      "question": "Which molecule or ion shows resonance?",
+      "correct": "Ozone (O₃)",
+      "distractors": [
+        "Methane (CH₄)",
+        "Hydrogen (H₂)",
+        "Water (H₂O)",
+        "Ammonia (NH₃)",
+        "Hydrogen fluoride (HF)"
+      ],
+      "distractor_reasoning": "O₃ can be drawn with the double bond on either side; nitrate and carbonate also show resonance."
+    },
+    {
+      "group": "B45",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Resonance",
+      "question": "In ozone, the two oxygen–oxygen bonds are:",
+      "correct": "Identical: each is between a single and a double bond",
+      "distractors": [
+        "One single and one double, which never change",
+        "Both triple bonds",
+        "Both single bonds",
+        "Constantly flipping back and forth",
+        "Ionic bonds"
+      ],
+      "distractor_reasoning": "Resonance structures don't flip; the real molecule is a hybrid."
+    },
+    {
+      "group": "B46",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Octet Rule Exceptions",
+      "question": "Which molecule is an exception to the octet rule because the central atom has MORE than eight electrons?",
+      "correct": "PCl₅",
+      "distractors": [
+        "CH₄",
+        "H₂O",
+        "NH₃",
+        "CO₂",
+        "CCl₄"
+      ],
+      "distractor_reasoning": "Phosphorus in PCl₅ has 10 electrons (an expanded octet); the others follow the octet rule."
+    },
+    {
+      "group": "B46",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Octet Rule Exceptions",
+      "question": "In BF₃, boron has only 6 valence electrons around it. This is an example of:",
+      "correct": "An exception to the octet rule",
+      "distractors": [
+        "A resonance structure",
+        "An ionic bond",
+        "A hydrogen bond",
+        "A network solid",
+        "A coordinate covalent bond"
+      ],
+      "distractor_reasoning": "Boron is stable with fewer than eight electrons."
+    },
+    {
+      "group": "B46",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Octet Rule Exceptions",
+      "question": "Which THREE are exceptions to the octet rule?",
+      "correct_count": 3,
+      "options": [
+        "BF₃ (boron has 6 electrons)",
+        "NO₂ (odd number of electrons)",
+        "SF₆ (sulfur has 12 electrons)",
+        "CH₄",
+        "H₂O",
+        "CO₂"
+      ],
+      "correct_answers": [
+        "BF₃ (boron has 6 electrons)",
+        "NO₂ (odd number of electrons)",
+        "SF₆ (sulfur has 12 electrons)"
+      ],
+      "distractor_reasoning": "CH₄, H₂O and CO₂ all follow the octet rule."
+    },
+    {
+      "group": "B47",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Bond polarity describes:",
+      "correct": "How evenly the electrons in a bond are shared",
+      "distractors": [
+        "How many bonds an atom forms",
+        "The size of the atoms",
+        "How fast a bond forms",
+        "The color of the compound",
+        "Whether a bond is single or double"
+      ],
+      "distractor_reasoning": "Unequal sharing creates partial charges."
+    },
+    {
+      "group": "B47",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "How does an ionic bond fit on the polarity scale?",
+      "correct": "It is the extreme end: electrons are transferred, not shared",
+      "distractors": [
+        "It is perfectly nonpolar",
+        "It is less polar than any covalent bond",
+        "It is the same as a nonpolar covalent bond",
+        "It has no electrons",
+        "It is only found in metals"
+      ],
+      "distractor_reasoning": "The EN difference is so large that full charges form instead of partial charges."
+    },
+    {
+      "group": "B48",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Which bond is nonpolar covalent?",
+      "correct": "Cl–Cl",
+      "distractors": [
+        "H–Cl",
+        "O–H",
+        "Na–Cl",
+        "H–F",
+        "C–O"
+      ],
+      "distractor_reasoning": "Identical atoms have zero electronegativity difference; Na–Cl is ionic."
+    },
+    {
+      "group": "B48",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "What makes a covalent bond polar?",
+      "correct": "The two atoms have different electronegativities",
+      "distractors": [
+        "The atoms are the same element",
+        "The bond is a double bond",
+        "The bond has lone pairs",
+        "The atoms are metals",
+        "The molecule is large"
+      ],
+      "distractor_reasoning": "The more electronegative atom pulls the shared electrons toward itself."
+    },
+    {
+      "group": "B49",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "VSEPR theory is used to predict a molecule's:",
+      "correct": "Shape",
+      "distractors": [
+        "Mass",
+        "Color",
+        "Boiling point directly",
+        "Charge",
+        "Number of neutrons"
+      ],
+      "distractor_reasoning": "Valence-shell electron-pair repulsion determines molecular geometry."
+    },
+    {
+      "group": "B49",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "What does VSEPR stand for?",
+      "correct": "Valence-shell electron-pair repulsion",
+      "distractors": [
+        "Valence-shell electron-proton reaction",
+        "Very small electron pair rule",
+        "Valence structure energy per reaction",
+        "Variable shell electron position rule",
+        "Valence-shared electron polarity rule"
+      ],
+      "distractor_reasoning": "Electron pairs repel and spread out as far as possible."
+    },
+    {
+      "group": "B49",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "In VSEPR theory, electron pairs around a central atom ___ each other and move as far apart as possible.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "repel"
+        }
+      ]
+    },
+    {
+      "group": "B50",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "VSEPR theory is based on the idea that:",
+      "correct": "Electron pairs around a central atom repel each other",
+      "distractors": [
+        "Protons attract electrons",
+        "Nuclei repel each other only",
+        "Atoms are always linear",
+        "Bonds are always 90° apart",
+        "Lone pairs have no effect on shape"
+      ],
+      "distractor_reasoning": "Both bonding pairs and lone pairs repel; lone pairs repel most strongly."
+    },
+    {
+      "group": "B50",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "According to VSEPR, which repels most strongly?",
+      "correct": "Lone pairs",
+      "distractors": [
+        "Bonding pairs",
+        "Protons in the nucleus",
+        "Neutrons",
+        "Single bonds",
+        "All pairs repel equally"
+      ],
+      "distractor_reasoning": "Lone pairs spread out more, squeezing the bond angles."
+    },
+    {
+      "group": "B51",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "Why is a water molecule bent instead of linear?",
+      "correct": "The two lone pairs on oxygen push the bonding pairs closer together",
+      "distractors": [
+        "Hydrogen atoms repel the oxygen nucleus",
+        "Water has double bonds",
+        "Oxygen has no lone pairs",
+        "Hydrogen bonds bend the molecule",
+        "Water is an ionic compound"
+      ],
+      "distractor_reasoning": "Oxygen has 2 bonding and 2 unshared pairs; the lone pairs repel strongly, giving about 105°."
+    },
+    {
+      "group": "B51",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "What is the approximate H–O–H bond angle in water?",
+      "correct": "105°",
+      "distractors": [
+        "180°",
+        "120°",
+        "90°",
+        "109.5°",
+        "60°"
+      ],
+      "distractor_reasoning": "Lone pairs squeeze the tetrahedral 109.5° down to about 105°."
+    },
+    {
+      "group": "B52",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "What is the shape of an ammonia (NH₃) molecule?",
+      "correct": "Trigonal pyramidal",
+      "distractors": [
+        "Trigonal planar",
+        "Linear",
+        "Bent",
+        "Tetrahedral with four atoms",
+        "Octahedral"
+      ],
+      "distractor_reasoning": "Three bonding pairs plus one lone pair on N make a pyramid (about 107°)."
+    },
+    {
+      "group": "B52",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "VSEPR",
+      "question": "Why is NH₃ pyramidal while BF₃ is trigonal planar?",
+      "correct": "Nitrogen has a lone pair that pushes the bonds down; boron has none",
+      "distractors": [
+        "Boron is more electronegative",
+        "NH₃ has double bonds",
+        "BF₃ has a lone pair",
+        "Hydrogen atoms are larger than fluorine",
+        "NH₃ is ionic"
+      ],
+      "distractor_reasoning": "Four electron pairs (one lone) vs three electron pairs (no lone pair)."
+    },
+    {
+      "group": "B53",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "In a polar covalent bond:",
+      "correct": "Electrons are shared unequally, creating partial charges",
+      "distractors": [
+        "Electrons are shared equally",
+        "Electrons are completely transferred",
+        "No electrons are involved",
+        "Only metals are bonded",
+        "The atoms have the same electronegativity"
+      ],
+      "distractor_reasoning": "The more electronegative atom gets δ−, the other gets δ+."
+    },
+    {
+      "group": "B53",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "In the polar bond H–Cl, which atom has the partial negative charge?",
+      "correct": "Chlorine",
+      "distractors": [
+        "Hydrogen",
+        "Both equally",
+        "Neither",
+        "It switches back and forth",
+        "It depends on temperature"
+      ],
+      "distractor_reasoning": "Chlorine is more electronegative, so it pulls the shared electrons closer."
+    },
+    {
+      "group": "B54",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "How can you decide whether a covalent bond is polar or nonpolar?",
+      "correct": "Find the difference in electronegativity between the two atoms",
+      "distractors": [
+        "Count the neutrons",
+        "Compare the atomic masses",
+        "Check whether it's a single or double bond",
+        "Look at the color of the compound",
+        "Count the lone pairs"
+      ],
+      "distractor_reasoning": "About 0–0.4: nonpolar; about 0.4–1.7: polar covalent; larger: ionic."
+    },
+    {
+      "group": "B54",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Two atoms have an electronegativity difference of 0.9. Their bond is most likely:",
+      "correct": "Polar covalent",
+      "distractors": [
+        "Nonpolar covalent",
+        "Ionic",
+        "Metallic",
+        "A hydrogen bond",
+        "Not a bond at all"
+      ],
+      "distractor_reasoning": "0.9 falls in the polar covalent range (about 0.4–1.7)."
+    },
+    {
+      "group": "B55",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Does changing a bond from single to double change whether it is polar?",
+      "correct": "No. Polarity depends only on the electronegativity difference",
+      "distractors": [
+        "Yes, double bonds are always polar",
+        "Yes, double bonds are always nonpolar",
+        "Only triple bonds can be polar",
+        "Only coordinate bonds can be polar",
+        "Yes, more electrons always make it polar"
+      ],
+      "distractor_reasoning": "C=O is polar and N≡N is nonpolar; the number of shared pairs doesn't decide it."
+    },
+    {
+      "group": "B55",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Which multiple bond is nonpolar?",
+      "correct": "N≡N",
+      "distractors": [
+        "C=O",
+        "C≡N",
+        "N=O",
+        "C–F",
+        "H–O"
+      ],
+      "distractor_reasoning": "Two identical atoms share electrons equally, whatever the bond type."
+    },
+    {
+      "group": "B56",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "How do you show bond polarity in a structural formula?",
+      "correct": "Label the atoms δ+ and δ−, or draw an arrow pointing toward the more electronegative atom",
+      "distractors": [
+        "Draw the bond twice",
+        "Circle the less electronegative atom",
+        "Write the charge as +1 and −1",
+        "Draw a dashed line",
+        "Add extra lone pairs"
+      ],
+      "distractor_reasoning": "δ+ goes on the less electronegative atom, δ− on the more electronegative one."
+    },
+    {
+      "group": "B56",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "In the δ+/δ− notation for H–F, which atom is labeled δ+?",
+      "correct": "Hydrogen",
+      "distractors": [
+        "Fluorine",
+        "Both",
+        "Neither",
+        "The bond itself",
+        "It depends on the molecule's shape"
+      ],
+      "distractor_reasoning": "Fluorine is more electronegative, so it's δ−; hydrogen is δ+."
+    },
+    {
+      "group": "B57",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "What makes a molecule polar?",
+      "correct": "It has polar bonds AND an unsymmetrical shape, so the polarities don't cancel",
+      "distractors": [
+        "It has any double bond",
+        "It contains only nonpolar bonds",
+        "It is linear",
+        "It contains carbon",
+        "It has a symmetrical shape"
+      ],
+      "distractor_reasoning": "Water (bent) and ammonia (pyramidal) are polar."
+    },
+    {
+      "group": "B57",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Which molecule is polar?",
+      "correct": "H₂O",
+      "distractors": [
+        "CO₂",
+        "CH₄",
+        "CCl₄",
+        "O₂",
+        "N₂"
+      ],
+      "distractor_reasoning": "Water is bent, so its bond polarities don't cancel."
+    },
+    {
+      "group": "B58",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "A dipole is a molecule that:",
+      "correct": "Has a partially positive end and a partially negative end",
+      "distractors": [
+        "Has two double bonds",
+        "Has two identical atoms",
+        "Has no charge anywhere",
+        "Has two nuclei",
+        "Is made of two ions"
+      ],
+      "distractor_reasoning": "Polar molecules are dipoles."
+    },
+    {
+      "group": "B58",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "A molecule with a partially positive end and a partially negative end is called a ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "dipole"
+        }
+      ]
+    },
+    {
+      "group": "B59",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Can a molecule be polar if it has NO polar bonds?",
+      "correct": "No. Without polar bonds, the charge is evenly distributed",
+      "distractors": [
+        "Yes, if it's bent",
+        "Yes, if it has lone pairs",
+        "Yes, if it's large",
+        "Only if it contains carbon",
+        "Only if it's a gas"
+      ],
+      "distractor_reasoning": "H₂, O₂ and Cl₂ have no polar bonds and are nonpolar."
+    },
+    {
+      "group": "B59",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Cl₂ has only a nonpolar Cl–Cl bond. The Cl₂ molecule is therefore:",
+      "correct": "Nonpolar",
+      "distractors": [
+        "Polar",
+        "Ionic",
+        "A dipole",
+        "Charged",
+        "Metallic"
+      ],
+      "distractor_reasoning": "No polar bonds means no dipole."
+    },
+    {
+      "group": "B60",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "CO₂ contains polar C=O bonds but is a nonpolar molecule because:",
+      "correct": "Its linear, symmetrical shape makes the bond polarities cancel",
+      "distractors": [
+        "Carbon and oxygen have the same electronegativity",
+        "Double bonds are never polar",
+        "It has no electrons to share",
+        "It is an ionic compound",
+        "It contains hydrogen bonds"
+      ],
+      "distractor_reasoning": "Molecular polarity depends on both bond polarity and shape."
+    },
+    {
+      "group": "B60",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Which molecule has polar bonds but is nonpolar overall?",
+      "correct": "CCl₄",
+      "distractors": [
+        "H₂O",
+        "NH₃",
+        "HCl",
+        "H₂",
+        "N₂"
+      ],
+      "distractor_reasoning": "Tetrahedral CCl₄ is symmetrical, so the four C–Cl polarities cancel."
+    },
+    {
+      "group": "B61",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "To decide if a molecule is polar, which TWO things must you know?",
+      "correct_count": 2,
+      "options": [
+        "Whether its bonds are polar",
+        "The molecule's shape",
+        "Its molar mass",
+        "Its color",
+        "Its melting point"
+      ],
+      "correct_answers": [
+        "Whether its bonds are polar",
+        "The molecule's shape"
+      ],
+      "distractor_reasoning": "Bond polarity (from EN differences) plus geometry (from VSEPR)."
+    },
+    {
+      "group": "B61",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Polarity",
+      "question": "Which tool helps you find a molecule's shape to judge its polarity?",
+      "correct": "VSEPR theory",
+      "distractors": [
+        "The octet rule alone",
+        "The crisscross method",
+        "Noble gas notation",
+        "Planck's equation",
+        "The Aufbau principle"
+      ],
+      "distractor_reasoning": "Shape determines whether bond polarities cancel."
+    },
+    {
+      "group": "B62",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Van der Waals forces are:",
+      "correct": "The weakest attractions between molecules",
+      "distractors": [
+        "Bonds inside a molecule",
+        "Attractions between ions in a crystal",
+        "The strongest type of bond",
+        "Bonds in a network solid",
+        "Forces inside the nucleus"
+      ],
+      "distractor_reasoning": "They include dipole interactions and dispersion forces."
+    },
+    {
+      "group": "B62",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Which TWO forces make up van der Waals forces?",
+      "correct": "Dipole interactions and dispersion forces",
+      "distractors": [
+        "Ionic and covalent bonds",
+        "Metallic and ionic bonds",
+        "Covalent bonds and hydrogen bonds",
+        "Nuclear and electric forces",
+        "Double and triple bonds"
+      ],
+      "distractor_reasoning": "Both are intermolecular (between molecules), not bonds within molecules."
+    },
+    {
+      "group": "B63",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Which intermolecular force exists between ALL molecules, even nonpolar ones?",
+      "correct": "Dispersion forces",
+      "distractors": [
+        "Hydrogen bonds",
+        "Dipole interactions",
+        "Ionic bonds",
+        "Covalent bonds",
+        "Metallic bonds"
+      ],
+      "distractor_reasoning": "Moving electrons create temporary dipoles in every molecule."
+    },
+    {
+      "group": "B63",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Dipole interactions occur when:",
+      "correct": "The δ+ end of one polar molecule attracts the δ− end of another",
+      "distractors": [
+        "Two nonpolar molecules share electrons",
+        "Ions transfer electrons",
+        "Nuclei attract each other",
+        "Metals share a sea of electrons",
+        "Atoms in a molecule bond covalently"
+      ],
+      "distractor_reasoning": "They happen only between polar molecules."
+    },
+    {
+      "group": "B63",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Dispersion forces become stronger as molecules:",
+      "correct": "Get larger, with more electrons",
+      "distractors": [
+        "Get smaller",
+        "Lose electrons",
+        "Become ions",
+        "Become more polar only",
+        "Get hotter"
+      ],
+      "distractor_reasoning": "More electrons make bigger temporary dipoles; that's why I₂ is a solid but F₂ is a gas."
+    },
+    {
+      "group": "B64",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "A hydrogen bond forms when hydrogen is covalently bonded to:",
+      "correct": "A very electronegative atom such as F, O or N",
+      "distractors": [
+        "Any metal atom",
+        "Carbon",
+        "Another hydrogen atom",
+        "A noble gas",
+        "Any nonmetal"
+      ],
+      "distractor_reasoning": "Only F, O and N pull electrons strongly enough to make H nearly a bare proton."
+    },
+    {
+      "group": "B64",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "A hydrogen bond is a special, strong type of:",
+      "correct": "Dipole interaction",
+      "distractors": [
+        "Covalent bond",
+        "Ionic bond",
+        "Metallic bond",
+        "Nuclear force",
+        "Dispersion force"
+      ],
+      "distractor_reasoning": "It's the strongest intermolecular force, but still weaker than covalent or ionic bonds."
+    },
+    {
+      "group": "B64",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Which substance has hydrogen bonding between its molecules?",
+      "correct": "H₂O",
+      "distractors": [
+        "CH₄",
+        "H₂",
+        "CO₂",
+        "HCl",
+        "N₂"
+      ],
+      "distractor_reasoning": "Water has H bonded to O; in CH₄, H is bonded to C, which isn't electronegative enough."
+    },
+    {
+      "group": "B65",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Hydrogen bonds hold together the two strands of:",
+      "correct": "DNA",
+      "distractors": [
+        "Table salt crystals",
+        "Diamond",
+        "Metal alloys",
+        "Quartz",
+        "Oxygen gas"
+      ],
+      "distractor_reasoning": "They are strong enough to hold the strands, but weak enough to let them separate for copying."
+    },
+    {
+      "group": "B65",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Which THREE are important roles of hydrogen bonds in living things?",
+      "correct_count": 3,
+      "options": [
+        "Holding DNA strands together",
+        "Helping proteins fold into their shapes",
+        "Giving water its high boiling point and surface tension",
+        "Making diamond hard",
+        "Holding ions together in salt",
+        "Forming metallic bonds in iron"
+      ],
+      "correct_answers": [
+        "Holding DNA strands together",
+        "Helping proteins fold into their shapes",
+        "Giving water its high boiling point and surface tension"
+      ],
+      "distractor_reasoning": "Diamond is covalent, salt is ionic and iron is metallic."
+    },
+    {
+      "group": "B65",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Hydrogen bonding explains why ice:",
+      "correct": "Floats on liquid water",
+      "distractors": [
+        "Is harder than diamond",
+        "Conducts electricity",
+        "Is made of ions",
+        "Melts at a very high temperature",
+        "Has no hydrogen"
+      ],
+      "distractor_reasoning": "Hydrogen bonds hold ice in an open structure that is less dense than liquid water."
+    },
+    {
+      "group": "B66",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Why do covalent compounds have such a wide range of melting and boiling points?",
+      "correct": "The attractions between their molecules vary widely in type and strength",
+      "distractors": [
+        "All covalent bonds are the same strength",
+        "They all contain metals",
+        "They are all ionic underneath",
+        "Their molecules are all the same size",
+        "They have no attractions between molecules"
+      ],
+      "distractor_reasoning": "Dispersion, dipole interactions and hydrogen bonds differ, and some covalent substances are network solids."
+    },
+    {
+      "group": "B66",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Intermolecular Forces",
+      "question": "Which covalent substance has the HIGHEST melting point?",
+      "correct": "Diamond (a network solid)",
+      "distractors": [
+        "Methane (CH₄)",
+        "Oxygen (O₂)",
+        "Water (H₂O)",
+        "Carbon dioxide (CO₂)",
+        "Ammonia (NH₃)"
+      ],
+      "distractor_reasoning": "Melting diamond means breaking covalent bonds, not just weak attractions between molecules."
+    },
+    {
+      "group": "B67",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Network Solids",
+      "question": "A network solid is:",
+      "correct": "A solid in which all the atoms are covalently bonded in a continuous network",
+      "distractors": [
+        "A solid made of separate molecules",
+        "A metal alloy",
+        "A crystal of ions",
+        "A solid held together by hydrogen bonds",
+        "A mixture of gases"
+      ],
+      "distractor_reasoning": "The whole crystal is essentially one giant molecule."
+    },
+    {
+      "group": "B67",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Network Solids",
+      "question": "A solid in which all atoms are covalently bonded in a continuous network is called a ___ solid.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "network"
+        }
+      ]
+    },
+    {
+      "group": "B68",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Network Solids",
+      "question": "What must be broken for a network solid like diamond to melt?",
+      "correct": "Covalent bonds",
+      "distractors": [
+        "Hydrogen bonds",
+        "Dispersion forces",
+        "Ionic bonds",
+        "Metallic bonds",
+        "Dipole interactions"
+      ],
+      "distractor_reasoning": "Every atom is covalently bonded in a continuous network, so melting means breaking covalent bonds."
+    },
+    {
+      "group": "B68",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Network Solids",
+      "question": "Why do network solids have very high melting points?",
+      "correct": "Melting them requires breaking many strong covalent bonds",
+      "distractors": [
+        "They are held by weak dispersion forces",
+        "They contain free-moving ions",
+        "Their molecules are very small",
+        "They are made of metals",
+        "They have no bonds at all"
+      ],
+      "distractor_reasoning": "Some decompose instead of melting."
+    },
+    {
+      "group": "B69",
       "type": "multi_select",
       "source": "from_notes",
       "concept": "Network Solids",
@@ -448,44 +2575,20 @@
       "distractor_reasoning": "NaCl is ionic, ice is a molecular solid held by hydrogen bonds, and copper is metallic."
     },
     {
-      "type": "fill_blank",
+      "group": "B69",
+      "type": "single_select",
       "source": "from_notes",
-      "concept": "Polyatomic Ions",
-      "question": "The polyatomic ion SO₄²⁻ is named ___, and NH₄⁺ is named ___.",
-      "blanks": [
-        {
-          "id": 0,
-          "answer": "sulfate"
-        },
-        {
-          "id": 1,
-          "answer": "ammonium"
-        }
-      ]
-    },
-    {
-      "type": "fill_blank",
-      "source": "from_notes",
-      "concept": "Covalent Bonds",
-      "question": "A bond in which one atom contributes both shared electrons is a ___ covalent bond.",
-      "blanks": [
-        {
-          "id": 0,
-          "answer": "coordinate"
-        }
-      ]
-    },
-    {
-      "type": "fill_blank",
-      "source": "from_notes",
-      "concept": "VSEPR",
-      "question": "In VSEPR theory, electron pairs around a central atom ___ each other and move as far apart as possible.",
-      "blanks": [
-        {
-          "id": 0,
-          "answer": "repel"
-        }
-      ]
+      "concept": "Network Solids",
+      "question": "Which substance is a network solid?",
+      "correct": "Quartz (SiO₂)",
+      "distractors": [
+        "Sugar (C₁₂H₂₂O₁₁)",
+        "Table salt (NaCl)",
+        "Ice (H₂O)",
+        "Iron (Fe)",
+        "Dry ice (CO₂)"
+      ],
+      "distractor_reasoning": "Quartz is silicon and oxygen covalently bonded in a continuous network."
     }
   ],
   "cards": [

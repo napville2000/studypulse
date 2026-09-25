@@ -8,6 +8,7 @@
   "scope_check": null,
   "questions": [
     {
+      "group": "E01",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Bohr Model",
@@ -16,11 +17,45 @@
       "distractors": [
         "Helium",
         "Neon",
-        "Sodium"
+        "Sodium",
+        "Carbon",
+        "Oxygen"
       ],
-      "distractor_reasoning": "Bohr worked almost exclusively with hydrogen, whose single electron made its line spectrum the simplest to explain."
+      "distractor_reasoning": "Bohr worked almost exclusively with hydrogen, the simplest atom, with one electron."
     },
     {
+      "group": "E01",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "What observation could Rutherford's model NOT explain, leading Bohr to propose a new model?",
+      "correct": "Why excited hydrogen gives off only certain frequencies of light (a line spectrum)",
+      "distractors": [
+        "Why most alpha particles pass straight through gold foil",
+        "Why the nucleus is positively charged",
+        "Why atoms contain neutrons",
+        "Why electrons have negative charge"
+      ],
+      "distractor_reasoning": "Rutherford's gold-foil results were explained by his own model; the line spectrum was not."
+    },
+    {
+      "group": "E01",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "The pattern of distinct colored lines that Bohr set out to explain is called hydrogen's:",
+      "correct": "Atomic emission spectrum",
+      "distractors": [
+        "Continuous spectrum",
+        "Photoelectric effect",
+        "Absorption of alpha particles",
+        "Electron configuration",
+        "Wave amplitude"
+      ],
+      "distractor_reasoning": "A continuous spectrum has all colors; hydrogen's emission spectrum shows only specific lines."
+    },
+    {
+      "group": "E02",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Bohr Model",
@@ -29,11 +64,52 @@
       "distractors": [
         "The atom has a small, dense, positive nucleus",
         "Electrons are embedded in a sphere of positive charge",
-        "Electrons can have any amount of energy"
+        "Electrons can have any amount of energy",
+        "Atoms are indivisible solid spheres",
+        "Electrons are found in 3-D probability clouds"
       ],
-      "distractor_reasoning": "The dense nucleus was Rutherford's idea; the 'plum pudding' sphere was Thomson's. Bohr's contribution was quantized orbits."
+      "distractor_reasoning": "Dense nucleus = Rutherford; positive sphere = Thomson; indivisible spheres = Dalton; probability clouds = the later quantum mechanical model."
     },
     {
+      "group": "E02",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "According to Bohr, when does an electron give off energy?",
+      "correct": "When it drops from a higher energy level to a lower one",
+      "distractors": [
+        "Whenever it moves around its orbit",
+        "When it jumps to a higher energy level",
+        "Only when it leaves the atom completely",
+        "When it collides with the nucleus",
+        "When it stays in its ground state"
+      ],
+      "distractor_reasoning": "Moving up absorbs energy; dropping down releases a photon."
+    },
+    {
+      "group": "E02",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "Which THREE statements describe Bohr's model?",
+      "correct_count": 3,
+      "options": [
+        "Electrons travel in fixed circular orbits",
+        "Each orbit has a specific energy",
+        "Electrons absorb or emit energy when changing levels",
+        "Electrons can exist between energy levels",
+        "Electrons are spread throughout a positive sphere",
+        "Electron positions are described only by probability"
+      ],
+      "correct_answers": [
+        "Electrons travel in fixed circular orbits",
+        "Each orbit has a specific energy",
+        "Electrons absorb or emit energy when changing levels"
+      ],
+      "distractor_reasoning": "In Bohr's model electrons can't be between levels; probability clouds came later with Schrödinger."
+    },
+    {
+      "group": "E03",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Energy Levels",
@@ -42,11 +118,46 @@
       "distractors": [
         "2",
         "8",
-        "18"
+        "18",
+        "3",
+        "1"
       ],
       "distractor_reasoning": "The period number equals the number of occupied principal energy levels."
     },
     {
+      "group": "E03",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Energy Levels",
+      "question": "How can you tell from the periodic table how many energy levels an atom's electrons occupy?",
+      "correct": "Its period (row) number",
+      "distractors": [
+        "Its group (column) number",
+        "Its atomic mass",
+        "Its number of valence electrons",
+        "Its atomic number divided by 2",
+        "The number of neutrons"
+      ],
+      "distractor_reasoning": "Group number relates to valence electrons; period number gives the energy levels."
+    },
+    {
+      "group": "E03",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Energy Levels",
+      "question": "Potassium (K) is in period 4. How many principal energy levels do its electrons occupy?",
+      "correct": "4",
+      "distractors": [
+        "1",
+        "19",
+        "2",
+        "8",
+        "3"
+      ],
+      "distractor_reasoning": "Period 4 means four occupied energy levels: 2, 8, 8, 1."
+    },
+    {
+      "group": "E04",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Bohr Model",
@@ -55,11 +166,78 @@
       "distractors": [
         "2, 8, 10",
         "2, 18",
-        "8, 8, 4"
+        "8, 8, 4",
+        "2, 8, 9, 1",
+        "4, 8, 8"
       ],
       "distractor_reasoning": "The Bohr pattern for the first 20 elements fills 2, then 8, then 8, then begins the fourth level."
     },
     {
+      "group": "E04",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "In the Bohr model, how many electrons can the FIRST energy level hold?",
+      "correct": "2",
+      "distractors": [
+        "8",
+        "1",
+        "18",
+        "6",
+        "4"
+      ],
+      "distractor_reasoning": "The first level holds 2, then the second holds 8."
+    },
+    {
+      "group": "E04",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "How are the 17 electrons of chlorine arranged in a Bohr diagram?",
+      "correct": "2, 8, 7",
+      "distractors": [
+        "2, 7, 8",
+        "8, 8, 1",
+        "2, 15",
+        "2, 8, 8",
+        "7, 8, 2"
+      ],
+      "distractor_reasoning": "Fill 2, then 8, and the remaining 7 go in the third level; that gives chlorine 7 valence electrons."
+    },
+    {
+      "group": "E05",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "What did Max Planck study that led to the idea of quanta?",
+      "correct": "The light given off by heated objects",
+      "distractors": [
+        "Alpha particles passing through gold foil",
+        "The charge of the electron",
+        "Radioactive decay of uranium",
+        "The masses of atoms",
+        "Electrons ejected from metals"
+      ],
+      "distractor_reasoning": "Planck studied heated objects (blackbody radiation); gold foil was Rutherford; ejected electrons were Einstein's photoelectric effect."
+    },
+    {
+      "group": "E05",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "How did Planck's work connect to Bohr's model?",
+      "correct": "Bohr applied Planck's idea that energy is quantized to the energies of electrons",
+      "distractors": [
+        "Bohr used Planck's measurement of the nucleus",
+        "Planck proved electrons orbit in circles",
+        "Planck discovered the neutron Bohr needed",
+        "Bohr disproved Planck's equation",
+        "Planck's work showed electrons are waves"
+      ],
+      "distractor_reasoning": "Planck: energy comes in quanta (E = hν). Bohr: electrons only have certain quantized energies."
+    },
+    {
+      "group": "E06",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Quantum Theory",
@@ -68,11 +246,59 @@
       "distractors": [
         "The smallest particle of matter",
         "A wave with a very long wavelength",
-        "The total energy of an atom's electrons"
+        "The total energy of an atom's electrons",
+        "A region where an electron is likely found",
+        "A particle in the nucleus"
       ],
-      "distractor_reasoning": "A quantum is a packet of energy, not a particle of matter."
+      "distractor_reasoning": "A quantum is a packet of energy, not a particle of matter; a region where an electron is likely found is an orbital."
     },
     {
+      "group": "E06",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "The minimum amount of energy that can be gained or lost by an atom is called a ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "quantum"
+        }
+      ]
+    },
+    {
+      "group": "E07",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "Which is the best everyday example of something that is quantized?",
+      "correct": "Standing on the steps of a staircase",
+      "distractors": [
+        "Walking up a smooth ramp",
+        "Water flowing from a faucet",
+        "A car speeding up gradually",
+        "Turning a dimmer switch",
+        "Sliding down a slide"
+      ],
+      "distractor_reasoning": "On stairs you can only be at certain heights (steps); a ramp, a dimmer or flowing water is continuous."
+    },
+    {
+      "group": "E07",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "To say an electron's energy is quantized means:",
+      "correct": "It can only have certain specific values, not any value in between",
+      "distractors": [
+        "It can have any value at all",
+        "It is always zero",
+        "It is continuously increasing",
+        "It depends only on the nucleus's mass",
+        "It cannot change"
+      ],
+      "distractor_reasoning": "Quantized = restricted to discrete values."
+    },
+    {
+      "group": "E08",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Quantum Theory",
@@ -81,11 +307,30 @@
       "distractors": [
         "All quanta have the same energy",
         "Lower-frequency radiation comes in larger quanta",
-        "The size of a quantum depends on the speed of light only"
+        "The size of a quantum depends only on the speed of light",
+        "Quanta have no energy",
+        "Brighter light always has larger quanta"
       ],
-      "distractor_reasoning": "E = hν, so the energy of a quantum increases with frequency."
+      "distractor_reasoning": "E = hν, so the energy of a quantum increases with frequency. Brightness means more photons, not bigger ones."
     },
     {
+      "group": "E08",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Theory",
+      "question": "Which has more energy per quantum: ultraviolet light or radio waves?",
+      "correct": "Ultraviolet light, because it has a higher frequency",
+      "distractors": [
+        "Radio waves, because they have longer wavelengths",
+        "They are equal, since all quanta are equal",
+        "Radio waves, because they travel faster",
+        "Ultraviolet, because it travels faster",
+        "It depends on how bright each one is"
+      ],
+      "distractor_reasoning": "All EM waves travel at the same speed; energy per quantum depends on frequency."
+    },
+    {
+      "group": "E09",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Photons",
@@ -94,11 +339,30 @@
       "distractors": [
         "A proton",
         "A quark",
-        "An orbital"
+        "An orbital",
+        "A neutron",
+        "An ion"
       ],
-      "distractor_reasoning": "Protons and quarks are matter particles; an orbital is a region where electrons are likely to be."
+      "distractor_reasoning": "Protons, quarks and neutrons are matter particles; an orbital is a region where electrons are likely to be."
     },
     {
+      "group": "E09",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photons",
+      "question": "A photon is best described as:",
+      "correct": "A massless particle carrying a quantum of energy",
+      "distractors": [
+        "A positively charged particle in the nucleus",
+        "A negatively charged particle orbiting the nucleus",
+        "A group of atoms with a charge",
+        "A heavy particle with no charge",
+        "A region of space around the nucleus"
+      ],
+      "distractor_reasoning": "Photons have no mass; they carry energy E = hν."
+    },
+    {
+      "group": "E10",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Waves",
@@ -107,11 +371,14 @@
       "distractors": [
         "Amplitude",
         "Frequency",
-        "Trough"
+        "Trough",
+        "Period",
+        "Speed"
       ],
       "distractor_reasoning": "Amplitude is the height from the rest line; frequency is waves per second; the trough is the lowest point."
     },
     {
+      "group": "E10",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Waves",
@@ -120,11 +387,47 @@
       "distractors": [
         "Wavelength",
         "Frequency",
-        "Period"
+        "Trough",
+        "Crest",
+        "Speed"
       ],
       "distractor_reasoning": "Wavelength is a horizontal distance; amplitude is the vertical height."
     },
     {
+      "group": "E10",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Waves",
+      "question": "The lowest point of a transverse wave is called the:",
+      "correct": "Trough",
+      "distractors": [
+        "Crest",
+        "Amplitude",
+        "Wavelength",
+        "Origin",
+        "Frequency"
+      ],
+      "distractor_reasoning": "Crest = highest point, trough = lowest point."
+    },
+    {
+      "group": "E10",
+      "type": "fill_blank",
+      "source": "from_notes",
+      "concept": "Waves",
+      "question": "The highest point on a wave is the ___, and the lowest point is the ___.",
+      "blanks": [
+        {
+          "id": 0,
+          "answer": "crest"
+        },
+        {
+          "id": 1,
+          "answer": "trough"
+        }
+      ]
+    },
+    {
+      "group": "E11",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Photoelectric Effect",
@@ -133,11 +436,46 @@
       "distractors": [
         "Electrons orbit the nucleus in circular paths",
         "Brighter light always ejects electrons regardless of color",
-        "Light is only a wave"
+        "Light is only a wave",
+        "Electrons are waves with λ = h/mv",
+        "Energy can have any value"
       ],
-      "distractor_reasoning": "Below the threshold frequency no electrons are ejected, however bright the light, because each photon has too little energy."
+      "distractor_reasoning": "Below the threshold frequency no electrons are ejected however bright the light, because each photon has too little energy."
     },
     {
+      "group": "E11",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photoelectric Effect",
+      "question": "Dim ultraviolet light ejects electrons from a metal, but very bright red light does not. Why?",
+      "correct": "Each UV photon has enough energy, but each red photon does not, no matter how many there are",
+      "distractors": [
+        "Red light travels slower than UV light",
+        "Bright light has fewer photons",
+        "Red light has a shorter wavelength",
+        "The metal absorbs only ultraviolet colors",
+        "Electrons are only affected by waves, not particles"
+      ],
+      "distractor_reasoning": "Ejecting an electron depends on the energy per photon (frequency), not on brightness."
+    },
+    {
+      "group": "E11",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photoelectric Effect",
+      "question": "The idea that light acts as both a wave and a particle is called:",
+      "correct": "Wave–particle duality",
+      "distractors": [
+        "The uncertainty principle",
+        "The Aufbau principle",
+        "The octet rule",
+        "Hund's rule",
+        "Quantization of matter"
+      ],
+      "distractor_reasoning": "Einstein's photoelectric explanation established light's dual nature."
+    },
+    {
+      "group": "E12",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Emission Spectra",
@@ -146,11 +484,46 @@
       "distractors": [
         "Atoms absorb all colors except those lines",
         "Electrons have any energy, but only some colors are visible",
-        "The nucleus emits light at specific frequencies"
+        "The nucleus emits light at specific frequencies",
+        "Protons give off light when heated",
+        "All elements emit the same lines"
       ],
-      "distractor_reasoning": "Each line corresponds to an electron falling from a higher to a lower allowed energy level."
+      "distractor_reasoning": "Each line corresponds to an electron falling from a higher allowed level to a lower one."
     },
     {
+      "group": "E12",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Emission Spectra",
+      "question": "An atomic emission spectrum is:",
+      "correct": "The set of specific frequencies of light given off by an element's excited atoms",
+      "distractors": [
+        "The rainbow of all colors produced by white light",
+        "The mass of each isotope of an element",
+        "The arrangement of electrons in orbitals",
+        "The energy needed to remove an electron",
+        "The pattern of alpha particles scattered by gold"
+      ],
+      "distractor_reasoning": "It shows separate lines, unique to each element like a fingerprint."
+    },
+    {
+      "group": "E12",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Emission Spectra",
+      "question": "In Bohr's model, what happens when an electron absorbs energy?",
+      "correct": "It jumps to a higher energy level (an excited state)",
+      "distractors": [
+        "It falls into the nucleus",
+        "It gives off a photon",
+        "It moves to a lower energy level",
+        "It becomes a proton",
+        "It leaves its orbital and becomes a wave"
+      ],
+      "distractor_reasoning": "Absorbing energy moves it up; returning down emits the photon we see as a spectral line."
+    },
+    {
+      "group": "E13",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Photon Energy",
@@ -159,24 +532,78 @@
       "distractors": [
         "E = mc",
         "E = λ/ν",
-        "E = h/λν"
+        "E = h/λν",
+        "E = ν/h",
+        "E = mλ"
       ],
       "distractor_reasoning": "Planck's constant times frequency; equivalently E = hc/λ."
     },
     {
+      "group": "E13",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "What is the value of Planck's constant, h?",
+      "correct": "6.626 × 10⁻³⁴ J·s",
+      "distractors": [
+        "3.00 × 10⁸ m/s",
+        "6.02 × 10²³",
+        "1.60 × 10⁻¹⁹ J",
+        "9.81 m/s²",
+        "6.626 × 10³⁴ J·s"
+      ],
+      "distractor_reasoning": "3.00 × 10⁸ m/s is the speed of light; 6.02 × 10²³ is Avogadro's number."
+    },
+    {
+      "group": "E13",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "If you know a photon's wavelength, how can you find its energy?",
+      "correct": "Find the frequency with ν = c/λ, then use E = hν",
+      "distractors": [
+        "Multiply the wavelength by the speed of light",
+        "Divide Planck's constant by the speed of light",
+        "Use E = mc² with the wavelength as mass",
+        "Energy can't be found from wavelength",
+        "Multiply the wavelength by Planck's constant"
+      ],
+      "distractor_reasoning": "E = hc/λ combines both steps."
+    },
+    {
+      "group": "E14",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Photon Energy",
       "question": "Two waves travel at the same speed. Wave A has a shorter wavelength than wave B. Which has more energy?",
-      "correct": "Wave A, because shorter wavelength means higher frequency",
+      "correct": "Wave A, because a shorter wavelength means a higher frequency",
       "distractors": [
         "Wave B, because longer waves carry more energy",
         "They have equal energy because their speeds are equal",
-        "It cannot be determined without the amplitude"
+        "It cannot be determined without the amplitude",
+        "Wave B, because it has a higher frequency",
+        "Wave A, because it travels farther"
       ],
       "distractor_reasoning": "c = λν means shorter λ gives higher ν, and E = hν."
     },
     {
+      "group": "E14",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "Which color of visible light has the most energy per photon?",
+      "correct": "Violet",
+      "distractors": [
+        "Red",
+        "Orange",
+        "Yellow",
+        "Green",
+        "All colors are equal"
+      ],
+      "distractor_reasoning": "Violet has the shortest wavelength and highest frequency in the visible spectrum."
+    },
+    {
+      "group": "E15",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Photon Energy",
@@ -185,11 +612,30 @@
       "distractors": [
         "Its speed",
         "Its amplitude",
-        "Its mass"
+        "Its mass",
+        "Its brightness",
+        "Its charge"
       ],
       "distractor_reasoning": "ν = c/λ; the speed c is constant, so the frequency depends on the wavelength."
     },
     {
+      "group": "E15",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Photon Energy",
+      "question": "As the wavelength of light increases, its frequency:",
+      "correct": "Decreases",
+      "distractors": [
+        "Increases",
+        "Stays the same",
+        "Doubles",
+        "Becomes zero",
+        "Depends on its speed"
+      ],
+      "distractor_reasoning": "Wavelength and frequency are inversely related (c = λν)."
+    },
+    {
+      "group": "E16",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Bohr Model",
@@ -198,11 +644,52 @@
       "distractors": [
         "It cannot explain hydrogen's spectrum",
         "It has no nucleus",
-        "It says electrons can have any energy"
+        "It says electrons can have any energy",
+        "It ignores protons",
+        "It was never tested"
       ],
       "distractor_reasoning": "Bohr's model works for hydrogen but fails for multi-electron atoms."
     },
     {
+      "group": "E16",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "What does the Bohr model correctly predict?",
+      "correct": "The energy levels, and therefore the spectral lines, of hydrogen",
+      "distractors": [
+        "The spectra of all elements",
+        "The shapes of s and p orbitals",
+        "The chemical behavior of every atom",
+        "The exact position and speed of an electron",
+        "The electron configuration of iron"
+      ],
+      "distractor_reasoning": "It only works accurately for one-electron hydrogen."
+    },
+    {
+      "group": "E16",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Bohr Model",
+      "question": "Which THREE are limitations of the Bohr model?",
+      "correct_count": 3,
+      "options": [
+        "It fails for atoms with more than one electron",
+        "It doesn't explain chemical behavior",
+        "It wrongly treats electrons as particles in fixed circular orbits",
+        "It can't explain hydrogen's line spectrum",
+        "It has no energy levels",
+        "It says energy is not quantized"
+      ],
+      "correct_answers": [
+        "It fails for atoms with more than one electron",
+        "It doesn't explain chemical behavior",
+        "It wrongly treats electrons as particles in fixed circular orbits"
+      ],
+      "distractor_reasoning": "Bohr's model does explain hydrogen's line spectrum and does use quantized energy levels."
+    },
+    {
+      "group": "E17",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Quantum Mechanical Model",
@@ -211,152 +698,97 @@
       "distractors": [
         "Light is made of particles",
         "Electrons orbit in perfect circles",
-        "The nucleus contains neutrons"
+        "The nucleus contains neutrons",
+        "You can't know an electron's exact position and speed",
+        "Energy is always continuous"
       ],
       "distractor_reasoning": "λ = h/mv, so electrons have wavelengths too, which helps explain why only certain energy levels are allowed."
     },
     {
+      "group": "E17",
       "type": "single_select",
       "source": "from_notes",
       "concept": "Quantum Mechanical Model",
-      "question": "According to the quantum mechanical model, an electron is located:",
-      "correct": "In an orbital: a 3-D region of high probability around the nucleus",
+      "question": "Which equation did de Broglie propose?",
+      "correct": "λ = h/mv",
       "distractors": [
-        "On a fixed circular path at a set distance from the nucleus",
-        "Inside the nucleus",
-        "At an exactly known position and velocity"
+        "E = hν",
+        "c = λν",
+        "E = mc²",
+        "PV = nRT",
+        "F = ma"
       ],
-      "distractor_reasoning": "The Heisenberg uncertainty principle means only probabilities can be given, not exact paths."
+      "distractor_reasoning": "The de Broglie equation gives the wavelength of a moving particle."
     },
     {
+      "group": "E17",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Orbitals",
-      "question": "What determines the SIZE of an orbital?",
-      "correct": "The principal energy level (n)",
+      "concept": "Quantum Mechanical Model",
+      "question": "How did treating electrons as waves change Bohr's model?",
+      "correct": "It explained why only certain orbits are allowed: only certain wavelengths fit around the nucleus",
       "distractors": [
-        "The sublevel letter (s, p, d, f)",
-        "The number of protons only",
-        "The electron's spin"
+        "It proved electrons travel in straight lines",
+        "It showed electrons are inside the nucleus",
+        "It removed energy levels from the model",
+        "It showed electrons have no mass",
+        "It showed electrons can have any energy"
       ],
-      "distractor_reasoning": "Orbitals get larger as n increases; the sublevel type determines the shape."
+      "distractor_reasoning": "Standing waves only fit certain sizes, which matches quantized energy levels."
     },
     {
+      "group": "E18",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Orbitals",
-      "question": "What is the shape of an s orbital?",
-      "correct": "Spherical",
+      "concept": "Quantum Mechanical Model",
+      "question": "The Heisenberg uncertainty principle states that:",
+      "correct": "You cannot know both the exact position and velocity of an electron at the same time",
       "distractors": [
-        "Dumbbell",
-        "Cloverleaf",
-        "Flat circle"
+        "Electrons have wave properties",
+        "Each orbital holds at most two electrons",
+        "Electrons fill the lowest energy orbitals first",
+        "Energy is emitted in quanta",
+        "Light acts as both a particle and a wave"
       ],
-      "distractor_reasoning": "p orbitals are dumbbell-shaped; most d orbitals are cloverleaf-shaped."
+      "distractor_reasoning": "The other choices are de Broglie, Pauli, Aufbau, Planck and Einstein respectively."
     },
     {
+      "group": "E18",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Orbitals",
-      "question": "What is the shape of a p orbital?",
-      "correct": "Dumbbell",
+      "concept": "Quantum Mechanical Model",
+      "question": "Schrödinger's wave equation gives the:",
+      "correct": "Probability of finding an electron in regions around the nucleus",
       "distractors": [
-        "Spherical",
-        "Cube",
-        "Ring"
+        "Exact path of each electron",
+        "Mass of the nucleus",
+        "Number of neutrons in an atom",
+        "Speed of light in a vacuum",
+        "Charge on each ion"
       ],
-      "distractor_reasoning": "s orbitals are spherical; p orbitals are dumbbells along the x, y and z axes."
+      "distractor_reasoning": "Because of the uncertainty principle, the model describes probabilities (orbitals), not paths."
     },
     {
+      "group": "E18",
       "type": "single_select",
       "source": "from_notes",
-      "concept": "Aufbau Principle",
-      "question": "Why does the 4s sublevel fill before the 3d sublevel?",
-      "correct": "The 4s sublevel is lower in energy than 3d",
+      "concept": "Quantum Mechanical Model",
+      "question": "Which scientist wrote the wave equation that is the basis of the quantum mechanical model?",
+      "correct": "Schrödinger",
       "distractors": [
-        "4s is closer to the nucleus than 3d",
-        "3d orbitals can only hold 2 electrons",
-        "Hund's rule requires it"
+        "Bohr",
+        "Rutherford",
+        "Dalton",
+        "Planck",
+        "Mendeleev"
       ],
-      "distractor_reasoning": "From n = 3 onward, the energy levels overlap, and 4s is slightly lower in energy than 3d."
+      "distractor_reasoning": "Schrödinger (1926) treated the electron as a wave and solved for its allowed energies."
     },
     {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Aufbau Principle",
-      "question": "What is the correct electron configuration for chromium (Cr)?",
-      "correct": "[Ar]4s¹3d⁵",
-      "distractors": [
-        "[Ar]4s²3d⁴",
-        "[Ar]3d⁶",
-        "[Kr]4s¹3d⁵"
-      ],
-      "distractor_reasoning": "A half-filled d sublevel is extra stable, so one 4s electron moves to 3d."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Electron Configuration",
-      "question": "What is the noble gas notation for sodium?",
-      "correct": "[Ne]3s¹",
-      "distractors": [
-        "[Ar]3s¹",
-        "[Ne]2s¹",
-        "1s²2s²2p⁶3s¹"
-      ],
-      "distractor_reasoning": "[Ne] stands for 1s²2s²2p⁶; the last choice is complete notation, not noble gas notation."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Valence Electrons",
-      "question": "How many valence electrons does an atom of oxygen (group 16) have?",
-      "correct": "6",
-      "distractors": [
-        "2",
-        "8",
-        "16"
-      ],
-      "distractor_reasoning": "For groups 13–18, the number of valence electrons = group number − 10."
-    },
-    {
-      "type": "single_select",
-      "source": "from_notes",
-      "concept": "Ions",
-      "question": "When a representative metal forms an ion, it usually:",
-      "correct": "Loses valence electrons to reach the configuration of the previous noble gas",
-      "distractors": [
-        "Gains electrons to reach the next noble gas",
-        "Loses protons to become positive",
-        "Shares electrons with a nonmetal"
-      ],
-      "distractor_reasoning": "Metals lose electrons (e.g. Na → Na⁺, [Ne]); ions form by changing electrons, never protons."
-    },
-    {
+      "group": "E18",
       "type": "multi_select",
       "source": "from_notes",
-      "concept": "Sublevels",
-      "question": "Which THREE statements about sublevels are correct?",
-      "correct_count": 3,
-      "options": [
-        "A p sublevel has 3 orbitals",
-        "A d sublevel can hold 10 electrons",
-        "An f sublevel has 7 orbitals",
-        "An s sublevel has 3 orbitals",
-        "Every orbital can hold 8 electrons",
-        "The first energy level has s and p sublevels"
-      ],
-      "correct_answers": [
-        "A p sublevel has 3 orbitals",
-        "A d sublevel can hold 10 electrons",
-        "An f sublevel has 7 orbitals"
-      ],
-      "distractor_reasoning": "s has 1 orbital; every orbital holds at most 2 electrons; n = 1 has only an s sublevel."
-    },
-    {
-      "type": "multi_select",
-      "source": "from_notes",
-      "concept": "Quantum Theory",
+      "concept": "Quantum Mechanical Model",
       "question": "Which THREE scientists' ideas led to the quantum mechanical model of the atom?",
       "correct_count": 3,
       "options": [
@@ -375,18 +807,362 @@
       "distractor_reasoning": "Mendeleev built the periodic table, Dalton proposed atomic theory, and Avogadro is known for counting particles."
     },
     {
+      "group": "E19",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Mechanical Model",
+      "question": "According to the quantum mechanical model, an electron is located:",
+      "correct": "In an orbital: a 3-D region of high probability around the nucleus",
+      "distractors": [
+        "On a fixed circular path at a set distance from the nucleus",
+        "Inside the nucleus",
+        "At an exactly known position and velocity",
+        "Evenly spread throughout the atom",
+        "Only between energy levels"
+      ],
+      "distractor_reasoning": "The Heisenberg uncertainty principle means only probabilities can be given, not exact paths."
+    },
+    {
+      "group": "E19",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Quantum Mechanical Model",
+      "question": "How does the quantum mechanical model differ from Bohr's model?",
+      "correct": "It describes where electrons probably are instead of giving exact circular paths",
+      "distractors": [
+        "It puts electrons inside the nucleus",
+        "It says electrons have no energy levels",
+        "It says electrons can have any energy",
+        "It removes the nucleus",
+        "It treats electrons only as particles"
+      ],
+      "distractor_reasoning": "Both models keep quantized energy levels; the difference is probability clouds vs fixed orbits."
+    },
+    {
+      "group": "E20",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "What is a sublevel?",
+      "correct": "A division of a principal energy level, made of orbitals of the same type (s, p, d or f)",
+      "distractors": [
+        "A level lower than the first energy level",
+        "The nucleus of the atom",
+        "A single electron's spin",
+        "A group on the periodic table",
+        "The space between two energy levels"
+      ],
+      "distractor_reasoning": "Each principal level n is divided into n sublevels."
+    },
+    {
+      "group": "E20",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "How many sublevels does the third principal energy level (n = 3) have?",
+      "correct": "3 (3s, 3p, 3d)",
+      "distractors": [
+        "1 (3s)",
+        "2 (3s, 3p)",
+        "4 (3s, 3p, 3d, 3f)",
+        "9",
+        "18"
+      ],
+      "distractor_reasoning": "Level n has n sublevels, so n = 3 has s, p and d."
+    },
+    {
+      "group": "E20",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "Which sublevel does NOT exist?",
+      "correct": "2d",
+      "distractors": [
+        "1s",
+        "2p",
+        "3d",
+        "4f",
+        "3p"
+      ],
+      "distractor_reasoning": "n = 2 has only 2s and 2p; d sublevels start at n = 3."
+    },
+    {
+      "group": "E21",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What is an atomic orbital?",
+      "correct": "A 3-D region around the nucleus where an electron is likely to be found",
+      "distractors": [
+        "A fixed circular path of an electron",
+        "A group of protons",
+        "The outer edge of the atom",
+        "A single energy level holding 8 electrons",
+        "A packet of light energy"
+      ],
+      "distractor_reasoning": "Orbitals describe probability, not a fixed path."
+    },
+    {
+      "group": "E21",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What is the maximum number of electrons in one orbital?",
+      "correct": "2",
+      "distractors": [
+        "1",
+        "6",
+        "8",
+        "10",
+        "18"
+      ],
+      "distractor_reasoning": "Every orbital (s, p, d or f) holds at most 2 electrons, with opposite spins."
+    },
+    {
+      "group": "E21",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What determines the SHAPE of an orbital?",
+      "correct": "Its sublevel type (s, p, d or f)",
+      "distractors": [
+        "The principal energy level number",
+        "The number of neutrons",
+        "The electron's spin",
+        "The atom's mass",
+        "The period number"
+      ],
+      "distractor_reasoning": "The principal level sets the size; the sublevel sets the shape."
+    },
+    {
+      "group": "E22",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What determines the SIZE of an orbital?",
+      "correct": "The principal energy level (n)",
+      "distractors": [
+        "The sublevel letter (s, p, d, f)",
+        "The number of protons only",
+        "The electron's spin",
+        "The orbital's shape",
+        "The number of electrons in it"
+      ],
+      "distractor_reasoning": "Orbitals get larger as n increases; the sublevel type determines the shape."
+    },
+    {
+      "group": "E22",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "Which orbital is the largest?",
+      "correct": "3s",
+      "distractors": [
+        "1s",
+        "2s",
+        "2p",
+        "They are all the same size",
+        "It depends on the spin"
+      ],
+      "distractor_reasoning": "All are shaped by sublevel, but size increases with n: 3s is bigger than 2s or 1s."
+    },
+    {
+      "group": "E23",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "How many orbitals are in a p sublevel?",
+      "correct": "3",
+      "distractors": [
+        "1",
+        "5",
+        "7",
+        "6",
+        "2"
+      ],
+      "distractor_reasoning": "s = 1, p = 3, d = 5, f = 7 orbitals."
+    },
+    {
+      "group": "E23",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "What is the maximum number of electrons a d sublevel can hold?",
+      "correct": "10",
+      "distractors": [
+        "2",
+        "6",
+        "14",
+        "5",
+        "18"
+      ],
+      "distractor_reasoning": "5 orbitals × 2 electrons = 10."
+    },
+    {
+      "group": "E23",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "How many orbitals does an f sublevel have?",
+      "correct": "7",
+      "distractors": [
+        "3",
+        "5",
+        "14",
+        "1",
+        "10"
+      ],
+      "distractor_reasoning": "f has 7 orbitals, holding up to 14 electrons."
+    },
+    {
+      "group": "E23",
+      "type": "multi_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "Which THREE statements about sublevels are correct?",
+      "correct_count": 3,
+      "options": [
+        "A p sublevel has 3 orbitals",
+        "A d sublevel can hold 10 electrons",
+        "An f sublevel has 7 orbitals",
+        "An s sublevel has 3 orbitals",
+        "Every orbital can hold 8 electrons",
+        "A p sublevel can hold 8 electrons"
+      ],
+      "correct_answers": [
+        "A p sublevel has 3 orbitals",
+        "A d sublevel can hold 10 electrons",
+        "An f sublevel has 7 orbitals"
+      ],
+      "distractor_reasoning": "s has 1 orbital; each orbital holds at most 2 electrons; p holds 6."
+    },
+    {
+      "group": "E24",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What is the shape of an s orbital?",
+      "correct": "Spherical",
+      "distractors": [
+        "Dumbbell",
+        "Cloverleaf",
+        "Flat circle",
+        "Cube",
+        "Pyramid"
+      ],
+      "distractor_reasoning": "p orbitals are dumbbell-shaped; most d orbitals are cloverleaf-shaped."
+    },
+    {
+      "group": "E24",
       "type": "fill_blank",
       "source": "from_notes",
-      "concept": "Photon Energy",
-      "question": "In the equation E = hν, h is called ___ constant.",
+      "concept": "Orbitals",
+      "question": "An s orbital is shaped like a ___.",
       "blanks": [
         {
           "id": 0,
-          "answer": "Planck's"
+          "answer": "sphere"
         }
       ]
     },
     {
+      "group": "E25",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "What is the shape of a p orbital?",
+      "correct": "Dumbbell",
+      "distractors": [
+        "Spherical",
+        "Cube",
+        "Ring",
+        "Cloverleaf",
+        "Pyramid"
+      ],
+      "distractor_reasoning": "s orbitals are spherical; p orbitals are dumbbells along the x, y and z axes."
+    },
+    {
+      "group": "E25",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Orbitals",
+      "question": "How are the three p orbitals in a sublevel arranged?",
+      "correct": "Along the x, y and z axes",
+      "distractors": [
+        "All in one flat circle",
+        "Stacked on top of each other",
+        "Inside the s orbital only",
+        "Randomly, with no pattern",
+        "In a straight line along one axis"
+      ],
+      "distractor_reasoning": "The px, py and pz orbitals are perpendicular dumbbells."
+    },
+    {
+      "group": "E26",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "Why does the 4s sublevel fill before the 3d sublevel?",
+      "correct": "The 4s sublevel is lower in energy than 3d",
+      "distractors": [
+        "4s is closer to the nucleus than 3d",
+        "3d orbitals can only hold 2 electrons",
+        "Hund's rule requires it",
+        "4s is in a lower principal energy level",
+        "3d has more orbitals"
+      ],
+      "distractor_reasoning": "Starting with levels 3 and 4, the energy levels overlap, and 4s is slightly lower in energy than 3d."
+    },
+    {
+      "group": "E26",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "At which energy levels do sublevel energies first start to overlap?",
+      "correct": "The third and fourth levels (4s fills before 3d)",
+      "distractors": [
+        "The first and second levels",
+        "The second and third levels",
+        "They never overlap",
+        "Only in the seventh level",
+        "Only in noble gases"
+      ],
+      "distractor_reasoning": "The order 1s 2s 2p 3s 3p 4s 3d shows the first overlap."
+    },
+    {
+      "group": "E27",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "For an element in the d block of period 5, which d sublevel is filling?",
+      "correct": "4d",
+      "distractors": [
+        "5d",
+        "3d",
+        "6d",
+        "2d",
+        "5f"
+      ],
+      "distractor_reasoning": "d sublevel = period number − 1."
+    },
+    {
+      "group": "E27",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Sublevels",
+      "question": "The lanthanides are in period 6. Which f sublevel is filling?",
+      "correct": "4f",
+      "distractors": [
+        "6f",
+        "5f",
+        "3f",
+        "7f",
+        "4d"
+      ],
+      "distractor_reasoning": "f sublevel = period number − 2."
+    },
+    {
+      "group": "E27",
       "type": "fill_blank",
       "source": "from_notes",
       "concept": "Sublevels",
@@ -399,6 +1175,279 @@
       ]
     },
     {
+      "group": "E28",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "What is the correct electron configuration for chromium (Cr)?",
+      "correct": "[Ar]4s¹3d⁵",
+      "distractors": [
+        "[Ar]4s²3d⁴",
+        "[Ar]3d⁶",
+        "[Kr]4s¹3d⁵",
+        "[Ar]4s²3d⁵",
+        "[Ne]4s¹3d⁵"
+      ],
+      "distractor_reasoning": "A half-filled d sublevel is extra stable, so one 4s electron moves to 3d."
+    },
+    {
+      "group": "E28",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "What is the correct electron configuration for copper (Cu)?",
+      "correct": "[Ar]4s¹3d¹⁰",
+      "distractors": [
+        "[Ar]4s²3d⁹",
+        "[Ar]4s²3d¹⁰",
+        "[Ar]3d¹¹",
+        "[Kr]4s¹3d¹⁰",
+        "[Ar]4s¹3d⁹"
+      ],
+      "distractor_reasoning": "A completely filled d sublevel is extra stable."
+    },
+    {
+      "group": "E28",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Aufbau Principle",
+      "question": "Why do some elements, like Cr and Cu, break the Aufbau principle?",
+      "correct": "Half-filled and filled d sublevels are extra stable, and 4s and 3d are very close in energy",
+      "distractors": [
+        "Their nuclei have extra neutrons",
+        "They have no 4s orbital",
+        "They are noble gases",
+        "Their electrons have no spin",
+        "The 3d sublevel is always lower than 4s"
+      ],
+      "distractor_reasoning": "Moving one electron creates the more stable d⁵ or d¹⁰ arrangement."
+    },
+    {
+      "group": "E29",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electron Configuration",
+      "question": "What is the noble gas notation for sodium?",
+      "correct": "[Ne]3s¹",
+      "distractors": [
+        "[Ar]3s¹",
+        "[Ne]2s¹",
+        "1s²2s²2p⁶3s¹",
+        "[He]3s¹",
+        "[Ne]3p¹"
+      ],
+      "distractor_reasoning": "[Ne] stands for 1s²2s²2p⁶; one choice is complete notation, not noble gas notation."
+    },
+    {
+      "group": "E29",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electron Configuration",
+      "question": "What is the noble gas notation for sulfur (16 electrons)?",
+      "correct": "[Ne]3s²3p⁴",
+      "distractors": [
+        "[Ar]3s²3p⁴",
+        "[Ne]3s²3p⁶",
+        "[He]2s²2p⁶3s²3p⁴",
+        "[Ne]3p⁶",
+        "[Ne]4s²3d⁴"
+      ],
+      "distractor_reasoning": "Neon covers 10 electrons; the other 6 are 3s²3p⁴."
+    },
+    {
+      "group": "E29",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Electron Configuration",
+      "question": "How is noble gas notation different from complete notation?",
+      "correct": "It replaces the inner electrons with the previous noble gas symbol in brackets",
+      "distractors": [
+        "It shows only the protons",
+        "It lists the electrons in reverse order",
+        "It uses the next noble gas instead of the previous one",
+        "It shows only the inner electrons",
+        "It leaves out the valence electrons"
+      ],
+      "distractor_reasoning": "Example: Na = 1s²2s²2p⁶3s¹ = [Ne]3s¹."
+    },
+    {
+      "group": "E30",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "How many valence electrons does an atom of oxygen (group 16) have?",
+      "correct": "6",
+      "distractors": [
+        "2",
+        "8",
+        "16",
+        "4",
+        "10"
+      ],
+      "distractor_reasoning": "For groups 13–18, the number of valence electrons = group number − 10."
+    },
+    {
+      "group": "E30",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "Valence electrons are the electrons:",
+      "correct": "In the atom's outermost energy level",
+      "distractors": [
+        "In the nucleus",
+        "In the first energy level",
+        "In d orbitals only",
+        "That have no energy",
+        "Shared by all atoms"
+      ],
+      "distractor_reasoning": "They determine how the atom bonds and reacts."
+    },
+    {
+      "group": "E30",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "How many valence electrons does aluminum (group 13) have?",
+      "correct": "3",
+      "distractors": [
+        "13",
+        "2",
+        "5",
+        "1",
+        "8"
+      ],
+      "distractor_reasoning": "Group 13 − 10 = 3 valence electrons."
+    },
+    {
+      "group": "E30",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Valence Electrons",
+      "question": "Valence electrons mostly determine an element's:",
+      "correct": "Chemical properties",
+      "distractors": [
+        "Atomic mass",
+        "Number of neutrons",
+        "Nuclear charge",
+        "Number of isotopes",
+        "Radioactivity"
+      ],
+      "distractor_reasoning": "Bonding and reactivity depend on the outermost electrons."
+    },
+    {
+      "group": "E31",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Periodic Trends",
+      "question": "Why do elements in the same group have similar chemical properties?",
+      "correct": "They have the same number of valence electrons in the same outer configuration pattern",
+      "distractors": [
+        "They have the same atomic mass",
+        "They have the same number of energy levels",
+        "They have the same number of neutrons",
+        "They are all metals",
+        "They have the same number of protons"
+      ],
+      "distractor_reasoning": "All group 1 elements end in ns¹; all halogens end in ns²np⁵."
+    },
+    {
+      "group": "E31",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Periodic Trends",
+      "question": "What outer electron configuration do all halogens (group 17) share?",
+      "correct": "ns²np⁵",
+      "distractors": [
+        "ns²np⁶",
+        "ns¹",
+        "ns²",
+        "ns²np³",
+        "ns²np⁴"
+      ],
+      "distractor_reasoning": "They have 7 valence electrons: 2 in s and 5 in p."
+    },
+    {
+      "group": "E31",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Periodic Trends",
+      "question": "All alkali metals (group 1) have an outer configuration ending in:",
+      "correct": "ns¹",
+      "distractors": [
+        "ns²",
+        "ns²np¹",
+        "ns²np⁶",
+        "np¹",
+        "nd¹"
+      ],
+      "distractor_reasoning": "One valence electron, which they lose easily."
+    },
+    {
+      "group": "E32",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "How do ions form?",
+      "correct": "Atoms gain or lose electrons",
+      "distractors": [
+        "Atoms gain or lose protons",
+        "Atoms gain or lose neutrons",
+        "Two nuclei combine",
+        "Atoms share electrons equally",
+        "Electrons move to a higher energy level"
+      ],
+      "distractor_reasoning": "Only electrons change; changing protons would change the element."
+    },
+    {
+      "group": "E32",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "An atom that LOSES two electrons becomes an ion with a charge of:",
+      "correct": "2+",
+      "distractors": [
+        "2−",
+        "0",
+        "1+",
+        "4+",
+        "1−"
+      ],
+      "distractor_reasoning": "Losing negative electrons leaves more protons than electrons."
+    },
+    {
+      "group": "E33",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "What is a cation?",
+      "correct": "A positive ion formed by losing electrons",
+      "distractors": [
+        "A negative ion formed by gaining electrons",
+        "A neutral atom",
+        "A positive ion formed by gaining protons",
+        "A particle with no charge",
+        "A group of atoms sharing electrons"
+      ],
+      "distractor_reasoning": "Cations are usually metals, e.g. Na⁺."
+    },
+    {
+      "group": "E33",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "Which ion is an anion?",
+      "correct": "Cl⁻",
+      "distractors": [
+        "Na⁺",
+        "Mg²⁺",
+        "Al³⁺",
+        "K⁺",
+        "Ca²⁺"
+      ],
+      "distractor_reasoning": "Anions are negative; nonmetals like chlorine gain electrons."
+    },
+    {
+      "group": "E33",
       "type": "fill_blank",
       "source": "from_notes",
       "concept": "Ions",
@@ -413,6 +1462,54 @@
           "answer": "anion"
         }
       ]
+    },
+    {
+      "group": "E34",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "When a representative metal forms an ion, it usually:",
+      "correct": "Loses valence electrons to reach the configuration of the previous noble gas",
+      "distractors": [
+        "Gains electrons to reach the next noble gas",
+        "Loses protons to become positive",
+        "Shares electrons with a nonmetal",
+        "Gains neutrons",
+        "Keeps all its electrons"
+      ],
+      "distractor_reasoning": "Metals lose electrons, e.g. Na → Na⁺ ([Ne]); ions form by changing electrons, never protons."
+    },
+    {
+      "group": "E34",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "What is the electron configuration of Mg²⁺?",
+      "correct": "1s²2s²2p⁶ (same as neon)",
+      "distractors": [
+        "1s²2s²2p⁶3s²",
+        "1s²2s²2p⁶3s¹",
+        "1s²2s²2p⁴",
+        "1s²2s²2p⁶3s²3p²",
+        "[Ar]"
+      ],
+      "distractor_reasoning": "Magnesium loses its two 3s electrons."
+    },
+    {
+      "group": "E34",
+      "type": "single_select",
+      "source": "from_notes",
+      "concept": "Ions",
+      "question": "The oxide ion (O²⁻) has the same electron configuration as which noble gas?",
+      "correct": "Neon",
+      "distractors": [
+        "Helium",
+        "Argon",
+        "Krypton",
+        "Oxygen",
+        "Xenon"
+      ],
+      "distractor_reasoning": "O (1s²2s²2p⁴) gains 2 electrons to become 1s²2s²2p⁶, like neon."
     }
   ],
   "cards": [
