@@ -6,6 +6,8 @@ A daily study coach that runs on the parent's PC. Each morning it will:
 - build memorization-friendly quizzes into StudyPulse's Class Library (`../study-files/`)
 - give her a short "Today" plan, and email the parent a digest
 
+**Continuing on your own PC? Start with [HANDOFF.md](HANDOFF.md).**
+
 **Status: Phase 0 — access tests.** For now only the read-only access check exists. It shows what each site exposes before anything else is built. See **[SETUP.md](SETUP.md)**.
 
 | Command | What it does |
