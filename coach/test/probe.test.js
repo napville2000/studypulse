@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { runProbe, redact, formatCheck, formatSummary } from '../src/probe.js';
+import { runProbe, redact, formatCheck, formatSummary, canvasBase } from '../src/probe.js';
 import { SCOPES } from '../src/google-auth.js';
 import { fakeFetch } from './helpers.js';
 
@@ -53,7 +53,7 @@ test('happy path: everything readable, nothing written', async () => {
   const statuses = Object.fromEntries(report.checks.map(c => [c.id, c.status]));
   assert.deepEqual(statuses, {
     config: 'pass', 'student-signin': 'pass', 'classroom-courses': 'pass', 'classroom-coursework': 'pass',
-    'classroom-materials': 'pass', drive: 'pass', 'lms-portal': 'pass', canvas: 'skip', 'lms-ics': 'pass',
+    'classroom-materials': 'pass', drive: 'pass', 'lms-portal': 'pass', canvas: 'skip', 'canvas-content': 'skip', 'lms-ics': 'pass',
     'parent-gmail': 'pass', anthropic: 'pass', 'git-push': 'pass', relay: 'skip',
   });
   const cw = byId(report, 'classroom-coursework').data.totals;
@@ -108,19 +108,58 @@ test('unticked permission is a warning; nothing configured is skipped, not faile
   assert.deepEqual(notSkipped, ['config', 'git-push']);
 });
 
-test('Canvas: token works → grades; bad token → calendar-feed advice', async () => {
-  const env = { ...ENV, CANVAS_BASE_URL: 'cc.instructure.com/', CANVAS_TOKEN: 'tok' };
-  const canvasRoutes = ok => [
-    ['https://cc.instructure.com/api/v1/users/self/todo', () => ({ json: [{}, {}] })],
-    ['https://cc.instructure.com/api/v1/users/self', () => ok ? { json: { id: 1 } } : { status: 401, json: { errors: [{ message: 'Invalid access token.' }] } }],
-    ['https://cc.instructure.com/api/v1/courses', () => ({ json: [{ name: 'ENG 101', enrollments: [{ computed_current_score: 71.5 }] }, { name: 'HIS 110', enrollments: [{}] }] })],
-    ...happyRoutes(),
-  ];
-  const good = await runProbe({ env, fetch: fakeFetch(canvasRoutes(true)), exec: okExec, now: NOW });
-  assert.equal(byId(good, 'canvas').data.coursesWithScore, 1);
-  assert.match(good.recommendation.grades, /Canvas/);
-  const bad = await runProbe({ env, fetch: fakeFetch(canvasRoutes(false)), exec: okExec, now: NOW });
+test('canvasBase keeps only the site address from any Canvas link', () => {
+  assert.equal(canvasBase('https://cc.instructure.com/courses/123/modules'), 'https://cc.instructure.com');
+  assert.equal(canvasBase('cc.instructure.com/'), 'https://cc.instructure.com');
+});
+
+const CANVAS = 'https://cc.instructure.com/api/v1';
+const canvasRoutes = ({ tokenOk = true, modulesHidden = false } = {}) => [
+  [`${CANVAS}/users/self`, () => tokenOk ? { json: { id: 1 } } : { status: 401, json: { errors: [{ message: 'Invalid access token.' }] } }],
+  [`${CANVAS}/courses?`, () => ({ json: [
+    { id: 11, name: 'ENG 101', enrollments: [{ computed_current_score: 71.5 }] },
+    { id: 12, name: 'HIS 110', enrollments: [{}] },
+  ] })],
+  [/\/courses\/\d+\/assignments/, () => ({ json: [
+    { name: 'Essay 1', due_at: '2026-10-28T06:59:00Z', submission: { score: 18, missing: false } },
+    { name: 'Chapter 3 Quiz', is_quiz_assignment: true, due_at: '2026-10-01T06:59:00Z', submission: { score: null, missing: true, late: false } },
+  ] })],
+  [/\/courses\/11\/modules/, () => modulesHidden ? { status: 401, json: { errors: [{ message: 'unauthorized' }] } } : { json: [
+    { items: [{ type: 'Page', page_url: 'week-1-notes' }, { type: 'File', content_id: 99 }, { type: 'Assignment' }] },
+    { items: [{ type: 'Quiz' }, { type: 'ExternalUrl' }] },
+  ] }],
+  [/\/courses\/12\/modules/, () => modulesHidden ? { status: 401, json: { errors: [{ message: 'unauthorized' }] } } : { json: [] }],
+  [`${CANVAS}/courses/11/pages/week-1-notes`, () => ({ json: { body: '<h2>Rhetoric</h2><p>Ethos, pathos, logos</p>' } })],
+  [`${CANVAS}/files/99`, () => ({ json: { url: 'https://cc.instructure.com/files/99/download?verifier=v', 'content-type': 'application/pdf' } })],
+  ['https://cc.instructure.com/files/99/download', () => ({ text: '%PDF' })],
+  ...happyRoutes(),
+];
+const canvasEnv = { ...ENV, CANVAS_BASE_URL: 'https://cc.instructure.com/courses/11/modules', CANVAS_TOKEN: 'tok' };
+
+test('Canvas: assignments, grades, missing work and module content', async () => {
+  const report = await runProbe({ env: canvasEnv, fetch: fakeFetch(canvasRoutes()), exec: okExec, now: NOW });
+  const canvas = byId(report, 'canvas');
+  assert.equal(canvas.status, 'pass');
+  assert.deepEqual(canvas.data.totals, { courses: 2, coursesWithGrade: 1, assignments: 4, graded: 2, missing: 2, dueNext14Days: 2 });
+  assert.equal(canvas.data.courses[0].looksLikeTestOrQuiz, 1);
+  const content = byId(report, 'canvas-content');
+  assert.equal(content.status, 'pass');
+  assert.deepEqual(content.data.courses[0], { name: 'ENG 101', modules: 2, pages: 1, files: 1, assignments: 1, quizzes: 1, links: 1 });
+  assert.deepEqual(content.data.read.page, { readable: true, textChars: 'Rhetoric Ethos, pathos, logos'.length });
+  assert.equal(content.data.read.file.readable, true);
+  assert.equal(report.recommendation.college, 'Canvas API (assignments + grades)');
+  assert.match(report.recommendation.grades, /Canvas/);
+  assert.match(report.recommendation.materials, /Canvas modules readable/);
+});
+
+test('Canvas: bad token → calendar-feed advice; hidden modules → warning, not failure', async () => {
+  const bad = await runProbe({ env: canvasEnv, fetch: fakeFetch(canvasRoutes({ tokenOk: false })), exec: okExec, now: NOW });
+  assert.equal(byId(bad, 'canvas').status, 'fail');
   assert.match(byId(bad, 'canvas').fix, /LMS_ICS_URL/);
+  assert.equal(byId(bad, 'canvas-content').status, 'skip');
+  const hidden = await runProbe({ env: canvasEnv, fetch: fakeFetch(canvasRoutes({ modulesHidden: true })), exec: okExec, now: NOW });
+  assert.equal(byId(hidden, 'canvas-content').status, 'warn');
+  assert.equal(byId(hidden, 'canvas-content').data.courses[0].error, 'modules hidden for students');
 });
 
 test('git push failure is reported with a fix', async () => {

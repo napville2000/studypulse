@@ -100,9 +100,32 @@ It prints one line per check, then a "What this means" summary and a to-do list.
          → Canvas: have her create a token (Account > Settings > + New Access Token) ...
 ```
 
-Follow the → hints, update `.env`, and run `npm run probe` again. For the college portal the probe tells you what to add:
-- **Canvas:** she creates an access token in Canvas. Put it in `CANVAS_BASE_URL` + `CANVAS_TOKEN`.
-- **Anything else (or Canvas with tokens turned off):** the portal's **calendar feed** link. Put it in `LMS_ICS_URL`. The probe's hint says where to find it.
+Follow the → hints, update `.env`, and run `npm run probe` again.
+
+### College portal on Canvas (`….instructure.com`)
+
+Have your daughter make a Canvas access token. It's read-only for our use, and she can delete it at any time:
+
+1. Log in to Canvas → click **Account** (her picture, top left) → **Settings**.
+2. Scroll to **Approved Integrations** → **+ New Access Token**.
+3. Purpose: `StudyPulse Coach`. Leave the expiry date blank, or pick the end of the semester → **Generate Token**.
+4. Copy the long token **now**, because Canvas only shows it once.
+
+Then in `.env`:
+```
+LMS_PORTAL_URL=<any Canvas link, e.g. the modules page you use>
+CANVAS_BASE_URL=<the same link is fine — the probe keeps just the site address>
+CANVAS_TOKEN=<the token>
+```
+
+The probe then checks:
+- her courses, assignments, current grades and missing work
+- whether it can read the **Modules** content (pages and files) that quizzes will be built from
+
+**No "+ New Access Token" button?** The college has turned tokens off. Instead, open **Calendar** in Canvas, click **Calendar Feed** (bottom right), and copy that link into `LMS_ICS_URL`. That gives due dates only, so grades would come from Canvas notification emails.
+
+### Any other portal
+Put the portal's **calendar feed** link in `LMS_ICS_URL`. The probe's hint says where to find it.
 
 ## 6. Send Claude the safe copy of the report
 

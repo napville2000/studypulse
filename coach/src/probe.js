@@ -223,28 +223,112 @@ async function checkPortal(ctx, state) {
   }
 }
 
-async function checkCanvas(ctx) {
-  const label = 'College portal: Canvas API';
+// Accepts any Canvas link (e.g. a course's modules page) and keeps just https://<host>
+export function canvasBase(u) {
+  return new URL(/^https?:\/\//i.test(u) ? u : `https://${u}`).origin;
+}
+
+const hasScore = c => (c.enrollments || []).some(e => e.computed_current_score != null);
+
+async function checkCanvas(ctx, state) {
+  const label = 'Canvas: courses, assignments & grades';
   const { CANVAS_BASE_URL: base0, CANVAS_TOKEN: token } = ctx.env;
   if (!base0 || !token) return skip('canvas', label, 'No Canvas token set (only needed if the portal is Canvas).');
-  const base = (/^https?:\/\//.test(base0) ? base0 : `https://${base0}`).replace(/\/+$/, '');
+  let base;
+  try { base = canvasBase(base0); } catch { return result('canvas', label, 'fail', 'CANVAS_BASE_URL is not a web address.', {}, 'Use the address of any Canvas page, like https://college.instructure.com'); }
   const auth = { Authorization: `Bearer ${token}` };
+  let courses;
   try {
     await getJson(ctx.fetch, `${base}/api/v1/users/self`, auth);
-    const courses = await getJson(ctx.fetch, `${base}/api/v1/courses?enrollment_state=active&include[]=total_scores&per_page=50`, auth);
-    const todo = await getJson(ctx.fetch, `${base}/api/v1/users/self/todo?per_page=50`, auth);
-    const withScore = courses.filter(c => (c.enrollments || []).some(e => e.computed_current_score != null)).length;
-    const data = {
-      courses: courses.map(c => ({ name: c.name, hasCurrentScore: (c.enrollments || []).some(e => e.computed_current_score != null) })),
-      coursesWithScore: withScore, todoItems: todo.length,
-    };
-    return result('canvas', label, 'pass', `${courses.length} course(s), ${withScore} with a current grade, ${todo.length} to-do item(s).`, data);
+    courses = await getJson(ctx.fetch, `${base}/api/v1/courses?enrollment_state=active&include[]=total_scores&per_page=50`, auth);
   } catch (e) {
     const fix = e.status === 401
-      ? 'The token is wrong, expired, or the college disables student tokens. Use the Canvas calendar feed instead (LMS_ICS_URL).'
-      : 'Check CANVAS_BASE_URL is just the address, like https://college.instructure.com';
+      ? 'The token is wrong or expired. Make a new one (Account > Settings > + New Access Token). If there is no such button, the college disables tokens: use the Canvas calendar feed instead (LMS_ICS_URL).'
+      : 'Check CANVAS_BASE_URL, e.g. https://college.instructure.com';
     return result('canvas', label, 'fail', e.message, {}, fix);
   }
+  state.canvas = { base, auth, courses };
+
+  const now = ctx.now.getTime();
+  const perCourse = [];
+  const errors = [];
+  for (const c of courses.slice(0, ctx.maxCourses)) {
+    try {
+      const work = await getJson(ctx.fetch, `${base}/api/v1/courses/${c.id}/assignments?include[]=submission&per_page=100`, auth);
+      const subs = work.map(a => a.submission).filter(Boolean);
+      const dues = work.map(a => a.due_at && Date.parse(a.due_at)).filter(Boolean);
+      perCourse.push({
+        name: c.name,
+        currentGrade: hasScore(c) ? 'visible' : 'hidden',
+        assignments: work.length,
+        withDueDate: dues.length,
+        dueNext14Days: dues.filter(d => d >= now && d - now <= 14 * DAY).length,
+        looksLikeTestOrQuiz: work.filter(a => a.is_quiz_assignment || (a.submission_types || []).includes('online_quiz') || ASSESSMENT.test(a.name || '')).length,
+        graded: subs.filter(s => s.score != null).length,
+        missing: subs.filter(s => s.missing).length,
+        late: subs.filter(s => s.late).length,
+      });
+    } catch (e) {
+      errors.push({ name: c.name, error: e.message });
+    }
+  }
+  const sum = k => perCourse.reduce((a, c) => a + c[k], 0);
+  const totals = {
+    courses: courses.length, coursesWithGrade: courses.filter(hasScore).length,
+    assignments: sum('assignments'), graded: sum('graded'), missing: sum('missing'), dueNext14Days: sum('dueNext14Days'),
+  };
+  const data = { totals, coursesWithScore: totals.coursesWithGrade, courses: perCourse, errors };
+  const summary = `${totals.courses} course(s), ${totals.coursesWithGrade} with a current grade; ${totals.assignments} assignments, ${totals.graded} graded, ${totals.missing} missing, ${totals.dueNext14Days} due in the next 2 weeks.`;
+  if (!courses.length) return result('canvas', label, 'warn', 'Token works, but no active courses.', data, 'Check the token was made on her own Canvas account.');
+  if (errors.length && !perCourse.length) return result('canvas', label, 'warn', `${summary} Could not read assignments: ${errors[0].error}`, data);
+  return result('canvas', label, errors.length ? 'warn' : 'pass', summary, data);
+}
+
+// Modules are where Canvas courses keep their pages, files and readings: the raw material for quizzes.
+async function checkCanvasContent(ctx, state) {
+  const label = 'Canvas: modules, pages & files';
+  if (!state.canvas?.courses?.length) return skip('canvas-content', label, 'Needs a working Canvas token with courses.');
+  const { base, auth, courses } = state.canvas;
+  const perCourse = [];
+  const samples = { page: null, file: null };
+  for (const c of courses.slice(0, ctx.maxCourses)) {
+    try {
+      const mods = await getJson(ctx.fetch, `${base}/api/v1/courses/${c.id}/modules?include[]=items&per_page=50`, auth);
+      const items = mods.flatMap(m => m.items || []);
+      const count = t => items.filter(i => i.type === t).length;
+      perCourse.push({ name: c.name, modules: mods.length, pages: count('Page'), files: count('File'), assignments: count('Assignment'), quizzes: count('Quiz'), links: count('ExternalUrl') + count('ExternalTool') });
+      const page = items.find(i => i.type === 'Page' && i.page_url);
+      const file = items.find(i => i.type === 'File' && i.content_id);
+      if (page && !samples.page) samples.page = { course: c.id, url: page.page_url };
+      if (file && !samples.file) samples.file = { id: file.content_id };
+    } catch (e) {
+      perCourse.push({ name: c.name, modules: null, error: e.status === 401 || e.status === 403 ? 'modules hidden for students' : e.message });
+    }
+  }
+  const read = {};
+  if (samples.page) {
+    try {
+      const p = await getJson(ctx.fetch, `${base}/api/v1/courses/${samples.page.course}/pages/${encodeURIComponent(samples.page.url)}`, auth);
+      read.page = { readable: true, textChars: String(p.body || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().length };
+    } catch (e) { read.page = { readable: false, error: e.message }; }
+  }
+  if (samples.file) {
+    try {
+      const f = await getJson(ctx.fetch, `${base}/api/v1/files/${samples.file.id}`, auth);
+      await getText(ctx.fetch, f.url, { Range: 'bytes=0-2047' });
+      read.file = { readable: true, type: f['content-type'] || f.mime_class || '' };
+    } catch (e) { read.file = { readable: false, error: e.message }; }
+  }
+  const total = k => perCourse.reduce((a, c) => a + (c[k] || 0), 0);
+  const data = { courses: perCourse, read };
+  const summary = `${total('modules')} modules with ${total('pages')} pages and ${total('files')} files.`
+    + (read.page ? ` Page text ${read.page.readable ? 'readable' : 'NOT readable'}.` : '')
+    + (read.file ? ` Files ${read.file.readable ? 'readable' : 'NOT readable'}.` : '');
+  if (!total('modules')) return result('canvas-content', label, 'warn', summary, data,
+    'No module content visible. We can still build quizzes from assignment descriptions and her own notes.');
+  const unreadable = Object.values(read).some(r => !r.readable);
+  return result('canvas-content', label, unreadable ? 'warn' : 'pass', summary, data,
+    unreadable ? 'Some course content is locked for students; quizzes will use what is readable.' : '');
 }
 
 async function checkIcs(ctx) {
@@ -334,7 +418,7 @@ export function recommend(checks) {
   const by = id => checks.find(c => c.id === id) || { status: 'skip', data: {} };
   const ok = c => c.status === 'pass' || c.status === 'warn';
   const cw = by('classroom-coursework'), gmail = by('parent-gmail'), drive = by('drive');
-  const canvas = by('canvas'), ics = by('lms-ics'), portal = by('lms-portal');
+  const canvas = by('canvas'), canvasContent = by('canvas-content'), ics = by('lms-ics'), portal = by('lms-portal');
 
   let classroom = 'not tested yet';
   if (ok(cw)) classroom = 'Classroom API';
@@ -354,7 +438,10 @@ export function recommend(checks) {
     classroom,
     college,
     grades: grades.length ? grades.join(' + ') : 'none visible yet',
-    materials: drive.status === 'pass' || drive.status === 'warn' ? 'teacher files readable' : drive.status === 'skip' ? 'not tested' : 'not readable',
+    materials: [
+      `Classroom files ${ok(drive) ? 'readable' : drive.status === 'skip' ? 'not tested' : 'not readable'}`,
+      `Canvas modules ${ok(canvasContent) ? 'readable' : canvasContent.status === 'skip' ? 'not tested' : 'not readable'}`,
+    ].join('; '),
     nextSteps: checks.filter(c => c.fix && c.status !== 'pass').map(c => `${c.label}: ${c.fix}`),
   };
 }
@@ -364,7 +451,7 @@ export async function runProbe(ctx) {
   const state = { driveFiles: [] };
   const steps = [
     checkConfig, checkStudentSignIn, checkCourses, checkCoursework, checkMaterialsAndAnnouncements, checkDrive,
-    checkPortal, checkCanvas, checkIcs, checkParentGmail, checkAnthropic, checkGitPush, checkRelay,
+    checkPortal, checkCanvas, checkCanvasContent, checkIcs, checkParentGmail, checkAnthropic, checkGitPush, checkRelay,
   ];
   const checks = [];
   for (const step of steps) {

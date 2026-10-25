@@ -12,7 +12,7 @@ const RULES = [
 const SSO = /microsoftonline\.com|okta\.com|\/idp\/|shibboleth|duosecurity|cas\/login|adfs/i;
 
 export const NEXT_STEPS = {
-  canvas: 'Canvas: have her create a token (Account > Settings > + New Access Token) and set CANVAS_BASE_URL + CANVAS_TOKEN. If the college disabled tokens, use Calendar > Calendar Feed and set LMS_ICS_URL.',
+  canvas: 'Canvas: have her create a token (Account > Settings > + New Access Token), then set CANVAS_BASE_URL (any Canvas link works) and CANVAS_TOKEN. If there is no token button, use Calendar > Calendar Feed and set LMS_ICS_URL.',
   d2l: 'Brightspace: open Calendar > Subscribe, copy the feed URL into LMS_ICS_URL. (Grades are not in the feed; we read them from notification emails.)',
   blackboard: 'Blackboard: open Calendar > Settings (gear) > Share Calendar, copy the URL into LMS_ICS_URL. (Grades come from notification emails.)',
   moodle: 'Moodle: open Calendar > Export calendar > Get calendar URL, copy it into LMS_ICS_URL.',
