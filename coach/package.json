@@ -1,0 +1,14 @@
+{
+  "name": "studypulse-coach",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Daily study coach for StudyPulse: reads Google Classroom and the college portal, builds a focused study plan.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "authorize:student": "node scripts/authorize.js --account student",
+    "authorize:parent": "node scripts/authorize.js --account parent",
+    "probe": "node scripts/probe.js",
+    "test": "node --test"
+  }
+}
